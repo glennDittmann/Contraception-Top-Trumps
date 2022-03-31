@@ -31,5 +31,8 @@ class Card
         this.values = values 
     }
 
-    compare(this, other)
+    compare(a, b)
+    {
+        return 0
+    }
 }

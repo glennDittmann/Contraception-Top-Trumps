@@ -1,4 +1,4 @@
-export const CONDOM = 
+const CONDOM = 
 {
     "name": "Condom",
     "effectiveness": 8.75,  // measured with Pearl-Index; atm source is https://de.wikipedia.org/wiki/Empf%C3%A4ngnisverh%C3%BCtung, using the mean of (2,12) & (7,14)
@@ -9,3 +9,6 @@ export const CONDOM =
     "ease-of-use": 1.0,
     "reversability": 10.0,
 }
+
+
+export {CONDOM}
