@@ -10,5 +10,16 @@ const CONDOM =
     "reversability": 10.0,
 }
 
+// other methods: 
+// the pill (anti baby pill), 
+// coitus interruptus, 
+// copper coil, 
+// copper chain,
+// diaphragma,
+// sterilization,
+// diaphragma,
+// fertility cycle
+// the switch (!!!)
+
 
 export {CONDOM}
