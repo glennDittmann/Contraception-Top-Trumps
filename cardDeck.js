@@ -21,6 +21,24 @@ export default class Deck
             this.cards[i] = oldCard
         }
     }
+
+
+    split()
+    {
+        // 0 1 2 3 4 5 6 7 8 9  --> 10 cards: 10/2 = 5
+        var cards1 = this.cards.slice(0, this.getNumCards()/2)
+        var cards2 = this.cards.slice(this.getNumCards()/2, this.getNumCards())
+        return {cards1, cards2}
+    }
+
+    display()
+    {
+        // displays the top card, here the first card in the array
+        var img = document.createElement('img')
+        img.src = this.cards[0]["path"]
+        var holder = document.getElementById('card1')
+        holder.appendChild(img)
+    }
 }
 
 
@@ -36,3 +54,4 @@ class Card
         return 0
     }
 }
+    
