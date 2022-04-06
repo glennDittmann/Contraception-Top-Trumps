@@ -1,0 +1,40 @@
+body
+{
+    background-color: lightgreen;
+    font-family: 'comic_panelsregular';
+    font-size: 18px;
+    line-height: 1.8em;
+}
+
+.h1, h2
+{
+    padding: 25px;
+    text-align: center;
+    border: 4px solid pink;
+}
+
+player1 
+{
+    float: left;
+    width: 200px;
+    height: 250px;
+    box-sizing: border-box;
+    border: 2px solid purple;
+    text-align: center;
+}
+
+img 
+{
+    width: 200px;
+    height: 250px;
+    display: inline-block;
+}
+
+@font-face {
+    font-family: 'comic_panelsregular';
+    src: url('fonts/comicpanels-byvg-webfont.woff2') format('woff2'),
+         url('fonts/comicpanels-byvg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
