@@ -7,11 +7,10 @@ var cards = [CONDOM, DIAPHRAGMA, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL
 
 const deck = new Deck(cards)
 deck.shuffle()
-let { cards1, cards2 } = deck.split()
-var deck1 = new Deck(cards1)
-var deck2 = new Deck(cards2)
+
+let { deck1, deck2 } = deck.split()
 
 deck1.display()
 
-console.log(deck1.cards[0]["path"])
+console.log(deck1.cards)
 console.log(deck2.cards)

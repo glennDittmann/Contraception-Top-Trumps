@@ -25,10 +25,10 @@ export default class Deck
 
     split()
     {
-        // 0 1 2 3 4 5 6 7 8 9  --> 10 cards: 10/2 = 5
-        var cards1 = this.cards.slice(0, this.getNumCards()/2)
-        var cards2 = this.cards.slice(this.getNumCards()/2, this.getNumCards())
-        return {cards1, cards2}
+        var deck1 = new Deck(this.cards.slice(0, this.getNumCards()/2))
+        var deck2 = new Deck(this.cards.slice(this.getNumCards()/2, this.getNumCards()))
+
+        return {deck1, deck2}
     }
 
     display()
@@ -40,18 +40,3 @@ export default class Deck
         holder.appendChild(img)
     }
 }
-
-
-class Card
-{
-    constructor(values)
-    {
-        this.values = values 
-    }
-
-    compare(a, b)
-    {
-        return 0
-    }
-}
-    
