@@ -10,7 +10,8 @@ deck.shuffle()
 
 let { deck1, deck2 } = deck.split()
 
-deck1.display()
+deck1.display('card1')
+deck2.display('card2')
 
 console.log(deck1.cards)
 console.log(deck2.cards)

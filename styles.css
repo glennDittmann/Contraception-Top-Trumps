@@ -30,6 +30,17 @@ img
     display: inline-block;
 }
 
+.row1
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.header
+{
+    text-align: center;
+}
+
 @font-face {
     font-family: 'comic_panelsregular';
     src: url('fonts/comicpanels-byvg-webfont.woff2') format('woff2'),

@@ -31,12 +31,12 @@ export default class Deck
         return {deck1, deck2}
     }
 
-    display()
+    display(id)
     {
         // displays the top card, here the first card in the array
         var img = document.createElement('img')
         img.src = this.cards[0]["path"]
-        var holder = document.getElementById('card1')
+        var holder = document.getElementById(id)
         holder.appendChild(img)
     }
 }
