@@ -34,8 +34,17 @@ export default class Deck
     display(id)
     {
         // displays the top card, here the first card in the array
-        var img = document.createElement('img')
+        const img = document.createElement('img');
         img.src = this.cards[0]["path"]
+        if(this.cards[0].hasOwnProperty("path"))
+        {
+            img.src = this.cards[0]["path"]
+        }
+        else
+        {
+            img.src = "../assets/unknown.svg"
+        }
+
         var holder = document.getElementById(id)
         holder.appendChild(img)
     }

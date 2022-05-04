@@ -7,8 +7,8 @@ const CONDOM =
     "accessibility": 3.0,
     "side-effects": 0.0,
     "ease-of-use": 1.0,
-    reversability: 10.0,
-    path: "assets/kondom.svg"
+    reversibility: 10.0,
+    path: "../assets/kondom.svg"
 }
 
 const DIAPHRAGMA = 
@@ -20,7 +20,7 @@ const DIAPHRAGMA =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 const ANTI_BABY_PILL = 
@@ -32,7 +32,7 @@ const ANTI_BABY_PILL =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 const COITUS_INTERRUPTUS = 
@@ -44,7 +44,7 @@ const COITUS_INTERRUPTUS =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 const COPPER_COIL = 
@@ -56,7 +56,7 @@ const COPPER_COIL =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 const STERILIZATION = 
@@ -68,7 +68,7 @@ const STERILIZATION =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 const FERTILITY_CYCLE = 
@@ -80,7 +80,7 @@ const FERTILITY_CYCLE =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 const THE_SWITCH = 
@@ -92,7 +92,7 @@ const THE_SWITCH =
     "accessibility": 1.0,
     "side-effects": 1.0,
     "ease-of-use": 1.0,
-    "reversability": 1.0,
+    "reversibility": 1.0,
 }
 
 // other methods: 
