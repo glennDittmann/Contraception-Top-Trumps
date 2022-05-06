@@ -11,7 +11,8 @@ const CONDOM =
     path: "../assets/kondom.svg"
 }
 
-const DIAPHRAGMA = 
+
+const INJECTION = 
 {
     "name": "Diaphragma",
     "effectiveness": 1.0,
@@ -21,7 +22,9 @@ const DIAPHRAGMA =
     "side-effects": 1.0,
     "ease-of-use": 1.0,
     "reversibility": 1.0,
+    path: "../assets/spritze.svg"
 }
+
 
 const ANTI_BABY_PILL = 
 {
@@ -33,7 +36,36 @@ const ANTI_BABY_PILL =
     "side-effects": 1.0,
     "ease-of-use": 1.0,
     "reversibility": 1.0,
+    path: "../assets/pille.svg"
 }
+
+
+const COPPER_COIL = 
+{
+    "name": "Copper Coil",
+    "effectiveness": 1.0,
+    "STI-protection": 1.0,
+    "cost": 1.0,
+    "accessibility": 1.0,
+    "side-effects": 1.0,
+    "ease-of-use": 1.0,
+    "reversibility": 1.0,
+    path: "../assets/spirale.svg"
+}
+
+const DIAPHRAGMA = 
+{
+    "name": "Diaphragma",
+    "effectiveness": 1.0,
+    "STI-protection": 1.0,
+    "cost": 1.0,
+    "accessibility": 1.0,
+    "side-effects": 1.0,
+    "ease-of-use": 1.0,
+    "reversibility": 1.0,
+    path: "../assets/vaginal-ring.svg"
+}
+
 
 const COITUS_INTERRUPTUS = 
 {
@@ -47,17 +79,6 @@ const COITUS_INTERRUPTUS =
     "reversibility": 1.0,
 }
 
-const COPPER_COIL = 
-{
-    "name": "Copper Coil",
-    "effectiveness": 1.0,
-    "STI-protection": 1.0,
-    "cost": 1.0,
-    "accessibility": 1.0,
-    "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
-}
 
 const STERILIZATION = 
 {
@@ -83,23 +104,11 @@ const FERTILITY_CYCLE =
     "reversibility": 1.0,
 }
 
-const THE_SWITCH = 
-{
-    "name": "The Switch",
-    "effectiveness": 1.0,
-    "STI-protection": 1.0,
-    "cost": 1.0,
-    "accessibility": 1.0,
-    "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
-}
 
 // other methods: 
 // copper chain,
 // fertility cycle
-// the switch (!!!)
 
 
 export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
-        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, THE_SWITCH}
+        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION}
