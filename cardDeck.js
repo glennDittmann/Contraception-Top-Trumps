@@ -47,7 +47,7 @@ export default class Deck
         }
         else
         {
-            img.src = "../assets/unknown.svg"
+            img.src = "assets/unknown.svg"
         }
 
         const cardHolder = document.getElementById(id);
