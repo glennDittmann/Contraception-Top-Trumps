@@ -1,6 +1,6 @@
 import Deck from './cardDeck.js'
 import {ANTI_BABY_PILL, COITUS_INTERRUPTUS, CONDOM, COPPER_COIL, DIAPHRAGMA,
-        FERTILITY_CYCLE, STERILIZATION, THE_SWITCH} from './cardConstants.js'
+        FERTILITY_CYCLE, STERILIZATION, INJECTION} from './cardConstants.js'
 
 
 export default class GameLogic
@@ -62,7 +62,7 @@ export default class GameLogic
 const gameLogic = new GameLogic();
 
 const cards = [CONDOM, DIAPHRAGMA, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL, STERILIZATION,
-    FERTILITY_CYCLE, THE_SWITCH];
+    FERTILITY_CYCLE, INJECTION];
 const deck = new Deck(cards, gameLogic)
 
 gameLogic.init(deck);
