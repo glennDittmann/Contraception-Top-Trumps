@@ -1,7 +1,7 @@
 const CONDOM = 
 {
     "name": "Condom",
-    "path": "../assets/kondom.svg",
+    "path": "assets/kondom.svg",
     "effectiveness": 8.75,  // measured with Pearl-Index; atm source is https://de.wikipedia.org/wiki/Empf%C3%A4ngnisverh%C3%BCtung, using the mean of (2,12) & (7,14)
     "STI-protection": 10.0,
     "cost": 1.0,
@@ -22,7 +22,7 @@ const INJECTION =
     "side-effects": 1.0,
     "ease-of-use": 1.0,
     "reversibility": 1.0,
-    path: "../assets/spritze.svg"
+    path: "assets/spritze.svg"
 }
 
 
@@ -36,7 +36,7 @@ const ANTI_BABY_PILL =
     "side-effects": 1.0,
     "ease-of-use": 1.0,
     "reversibility": 1.0,
-    path: "../assets/pille.svg"
+    path: "assets/pille.svg"
 }
 
 
@@ -50,7 +50,7 @@ const COPPER_COIL =
     "side-effects": 1.0,
     "ease-of-use": 1.0,
     "reversibility": 1.0,
-    path: "../assets/spirale.svg"
+    path: "assets/spirale.svg"
 }
 
 const DIAPHRAGMA = 
@@ -63,7 +63,7 @@ const DIAPHRAGMA =
     "side-effects": 1.0,
     "ease-of-use": 1.0,
     "reversibility": 1.0,
-    path: "../assets/vaginal-ring.svg"
+    path: "assets/vaginal-ring.svg"
 }
 
 
