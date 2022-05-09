@@ -70,13 +70,13 @@ export default class Deck
     {
         function handleAttributeHover(overlayImg, className)
         {
-            overlayImg.src = "../assets/attribute_hovered.svg"
+            overlayImg.src = "assets/attribute_hovered.svg"
             overlayImg.className = className + "_hovered"
         }
 
         function handleAttributeClick(overlayImg, className, gameLogic)
         {
-            overlayImg.src = "../assets/attribute_selected.svg"
+            overlayImg.src = "assets/attribute_selected.svg"
             overlayImg.className = className + "_selected"
 
             const increment = 0.045;
