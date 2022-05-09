@@ -23,11 +23,94 @@ player1
     text-align: center;
 }
 
-img 
+.card-holder
 {
+    display: inline-block;
+    position: relative;
+}
+
+.card-holder img
+{
+    max-width: 100%;
     width: 480px;
     height: 600px;
     display: inline-block;
+}
+
+
+.effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered,
+    .effectiveness_selected, .STI-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected
+{
+    position: absolute;
+    left: 3.4%;
+}
+
+.effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered
+{
+    opacity: 0.0;
+}
+
+.effectiveness_hovered:hover, .STI-protection_hovered:hover, .cost_hovered:hover, .accessibility_hovered:hover, .side-effects_hovered:hover
+{
+    opacity: 1.0;
+}
+
+.effectiveness_hovered, .effectiveness_selected
+{
+    top: 53.5%;
+}
+
+.STI-protection_hovered, .STI-protection_selected
+{
+    top: 60.6%;
+}
+
+.cost_hovered, .cost_selected
+{
+    top: 68.0%;
+}
+
+.accessibility_hovered, .accessibility_selected
+{
+    top: 75.8%;
+}
+
+.side-effects_hovered, .side-effects_selected
+{
+    top: 83.4%;
+}
+
+.effectiveness, .sti-protection, .cost, .accessibility, .side-effects
+{
+    position: absolute;
+    right: 14%;
+    color: darkcyan;
+    padding: 4px;
+    font-size: 27px;
+}
+
+.effectiveness
+{
+    bottom: 36%;
+}
+
+.sti-protection
+{
+    bottom: 28.9%;
+}
+
+.cost
+{
+    bottom: 21.5%;
+}
+
+.accessibility
+{
+    bottom: 13.7%;
+}
+.side-effects
+{
+    bottom: 6.3%;
 }
 
 .row1
