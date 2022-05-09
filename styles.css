@@ -31,9 +31,7 @@ player1
 
 .card-image
 {
-    max-width: 100%;
     width: 423px;
-    height: 600px;
     display: inline-block;
 }
 
