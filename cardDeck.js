@@ -37,8 +37,9 @@ export default class Deck
         let currentCardData = this.cards[0];
 
         // displays the top card, here the first card in the array
-        const img = document.createElement('img');
+        const img = document.createElement('img')
         img.src = currentCardData["path"]
+        img.className = "card-image"
 
         if(this.cards[0].hasOwnProperty("path"))
         {

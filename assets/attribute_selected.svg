@@ -23,9 +23,9 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="1"
      showgrid="false"
-     inkscape:zoom="2.1517028"
-     inkscape:cx="226.56475"
-     inkscape:cy="47.404316"
+     inkscape:zoom="0.76074182"
+     inkscape:cx="166.28506"
+     inkscape:cy="268.15931"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -41,7 +41,7 @@
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter6722"
-       x="-0.0095080875"
+       x="-0.0095080876"
        y="-0.091989417"
        width="1.0190161"
        height="1.1839787">
@@ -58,7 +58,7 @@
      data-name="Ebene 1">
     <path
        class="cls-19"
-       d="m 25.821079,66.14065 c -5.36,-0.35 -8.74,-5.48 -8.71,-9.5 0.06,-9.75 0,-19.51 0,-29.27 0.06692,-5.209975 4.222221,-9.444595 9.43,-9.61 h 2.4 444.890001 c 1.59551,-0.104888 3.19765,0.03678 4.75,0.42 4.15008,1.15347 7.03687,4.912825 7.08,9.22 0.0533,9.753333 0.0533,19.51 0,29.27 0,5 -3.57,8.81 -8.68,9.49 -0.85698,-0.207978 -1.74408,-0.262152 -2.62,-0.16 H 28.431079 c -0.871415,-0.108566 -1.755198,-0.06116 -2.61,0.14 z"
+       d="m 46.853182,66.14065 c -5.36,-0.35 -8.74,-5.48 -8.71,-9.5 0.06,-9.75 0,-19.51 0,-29.27 0.06692,-5.209975 4.222221,-9.444595 9.43,-9.61 h 2.4 444.889998 c 1.59551,-0.104888 3.19765,0.03678 4.75,0.42 4.15008,1.15347 7.03687,4.912825 7.08,9.22 0.0533,9.753333 0.0533,19.51 0,29.27 0,5 -3.57,8.81 -8.68,9.49 -0.85698,-0.207978 -1.74408,-0.262152 -2.62,-0.16 H 49.463182 c -0.871415,-0.108566 -1.755198,-0.06116 -2.61,0.14 z"
        id="path1405"
        style="opacity:1;fill:#ffff00;fill-opacity:0;stroke:#00f7f7;stroke-width:6.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;filter:url(#filter6722)"
        sodipodi:nodetypes="ccccccccccccc" />

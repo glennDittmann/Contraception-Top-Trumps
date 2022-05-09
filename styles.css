@@ -16,7 +16,7 @@ body
 player1 
 {
     float: left;
-    width: 480px;
+    width: 800px;
     height: 600px;
     box-sizing: border-box;
     border: 2px solid purple;
@@ -25,14 +25,14 @@ player1
 
 .card-holder
 {
-    display: inline-block;
     position: relative;
+    display: inline-block;
 }
 
-.card-holder img
+.card-image
 {
     max-width: 100%;
-    width: 480px;
+    width: 423px;
     height: 600px;
     display: inline-block;
 }
@@ -42,7 +42,9 @@ player1
     .effectiveness_selected, .STI-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected
 {
     position: absolute;
-    left: 3.4%;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 .effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered
@@ -57,27 +59,27 @@ player1
 
 .effectiveness_hovered, .effectiveness_selected
 {
-    top: 53.5%;
+    top: 53.6%;
 }
 
 .STI-protection_hovered, .STI-protection_selected
 {
-    top: 60.6%;
+    top: 61.1%;
 }
 
 .cost_hovered, .cost_selected
 {
-    top: 68.0%;
+    top: 68.5%;
 }
 
 .accessibility_hovered, .accessibility_selected
 {
-    top: 75.8%;
+    top: 76.2%;
 }
 
 .side-effects_hovered, .side-effects_selected
 {
-    top: 83.4%;
+    top: 83.7%;
 }
 
 .effectiveness, .sti-protection, .cost, .accessibility, .side-effects
@@ -91,7 +93,7 @@ player1
 
 .effectiveness
 {
-    bottom: 36%;
+    bottom: 36.2%;
 }
 
 .sti-protection
