@@ -57,6 +57,17 @@ const DIAPHRAGMA =
 }
 
 
+const FERTILITY_CYCLE = 
+{
+    "name": "Fertility Cycle",
+    "effectiveness": 1.0,
+    "STI-protection": 1.0,
+    "cost": 1.0,
+    "accessibility": 1.0,
+    "side-effects": 1.0,
+    path: "assets/kalender.svg"
+}
+
 const COITUS_INTERRUPTUS = 
 {
     "name": "Coitus Interruptus",
@@ -71,16 +82,6 @@ const COITUS_INTERRUPTUS =
 const STERILIZATION = 
 {
     "name": "Sterilization",
-    "effectiveness": 1.0,
-    "STI-protection": 1.0,
-    "cost": 1.0,
-    "accessibility": 1.0,
-    "side-effects": 1.0,
-}
-
-const FERTILITY_CYCLE = 
-{
-    "name": "Fertility Cycle",
     "effectiveness": 1.0,
     "STI-protection": 1.0,
     "cost": 1.0,
