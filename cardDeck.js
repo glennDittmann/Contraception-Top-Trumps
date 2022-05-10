@@ -112,22 +112,22 @@ export default class Deck
 
 
     compEffectiveness(a, b) {
-        return a < b;  // a smaller pearl-index is better
+        return a <= b;  // a smaller pearl-index is better
     }
 
     compSTIprotection(a, b) {
-        return a > b;
+        return a >= b;
     }
 
     compCost(a, b){
-        return a < b;
+        return a <= b;
     }
 
     compAccessibility(a, b){
-        return a > b;
+        return a >= b;
     }
 
     compSideEffects(a, b){
-        return a < b;
+        return a <= b;
     }
 }
