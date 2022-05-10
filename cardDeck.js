@@ -1,3 +1,7 @@
+// TODO: add comparison for chosen cagtegory
+// TODO: add backside of card
+// TODO: reveal opponent card, when category was chosen
+
 export default class Deck
 {
     constructor(cards, gameLogic)
@@ -31,6 +35,7 @@ export default class Deck
 
         return {deck1, deck2}
     }
+
 
     updateCardHolder(id, gameLogic)
     {
