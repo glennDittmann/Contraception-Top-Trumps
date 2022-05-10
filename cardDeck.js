@@ -130,12 +130,4 @@ export default class Deck
     compSideEffects(a, b){
         return a < b;
     }
-
-    compEaseOfUse(a, b){
-        return a > b;
-    }
-
-    compReversibility(a, b){
-        return a > b; 
-    }
 }

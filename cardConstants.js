@@ -6,22 +6,18 @@ const CONDOM =
     "STI-protection": 10.0,
     "cost": 1.0,
     "accessibility": 3.0,
-    "side-effects": 0.0,
-    "ease-of-use": 1.0,
-    "reversibility": 10.0,
+    "side-effects": 0.0
 }
 
 
 const INJECTION = 
 {
-    "name": "Diaphragma",
+    "name": "Injection",
     "effectiveness": 1.0,
     "STI-protection": 1.0,
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
     path: "assets/spritze.svg"
 }
 
@@ -34,8 +30,6 @@ const ANTI_BABY_PILL =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
     path: "assets/pille.svg"
 }
 
@@ -48,8 +42,6 @@ const COPPER_COIL =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
     path: "assets/spirale.svg"
 }
 
@@ -61,8 +53,6 @@ const DIAPHRAGMA =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
     path: "assets/vaginal-ring.svg"
 }
 
@@ -75,8 +65,6 @@ const COITUS_INTERRUPTUS =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
 }
 
 
@@ -88,8 +76,6 @@ const STERILIZATION =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
 }
 
 const FERTILITY_CYCLE = 
@@ -100,8 +86,6 @@ const FERTILITY_CYCLE =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "ease-of-use": 1.0,
-    "reversibility": 1.0,
 }
 
 
