@@ -109,4 +109,33 @@ export default class Deck
         cardHolder.appendChild(overlayImg)
         handleAttributeHover(overlayImg, className)
     }
+
+
+    compEffectiveness(a, b) {
+        return a < b;  // a smaller pearl-index is better
+    }
+
+    compSTIprotection(a, b) {
+        return a > b;
+    }
+
+    compCost(a, b){
+        return a < b;
+    }
+
+    compAccessibility(a, b){
+        return a > b;
+    }
+
+    compSideEffects(a, b){
+        return a < b;
+    }
+
+    compEaseOfUse(a, b){
+        return a > b;
+    }
+
+    compReversibility(a, b){
+        return a > b; 
+    }
 }
