@@ -4,7 +4,7 @@ A variation of the top trumps game with contraception methods; done for the cour
 
 ## Demo
 
-You can directly try the game from it's [github page](http://glenndittmann.github.io/Contraception-Top-Trumps/).
+You can directly try the game from its [github page](http://glenndittmann.github.io/Contraception-Top-Trumps/).
 
 **Note**: still under development
 
