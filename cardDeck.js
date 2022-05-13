@@ -1,5 +1,4 @@
 // TODO: add comparison for chosen cagtegory
-// TODO: add backside of card
 // TODO: reveal opponent card, when category was chosen
 
 export default class Deck
@@ -48,7 +47,11 @@ export default class Deck
         img.src = currentCardData["path"]
         img.className = "card-image"
 
-        if(this.cards[0].hasOwnProperty("path"))
+
+        if (id == 'card-img-container2' && !gameLogic.isRevealed()) {
+            img.src = "assets/card-backside.png"
+        }
+        else if(this.cards[0].hasOwnProperty("path"))
         {
             img.src = currentCardData["path"]
         }
@@ -61,17 +64,20 @@ export default class Deck
         cardHolder.appendChild(img)
 
         let children = cardHolder.children;
-        this.addOverlayImg(cardHolder, "effectiveness", gameLogic);
-        this.addOverlayImg(cardHolder, "STI-protection", gameLogic);
-        this.addOverlayImg(cardHolder, "cost", gameLogic);
-        this.addOverlayImg(cardHolder, "accessibility", gameLogic);
-        this.addOverlayImg(cardHolder, "side-effects", gameLogic);
+        if ( id == 'card-img-container1' || (id == 'card-img-container2' && gameLogic.isRevealed()) ){
+            this.addOverlayImg(cardHolder, "effectiveness", gameLogic);
+            this.addOverlayImg(cardHolder, "STI-protection", gameLogic);
+            this.addOverlayImg(cardHolder, "cost", gameLogic);
+            this.addOverlayImg(cardHolder, "accessibility", gameLogic);
+            this.addOverlayImg(cardHolder, "side-effects", gameLogic);
+            
+            children[0].innerHTML = currentCardData["effectiveness"]
+            children[1].innerHTML = currentCardData["STI-protection"]
+            children[2].innerHTML = currentCardData["cost"]
+            children[3].innerHTML = currentCardData["accessibility"]
+            children[4].innerHTML = currentCardData["side-effects"]
+        }
 
-        children[0].innerHTML = currentCardData["effectiveness"]
-        children[1].innerHTML = currentCardData["STI-protection"]
-        children[2].innerHTML = currentCardData["cost"]
-        children[3].innerHTML = currentCardData["accessibility"]
-        children[4].innerHTML = currentCardData["side-effects"]
     }
 
     addOverlayImg(cardHolder, className, gameLogic)
@@ -110,30 +116,5 @@ export default class Deck
         overlayImg.onmouseenter = function(){handleAttributeHover(overlayImg, className)}
         cardHolder.appendChild(overlayImg)
         handleAttributeHover(overlayImg, className)
-    }
-
-    compEffectiveness(a, b)
-    {
-        return a <= b;  // a smaller pearl-index is better
-    }
-
-    compSTIprotection(a, b)
-    {
-        return a >= b;
-    }
-
-    compCost(a, b)
-    {
-        return a <= b;
-    }
-
-    compAccessibility(a, b)
-    {
-        return a >= b;
-    }
-
-    compSideEffects(a, b)
-    {
-        return a <= b;
     }
 }
