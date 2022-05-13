@@ -4,35 +4,64 @@ body
     font-family: 'comic_panelsregular';
     font-size: 30px;
     line-height: 1.8em;
+    margin: 0;
 }
 
-.h1, h2
+.game-canvas
 {
-    padding: 25px;
-    text-align: center;
-    border: 4px solid pink;
+    transform-origin: left top;
+    width: 1600px;
 }
 
-player1 
+.headline
+{
+    margin: 10px 20px;
+    text-align: center;
+}
+
+.player1, .player2
 {
     float: left;
-    width: 800px;
-    height: 600px;
+    width: 650px;
+    min-height: 300px;
     box-sizing: border-box;
-    border: 2px solid purple;
-    text-align: center;
 }
 
-.card-holder
+.player2
 {
-    position: relative;
+    float: right;
+}
+
+.card-container
+{
+    min-width: 230px;
+    width: 650px;
+    text-align: center;
+    line-height: 0;
+}
+
+.card-img-container
+{
     display: inline-block;
+    position: relative;
 }
 
 .card-image
 {
-    width: 423px;
-    display: inline-block;
+    width: 600px;
+}
+
+.header
+{
+    text-align: center;
+    width: 650px;
+}
+
+.h1, h2
+{
+    padding: 44px;
+    text-align: center;
+    border: 4px solid pink;
 }
 
 
@@ -57,27 +86,27 @@ player1
 
 .effectiveness_hovered, .effectiveness_selected
 {
-    top: 53.6%;
+    top: 55.1%;
 }
 
 .STI-protection_hovered, .STI-protection_selected
 {
-    top: 61.1%;
+    top: 62.6%;
 }
 
 .cost_hovered, .cost_selected
 {
-    top: 68.5%;
+    top: 70.2%;
 }
 
 .accessibility_hovered, .accessibility_selected
 {
-    top: 76.2%;
+    top: 78.1%;
 }
 
 .side-effects_hovered, .side-effects_selected
 {
-    top: 83.7%;
+    top: 85.8%;
 }
 
 .effectiveness, .sti-protection, .cost, .accessibility, .side-effects
@@ -85,43 +114,31 @@ player1
     position: absolute;
     right: 14%;
     color: darkcyan;
-    padding: 4px;
     font-size: 27px;
 }
 
 .effectiveness
 {
-    bottom: 36.2%;
+    bottom: 39.0%;
 }
 
 .sti-protection
 {
-    bottom: 28.9%;
+    bottom: 31.3%;
 }
 
 .cost
 {
-    bottom: 21.5%;
+    bottom: 23.5%;
 }
 
 .accessibility
 {
-    bottom: 13.7%;
+    bottom: 15.7%;
 }
 .side-effects
 {
-    bottom: 6.3%;
-}
-
-.row1
-{
-    display: flex;
-    justify-content: space-around;
-}
-
-.header
-{
-    text-align: center;
+    bottom: 8.1%;
 }
 
 @font-face

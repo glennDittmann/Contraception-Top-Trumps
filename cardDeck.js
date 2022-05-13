@@ -8,6 +8,8 @@ export default class Deck
     {
         this.cards = cards
         this.gameLogic = gameLogic
+
+
     }
 
     getNumCards()
@@ -110,24 +112,28 @@ export default class Deck
         handleAttributeHover(overlayImg, className)
     }
 
-
-    compEffectiveness(a, b) {
+    compEffectiveness(a, b)
+    {
         return a <= b;  // a smaller pearl-index is better
     }
 
-    compSTIprotection(a, b) {
+    compSTIprotection(a, b)
+    {
         return a >= b;
     }
 
-    compCost(a, b){
+    compCost(a, b)
+    {
         return a <= b;
     }
 
-    compAccessibility(a, b){
+    compAccessibility(a, b)
+    {
         return a >= b;
     }
 
-    compSideEffects(a, b){
+    compSideEffects(a, b)
+    {
         return a <= b;
     }
 }
