@@ -4,6 +4,8 @@ export default class GameLogic
 {
     constructor()
     {
+        this.revealed = false;
+
         function resizeWindow()
         {
             const scaleWidth = window.innerWidth / 1920
@@ -24,6 +26,7 @@ export default class GameLogic
         window.onresize = resizeWindow
 
         resizeWindow()
+
     }
 
     init(deck)
@@ -46,29 +49,31 @@ export default class GameLogic
 
     chooseAttribute(name)
     {
+        this.revealed = true;
+        
         if(name == "effectiveness")
         {
-
+            this.compEffectiveness();
         }
 
         if(name == "STI-protection")
         {
-
+            this.compSTIprotection();
         }
 
         if(name == "cost")
         {
-
+            this.compCost();
         }
 
         if(name == "accessibility")
         {
-
+            this.compAccessibility();
         }
 
         if(name == "side-effects")
         {
-
+            this.compSideEffects();
         }
 
         this.playerDeck.cards.shift()
@@ -76,5 +81,34 @@ export default class GameLogic
 
         this.aiDeck.cards.shift()
         this.aiDeck.updateCardHolder('card2', this)
+    }
+
+    isRevealed(){
+        return this.revealed;
+    }
+
+    compEffectiveness()
+    {
+        return this.playerDeck.cards[0]["effectiveness"] <= this.aiDeck.cards[0]["effectiveness"];  // a smaller pearl-index is better
+    }
+
+    compSTIprotection()
+    {
+        return this.playerDeck.cards[0]["STI-protection"] >= this.aiDeck.cards[0]["STI-protection"];
+    }
+
+    compCost()
+    {
+        return this.playerDeck.cards[0]["cost"] <= this.aiDeck.cards[0]["cost"];
+    }
+
+    compAccessibility()
+    {
+        return this.playerDeck.cards[0]["accessibility"] >= this.aiDeck.cards[0]["accessibility"];
+    }
+
+    compSideEffects()
+    {
+        return this.playerDeck.cards[0]["side-effects"] <= this.aiDeck.cards[0]["side-effects"];
     }
 }
