@@ -9,5 +9,4 @@ You can directly try the game from its [github page](http://glenndittmann.github
 **Note**: still under development
 
 ## Authors
----
 L. Meindl, C. Mang-Manger, S. R., A. Hio, G. Dittmann
