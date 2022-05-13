@@ -1,22 +1,36 @@
 body
 {
-    background-color: lightgreen;
+    background-color: #152740;
     font-family: 'comic_panelsregular';
     font-size: 30px;
     line-height: 1.8em;
     margin: 0;
 }
 
-.game-canvas
-{
+.game-canvas{
+    display: flex;
     transform-origin: left top;
     width: 1600px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.explanation-bar{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.explanation-bar-item{
+    width: 50px;
+    height: 200px;
 }
 
 .headline
 {
     margin: 10px 20px;
     text-align: center;
+    color: #FCFCFD;
 }
 
 .player1, .player2
@@ -55,6 +69,7 @@ body
 {
     text-align: center;
     width: 650px;
+    color: #FCFCFD;
 }
 
 .h1, h2
