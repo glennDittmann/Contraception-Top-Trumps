@@ -1,5 +1,4 @@
-body
-{
+body {
     background-color: #152740;
     font-family: 'comic_panelsregular';
     font-size: 30px;
@@ -7,80 +6,68 @@ body
     margin: 0;
 }
 
-.game-canvas
-{
+.game-canvas {
     display: flex;
     transform-origin: left top;
     width: 1920px;
 }
 
-.cards-area
-{
+.cards-area {
     display: flex;
     transform-origin: left top;
     width: 1620px;
 }
 
-.explanation-bar
-{
+.explanation-bar {
     display: flex;
     flex-direction: column;
 }
 
-.explanation-bar-item
-{
+.explanation-bar-item {
     width: 50px;
     height: 200px;
 }
 
-.headline
-{
+.headline {
     margin: 10px 20px;
     text-align: center;
     color: #FCFCFD;
 }
 
-.player1, .player2
-{
+.player1, .player2 {
     float: left;
     width: 650px;
     min-height: 300px;
     box-sizing: border-box;
 }
 
-.player2
-{
+.player2 {
     float: right;
 }
 
-.card-container
-{
+.card-container {
     min-width: 230px;
     width: 650px;
     text-align: center;
     line-height: 0;
 }
 
-.card-img-container
-{
+.card-img-container {
     display: inline-block;
     position: relative;
 }
 
-.card-image
-{
+.card-image {
     width: 600px;
 }
 
-.header
-{
+.header {
     text-align: center;
     width: 650px;
     color: #FCFCFD;
 }
 
-.h1, h2
-{
+.h1, h2 {
     padding: 44px;
     text-align: center;
     border: 4px solid pink;
@@ -88,86 +75,72 @@ body
 
 
 .effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered,
-    .effectiveness_selected, .STI-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected
-{
+.effectiveness_selected, .STI-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected {
     position: absolute;
     left: 0;
     right: 0;
     width: 100%;
 }
 
-.effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered
-{
+.effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered {
     opacity: 0.0;
 }
 
-.effectiveness_hovered:hover, .STI-protection_hovered:hover, .cost_hovered:hover, .accessibility_hovered:hover, .side-effects_hovered:hover
-{
+.effectiveness_hovered:hover, .STI-protection_hovered:hover, .cost_hovered:hover, .accessibility_hovered:hover, .side-effects_hovered:hover {
     opacity: 1.0;
 }
 
-.effectiveness_hovered, .effectiveness_selected
-{
+.effectiveness_hovered, .effectiveness_selected {
     top: 55.1%;
 }
 
-.STI-protection_hovered, .STI-protection_selected
-{
+.STI-protection_hovered, .STI-protection_selected {
     top: 62.6%;
 }
 
-.cost_hovered, .cost_selected
-{
+.cost_hovered, .cost_selected {
     top: 70.2%;
 }
 
-.accessibility_hovered, .accessibility_selected
-{
+.accessibility_hovered, .accessibility_selected {
     top: 78.1%;
 }
 
-.side-effects_hovered, .side-effects_selected
-{
+.side-effects_hovered, .side-effects_selected {
     top: 85.8%;
 }
 
-.effectiveness, .sti-protection, .cost, .accessibility, .side-effects
-{
+.effectiveness, .sti-protection, .cost, .accessibility, .side-effects {
     position: absolute;
     right: 14%;
     color: darkcyan;
     font-size: 27px;
 }
 
-.effectiveness
-{
+.effectiveness {
     bottom: 39.0%;
 }
 
-.sti-protection
-{
+.sti-protection {
     bottom: 31.3%;
 }
 
-.cost
-{
+.cost {
     bottom: 23.5%;
 }
 
-.accessibility
-{
+.accessibility {
     bottom: 15.7%;
 }
-.side-effects
-{
+
+.side-effects {
     bottom: 8.1%;
 }
 
-@font-face
-{
+@font-face {
     font-family: 'comic_panelsregular';
     src: url('fonts/comicpanels-byvg-webfont.woff2') format('woff2'),
-         url('fonts/comicpanels-byvg-webfont.woff') format('woff');
+    url('fonts/comicpanels-byvg-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
