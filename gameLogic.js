@@ -15,12 +15,14 @@ export default class GameLogic
             const gameCanvas = document.getElementById("game-canvas");
             gameCanvas.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
 
+
+            const cardsArea = document.getElementById("cards-area");
             var paddingLeft = 150;
             if(scaleWidth > scaleHeight)
             {
                 paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - 300)) / scaleHeight;
             }
-            gameCanvas.style.paddingLeft = paddingLeft + 'px';
+            cardsArea.style.paddingLeft = paddingLeft + 'px';
         }
 
         window.onresize = resizeWindow

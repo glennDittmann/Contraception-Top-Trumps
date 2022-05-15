@@ -1,4 +1,4 @@
-// TODO: add comparison for chosen cagtegory
+// TODO: add comparison for chosen category
 // TODO: reveal opponent card, when category was chosen
 
 export default class Deck
@@ -7,8 +7,6 @@ export default class Deck
     {
         this.cards = cards
         this.gameLogic = gameLogic
-
-
     }
 
     getNumCards()
@@ -48,7 +46,7 @@ export default class Deck
         img.className = "card-image"
 
 
-        if (id == 'card-img-container2' && !gameLogic.isRevealed()) {
+        if (id === 'card-img-container2' && !gameLogic.isRevealed()) {
             img.src = "assets/card-backside.png"
         }
         else if(this.cards[0].hasOwnProperty("path"))
@@ -64,7 +62,8 @@ export default class Deck
         cardHolder.appendChild(img)
 
         let children = cardHolder.children;
-        if ( id == 'card-img-container1' || (id == 'card-img-container2' && gameLogic.isRevealed()) ){
+        if ( id === 'card-img-container1' || (id === 'card-img-container2' && gameLogic.isRevealed()) )
+        {
             this.addOverlayImg(cardHolder, "effectiveness", gameLogic);
             this.addOverlayImg(cardHolder, "STI-protection", gameLogic);
             this.addOverlayImg(cardHolder, "cost", gameLogic);
@@ -105,7 +104,9 @@ export default class Deck
                         window.clearInterval(instance);
                         gameLogic.chooseAttribute(className)
                     }
-                }, 10, overlayImg);
+                },
+                10,
+                overlayImg);
         }
 
         const id = cardHolder.id + "_" + className + "_overlay"

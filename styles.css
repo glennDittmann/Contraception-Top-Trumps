@@ -7,21 +7,28 @@ body
     margin: 0;
 }
 
-.game-canvas{
+.game-canvas
+{
     display: flex;
     transform-origin: left top;
-    width: 1600px;
-    display: flex;
-    justify-content: space-around;
+    width: 1920px;
 }
 
-.explanation-bar{
+.cards-area
+{
+    display: flex;
+    transform-origin: left top;
+    width: 1620px;
+}
+
+.explanation-bar
+{
     display: flex;
     flex-direction: column;
-
 }
 
-.explanation-bar-item{
+.explanation-bar-item
+{
     width: 50px;
     height: 200px;
 }
@@ -163,5 +170,4 @@ body
          url('fonts/comicpanels-byvg-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
