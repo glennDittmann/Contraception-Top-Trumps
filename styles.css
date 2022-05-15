@@ -9,7 +9,7 @@ body {
 .game-canvas {
     display: flex;
     transform-origin: left top;
-    width: 1920px;
+    width: 1880px;
 }
 
 .cards-area {

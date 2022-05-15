@@ -17,10 +17,10 @@ export default class GameLogic
 
 
             const cardsArea = document.getElementById("cards-area");
-            var paddingLeft = 150;
+            let paddingLeft = 270;
             if(scaleWidth > scaleHeight)
             {
-                paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - 300)) / scaleHeight;
+                paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft*2)) / scaleHeight;
             }
             cardsArea.style.paddingLeft = paddingLeft + 'px';
         }
