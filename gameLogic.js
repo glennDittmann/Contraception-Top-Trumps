@@ -1,8 +1,19 @@
+"use strict"
+
 import Deck from './cardDeck.js'
+
+class GameState {
+    static ClassicWaitingForAttribute = 1
+    static ClassicShowingComparisonResult = 2
+    static ChooseLowerWaitingForAttribute = 3
+    static ChooseLowerComparisonResult = 4
+}
 
 export default class GameLogic {
     constructor() {
         this.revealed = false;
+        this.streakCount = 0;
+        this.gameState = GameState.ClassicWaitingForAttribute;
 
         function resizeWindow() {
             const scaleWidth = window.innerWidth / 1920
@@ -14,7 +25,7 @@ export default class GameLogic {
 
 
             const cardsArea = document.getElementById("cards-area");
-            let paddingLeft = 270 - 60; // ,imus the amount the player 1 has right padding so the cards padding border is in center
+            let paddingLeft = 270 - 60; // minus the amount the player 1 has right padding so the cards padding border is in center
             if (scaleWidth > scaleHeight) {
                 paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
             }
@@ -28,6 +39,7 @@ export default class GameLogic {
     }
 
     init(deck) {
+
         deck.shuffle()
         const decks = deck.split();
         this.playerDeck = decks.deck1
@@ -45,25 +57,38 @@ export default class GameLogic {
     }
 
     chooseAttribute(name) {
-        this.revealed = true;
 
-        let wonComparison = false;
-        if (name == "effectiveness") {
-            wonComparison = this.compEffectiveness();
-        } else if (name == "STI-protection") {
-            wonComparison = this.compSTIprotection();
-        } else if (name == "cost") {
-            wonComparison = this.compCost();
-        } else if (name == "accessibility") {
-            wonComparison = this.compAccessibility();
-        } else if (name == "side-effects") {
-            wonComparison = this.compSideEffects();
+        if (this.gameState === GameState.ClassicWaitingForAttribute) {
+            this.revealed = true
+
+            let wonComparison = false
+            if (name === "effectiveness") {
+                wonComparison = this.compEffectiveness()
+            } else if (name === "STI-protection") {
+                wonComparison = this.compStiProtection()
+            } else if (name === "cost") {
+                wonComparison = this.compCost()
+            } else if (name === "accessibility") {
+                wonComparison = this.compAccessibility()
+            } else if (name === "side-effects") {
+                wonComparison = this.compSideEffects()
+            }
+
+            if (wonComparison) {
+                ++this.streakCount
+            } else {
+                this.streakCount = 0
+            }
+
+            this.gameState = GameState.ClassicShowingComparisonResult
+        } else if (this.gameState === GameState.ClassicShowingComparisonResult) {
+            this.playerDeck.cards.shift()
+            this.aiDeck.cards.shift()
+
+            this.gameState = GameState.ClassicWaitingForAttribute
         }
 
-        this.playerDeck.cards.shift()
         this.playerDeck.updateCardHolder('card-img-container1', this)
-
-        this.aiDeck.cards.shift()
         this.aiDeck.updateCardHolder('card-img-container2', this)
     }
 
@@ -75,7 +100,7 @@ export default class GameLogic {
         return this.playerDeck.cards[0]["effectiveness"] <= this.aiDeck.cards[0]["effectiveness"];  // a smaller pearl-index is better
     }
 
-    compSTIprotection() {
+    compStiProtection() {
         return this.playerDeck.cards[0]["STI-protection"] >= this.aiDeck.cards[0]["STI-protection"];
     }
 

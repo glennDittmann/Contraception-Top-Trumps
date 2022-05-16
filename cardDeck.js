@@ -1,3 +1,5 @@
+"use strict"
+
 // TODO: add comparison for chosen category
 // TODO: reveal opponent card, when category was chosen
 

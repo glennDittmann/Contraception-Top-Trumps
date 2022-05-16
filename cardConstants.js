@@ -1,4 +1,6 @@
-const CONDOM = 
+"use strict"
+
+const CONDOM =
 {
     "name": "Condom",
     "path": "assets/kondom.svg",
