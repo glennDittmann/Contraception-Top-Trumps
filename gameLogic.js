@@ -1,13 +1,10 @@
 import Deck from './cardDeck.js'
 
-export default class GameLogic
-{
-    constructor()
-    {
+export default class GameLogic {
+    constructor() {
         this.revealed = false;
 
-        function resizeWindow()
-        {
+        function resizeWindow() {
             const scaleWidth = window.innerWidth / 1920
             const scaleHeight = window.innerHeight / 1080;
             const scale = Math.min(scaleHeight, scaleWidth)
@@ -18,9 +15,8 @@ export default class GameLogic
 
             const cardsArea = document.getElementById("cards-area");
             let paddingLeft = 270 - 60; // ,imus the amount the player 1 has right padding so the cards padding border is in center
-            if(scaleWidth > scaleHeight)
-            {
-                paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft*2)) / scaleHeight;
+            if (scaleWidth > scaleHeight) {
+                paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
             }
             cardsArea.style.paddingLeft = paddingLeft + 'px';
         }
@@ -31,8 +27,7 @@ export default class GameLogic
 
     }
 
-    init(deck)
-    {
+    init(deck) {
         deck.shuffle()
         const decks = deck.split();
         this.playerDeck = decks.deck1
@@ -49,68 +44,50 @@ export default class GameLogic
         console.log(this.aiDeck.cards)
     }
 
-    chooseAttribute(name)
-    {
+    chooseAttribute(name) {
         this.revealed = true;
-        
-        if(name == "effectiveness")
-        {
-            this.compEffectiveness();
-        }
 
-        if(name == "STI-protection")
-        {
-            this.compSTIprotection();
-        }
-
-        if(name == "cost")
-        {
-            this.compCost();
-        }
-
-        if(name == "accessibility")
-        {
-            this.compAccessibility();
-        }
-
-        if(name == "side-effects")
-        {
-            this.compSideEffects();
+        let wonComparison = false;
+        if (name == "effectiveness") {
+            wonComparison = this.compEffectiveness();
+        } else if (name == "STI-protection") {
+            wonComparison = this.compSTIprotection();
+        } else if (name == "cost") {
+            wonComparison = this.compCost();
+        } else if (name == "accessibility") {
+            wonComparison = this.compAccessibility();
+        } else if (name == "side-effects") {
+            wonComparison = this.compSideEffects();
         }
 
         this.playerDeck.cards.shift()
-        this.playerDeck.updateCardHolder('card1', this)
+        this.playerDeck.updateCardHolder('card-img-container1', this)
 
         this.aiDeck.cards.shift()
-        this.aiDeck.updateCardHolder('card2', this)
+        this.aiDeck.updateCardHolder('card-img-container2', this)
     }
 
-    isRevealed(){
+    isRevealed() {
         return this.revealed;
     }
 
-    compEffectiveness()
-    {
+    compEffectiveness() {
         return this.playerDeck.cards[0]["effectiveness"] <= this.aiDeck.cards[0]["effectiveness"];  // a smaller pearl-index is better
     }
 
-    compSTIprotection()
-    {
+    compSTIprotection() {
         return this.playerDeck.cards[0]["STI-protection"] >= this.aiDeck.cards[0]["STI-protection"];
     }
 
-    compCost()
-    {
+    compCost() {
         return this.playerDeck.cards[0]["cost"] <= this.aiDeck.cards[0]["cost"];
     }
 
-    compAccessibility()
-    {
+    compAccessibility() {
         return this.playerDeck.cards[0]["accessibility"] >= this.aiDeck.cards[0]["accessibility"];
     }
 
-    compSideEffects()
-    {
+    compSideEffects() {
         return this.playerDeck.cards[0]["side-effects"] <= this.aiDeck.cards[0]["side-effects"];
     }
 }

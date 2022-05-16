@@ -40,12 +40,15 @@ export default class Deck
     {
         let currentCardData = this.cards[0];
 
-        // displays the top card, here the first card in the array
-        const img = document.createElement('img')
+        let imageId = id + "card-image";
+
+        let img = document.getElementById(imageId);
+        if(img == null)
+        {
+            img = this.addCardImageImgElement(imageId, id, gameLogic, currentCardData);
+        }
+
         img.src = currentCardData["path"]
-        img.className = "card-image"
-
-
         if (id === 'card-img-container2' && !gameLogic.isRevealed()) {
             img.src = "assets/card-backside.png"
         }
@@ -57,19 +60,25 @@ export default class Deck
         {
             img.src = "assets/unknown.svg"
         }
+    }
+
+    addCardImageImgElement(imageId, id, gameLogic, currentCardData) {
+        // displays the top card, here the first card in the array
+        let img = document.createElement('img')
+        img.className = "card-image"
+        img.id = imageId;
 
         const cardHolder = document.getElementById(id);
         cardHolder.appendChild(img)
 
         let children = cardHolder.children;
-        if ( id === 'card-img-container1' || (id === 'card-img-container2' && gameLogic.isRevealed()) )
-        {
+        if (id === 'card-img-container1' || (id === 'card-img-container2' && gameLogic.isRevealed())) {
             this.addOverlayImg(cardHolder, "effectiveness", gameLogic);
             this.addOverlayImg(cardHolder, "STI-protection", gameLogic);
             this.addOverlayImg(cardHolder, "cost", gameLogic);
             this.addOverlayImg(cardHolder, "accessibility", gameLogic);
             this.addOverlayImg(cardHolder, "side-effects", gameLogic);
-            
+
             children[0].innerHTML = currentCardData["effectiveness"]
             children[1].innerHTML = currentCardData["STI-protection"]
             children[2].innerHTML = currentCardData["cost"]
@@ -77,6 +86,7 @@ export default class Deck
             children[4].innerHTML = currentCardData["side-effects"]
         }
 
+        return img;
     }
 
     addOverlayImg(cardHolder, className, gameLogic)
