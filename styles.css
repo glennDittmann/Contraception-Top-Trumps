@@ -170,7 +170,6 @@ body {
     height: 200px;
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
   }
   
   .tooltip .tooltiptext-pearl-index {
