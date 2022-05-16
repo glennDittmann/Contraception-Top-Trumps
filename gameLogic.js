@@ -17,7 +17,7 @@ export default class GameLogic
 
 
             const cardsArea = document.getElementById("cards-area");
-            let paddingLeft = 270;
+            let paddingLeft = 270 - 60; // ,imus the amount the player 1 has right padding so the cards padding border is in center
             if(scaleWidth > scaleHeight)
             {
                 paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft*2)) / scaleHeight;

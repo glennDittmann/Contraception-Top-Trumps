@@ -6,6 +6,17 @@ body {
     margin: 0;
 }
 
+.top-bar{
+    padding: 0px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.top-bar-img{
+    width: auto;
+    height: 50px;
+}
+
 .game-canvas {
     display: flex;
     transform-origin: left top;
@@ -41,8 +52,13 @@ body {
     box-sizing: border-box;
 }
 
+.player1{
+    padding-right: 60px;
+}
+
 .player2 {
     float: right;
+    padding-left: 60px;
 }
 
 .card-container {
