@@ -3,24 +3,19 @@
 // TODO: add comparison for chosen category
 // TODO: reveal opponent card, when category was chosen
 
-export default class Deck
-{
-    constructor(cards, gameLogic)
-    {
+export default class Deck {
+    constructor(cards, gameLogic) {
         this.cards = cards
         this.gameLogic = gameLogic
     }
 
-    getNumCards()
-    {
+    getNumCards() {
         return this.cards.length
     }
-    
-    shuffle()
-    {
+
+    shuffle() {
         // this.cards.sort((a,b) => Math.random() - .5) apparently this is not perfectly randomized... https://www.youtube.com/watch?v=NxRwIZWjLtE at 9:40
-        for(let i = this.getNumCards() - 1; i > 0; i--)
-        {
+        for (let i = this.getNumCards() - 1; i > 0; i--) {
             const newIdx = Math.floor(Math.random() * (i + 1))  // a new position between 0 and i
             const oldCard = this.cards[newIdx]
             this.cards[newIdx] = this.cards[i]
@@ -28,9 +23,7 @@ export default class Deck
         }
     }
 
-
-    split()
-    {
+    split() {
         const deck1 = new Deck(this.cards.slice(0, this.getNumCards() / 2), this.gameLogic);
         const deck2 = new Deck(this.cards.slice(this.getNumCards() / 2, this.getNumCards()), this.gameLogic);
 
@@ -38,29 +31,28 @@ export default class Deck
     }
 
 
-    updateCardHolder(id, gameLogic)
-    {
+    updateCardHolder(id, gameLogic) {
         let currentCardData = this.cards[0];
 
         let imageId = id + "card-image";
 
         let img = document.getElementById(imageId);
-        if(img == null)
-        {
+        if (img == null) {
             img = this.addCardImageImgElement(imageId, id, gameLogic, currentCardData);
         }
 
         img.src = currentCardData["path"]
         if (id === 'card-img-container2' && !gameLogic.isRevealed()) {
             img.src = "assets/card-backside.png"
-        }
-        else if(this.cards[0].hasOwnProperty("path"))
-        {
+        } else if (this.cards[0].hasOwnProperty("path")) {
             img.src = currentCardData["path"]
-        }
-        else
-        {
+        } else {
             img.src = "assets/unknown.svg"
+        }
+
+        if (gameLogic.selectedAttribute != "") {
+            //const cardHolder = document.getElementById(id);
+            //Deck.setAttributeOverlaySelected(cardHolder, gameLogic.selectedAttribute)
         }
     }
 
@@ -91,43 +83,48 @@ export default class Deck
         return img;
     }
 
-    addOverlayImg(cardHolder, className, gameLogic)
-    {
-        function handleAttributeHover(overlayImg, className)
-        {
-            overlayImg.src = "assets/attribute_hovered.svg"
-            overlayImg.className = className + "_hovered"
-        }
+    static handleAttributeClick(overlayImg, attributeName, gameLogic) {
+        Deck.setAttributeOverlaySelected(overlayImg, attributeName)
 
-        function handleAttributeClick(overlayImg, className, gameLogic)
-        {
-            overlayImg.src = "assets/attribute_selected.svg"
-            overlayImg.className = className + "_selected"
+        const increment = 0.045;
+        let opacity = 0;
+        overlayImg.style.opacity = opacity
+        const instance = window.setInterval(function (overlayImg) {
+                overlayImg.style.opacity = opacity
+                opacity = opacity + increment;
+                if (opacity > 1) {
+                    window.clearInterval(instance);
+                    gameLogic.chooseAttribute(attributeName)
+                }
+            },
+            10,
+            overlayImg);
 
-            const increment = 0.045;
-            let opacity = 0;
-            overlayImg.style.opacity = opacity
-            const instance = window.setInterval(function (overlayImg)
-                {
-                    overlayImg.style.opacity = opacity
-                    opacity = opacity + increment;
-                    if (opacity > 1)
-                    {
-                        window.clearInterval(instance);
-                        gameLogic.chooseAttribute(className)
-                    }
-                },
-                10,
-                overlayImg);
-        }
+        gameLogic.selectedAttribute = attributeName;
+    }
 
-        const id = cardHolder.id + "_" + className + "_overlay"
+    static setAttributeOverlaySelected(overlayImg, attributeName) {
+        overlayImg.src = "assets/attribute_selected.svg"
+        overlayImg.className = attributeName + "_selected"
+    }
+
+    static handleAttributeHover(overlayImg, attributeName) {
+        overlayImg.src = "assets/attribute_hovered.svg"
+        overlayImg.className = attributeName + "_hovered"
+    }
+
+    addOverlayImg(cardHolder, attributeName, gameLogic) {
+        const id = cardHolder.id + "_" + attributeName + "_overlay"
 
         const overlayImg = document.createElement('img')
         overlayImg.id = id
-        overlayImg.onclick = function(){handleAttributeClick(overlayImg, className, gameLogic)}
-        overlayImg.onmouseenter = function(){handleAttributeHover(overlayImg, className)}
+        overlayImg.onclick = function () {
+            Deck.handleAttributeClick(overlayImg, attributeName, gameLogic)
+        }
+        overlayImg.onmouseenter = function () {
+            Deck.handleAttributeHover(overlayImg, attributeName)
+        }
         cardHolder.appendChild(overlayImg)
-        handleAttributeHover(overlayImg, className)
+        Deck.handleAttributeHover(overlayImg, attributeName)
     }
 }

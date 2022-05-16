@@ -14,6 +14,7 @@ export default class GameLogic {
         this.revealed = false;
         this.streakCount = 0;
         this.gameState = GameState.ClassicWaitingForAttribute;
+        this.selectedAttribute = ""
 
         function resizeWindow() {
             const scaleWidth = window.innerWidth / 1920
