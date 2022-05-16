@@ -34,10 +34,11 @@ body {
     flex-direction: column;
 }
 
-.explanation-bar-item {
+.explanation-bar-item, .pearl-index {
     width: 50px;
     height: 200px;
 }
+
 
 .headline {
     margin: 10px 20px;
@@ -153,6 +154,7 @@ body {
     bottom: 8.1%;
 }
 
+
 @font-face {
     font-family: 'comic_panelsregular';
     src: url('fonts/comicpanels-byvg-webfont.woff2') format('woff2'),
@@ -160,3 +162,122 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
+
+
+.tooltip {
+    width: 50px;
+    height: 200px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext-pearl-index {
+    font: 1em sans-serif;
+    visibility: hidden;
+    width: 600px;
+    background-color: #cab8ff;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: +30px;
+    right: -665px;
+  }
+  
+  .tooltip:hover .tooltiptext-pearl-index {
+    visibility: visible;
+  }
+
+
+  .tooltip .tooltiptext-STI {
+    font: 1em sans-serif;
+    visibility: hidden;
+    width: 600px;
+    background-color: #FFD33B;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: +30px;
+    right: -665px;
+  }
+  
+  .tooltip:hover .tooltiptext-STI {
+    visibility: visible;
+  }
+
+
+  .tooltip .tooltiptext-cost {
+    font: 1em sans-serif;
+    visibility: hidden;
+    width: 600px;
+    background-color: #FF66C4;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: +30px;
+    right: -665px;
+  }
+  
+  .tooltip:hover .tooltiptext-cost {
+    visibility: visible;
+  }
+
+
+  .tooltip .tooltiptext-accessibility {
+    font: 1em sans-serif;
+    visibility: hidden;
+    width: 600px;
+    background-color: #F4EFEF;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: +30px;
+    right: -665px;
+  }
+  
+  .tooltip:hover .tooltiptext-accessibility {
+    visibility: visible;
+  }
+
+
+  .tooltip .tooltiptext-side-effects {
+    font: 1em sans-serif;
+    visibility: hidden;
+    width: 600px;
+    background-color: #B4F1F4;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: +30px;
+    right: -665px;
+  }
+  
+  .tooltip:hover .tooltiptext-side-effects {
+    visibility: visible;
+  }
