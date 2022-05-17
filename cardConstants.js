@@ -1,5 +1,9 @@
 "use strict"
 
+const ATTRIBUTES = ["effectiveness", "STI-protection", "cost", "accessibility", "side-effects"];
+
+const N_ATTRIBUTES = 5;
+
 const CONDOM =
 {
     "name": "Condom",
@@ -97,4 +101,4 @@ const STERILIZATION =
 
 
 export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
-        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION}
+        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION, ATTRIBUTES, N_ATTRIBUTES}
