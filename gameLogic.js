@@ -1,7 +1,7 @@
 "use strict"
 
 import Deck from './cardDeck.js'
-import { ATTRIBUTES, N_ATTRIBUTES } from './cardConstants.js'
+import {ATTRIBUTES, N_ATTRIBUTES} from './cardConstants.js'
 
 export class GameState {
     static ClassicWaitingForAttribute = 1
@@ -62,7 +62,6 @@ export default class GameLogic {
 
 
     chooseAttribute(name) {
-
         if (this.gameState === GameState.ClassicWaitingForAttribute) {
             this.revealed = true;
 
@@ -91,51 +90,48 @@ export default class GameLogic {
             this.gameState = GameState.ClassicShowingComparisonResult
             console.log(this.gameState);
         }
-        
+
         this.updateCardHolders()
     }
 
-    updateCardHolders()
-    {
+    updateCardHolders() {
         this.playerDeck.updateCardHolder('card-img-container1', this)
         this.aiDeck.updateCardHolder('card-img-container2', this)
     }
 
-    selectedAttributeAI(){
-        var selectedAttrIdx = Math.floor(Math.random() * N_ATTRIBUTES);
+    selectedAttributeAI() {
+        const selectedAttrIdx = Math.floor(Math.random() * N_ATTRIBUTES);
         this.selectedAttributeAI = ATTRIBUTES[selectedAttrIdx];
     }
 
-
-    addNextRoundButton(){
+    addNextRoundButton() {
         this.button = document.getElementById("next-round-button");
 
-        
         const gameLogic = this;
         this.button.onclick = function () {
             GameLogic.handleNextRoundClick(gameLogic);
         }
     }
 
-
-    static handleNextRoundClick(gameLogic){
-        console.log(gameLogic.gameState);
-        if(gameLogic.gameState === GameState.ClassicShowingComparisonResult){
+    static handleNextRoundClick(gameLogic) {
+        console.log(gameLogic.gameState)
+        if (gameLogic.gameState === GameState.ClassicShowingComparisonResult) {
 
             // spawn new cards
             gameLogic.gameState = GameState.ClassicWaitingForAttribute
 
-            gameLogic.playerDeck.cards.shift()
-            gameLogic.revealed = false;
-            gameLogic.aiDeck.cards.shift()
+            this.discardPlayedCards(gameLogic);
+            gameLogic.updateCardHolders();
 
-            gameLogic.playerDeck.updateCardHolder('card-img-container1', gameLogic)
-            gameLogic.aiDeck.updateCardHolder('card-img-container2', gameLogic)
-
-            console.log(gameLogic.gameState);
+            console.log(gameLogic.gameState)
         }
     }
 
+    static discardPlayedCards(gameLogic) {
+        gameLogic.revealed = false
+        gameLogic.playerDeck.cards.shift()
+        gameLogic.aiDeck.cards.shift()
+    }
 
     isRevealed() {
         return this.revealed;

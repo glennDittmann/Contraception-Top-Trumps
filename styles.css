@@ -6,13 +6,13 @@ body {
     margin: 0;
 }
 
-.top-bar{
-    padding: 0px 0;
+.top-bar {
+    padding: 0 0;
     display: flex;
     justify-content: center;
 }
 
-.top-bar-img{
+.top-bar-img {
     width: auto;
     height: 50px;
 }
@@ -53,13 +53,13 @@ body {
     box-sizing: border-box;
 }
 
-.player1{
+.player1 {
     padding-right: 670px;
 }
 
 .player2 {
     float: right;
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .card-container {
@@ -154,14 +154,13 @@ body {
     bottom: 8.1%;
 }
 
-
-.button-container{
+.next-round-button-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.button{
+.next-round-button {
     display: flex;
     justify-content: center;
     width: 30px;
@@ -178,12 +177,10 @@ body {
     transition-duration: 0.4s;
 }
 
-
-.button:hover{
+.next-round-button:hover {
     background-color: #e7e0fc;
     color:#152740;
 }
-
 
 @font-face {
     font-family: 'comic_panelsregular';
@@ -193,16 +190,14 @@ body {
     font-style: normal;
 }
 
-
-
 .tooltip {
     width: 50px;
     height: 200px;
     position: relative;
     display: inline-block;
-  }
-  
-  .tooltip .tooltiptext-pearl-index {
+}
+
+.tooltip .tooltip-text-pearl-index {
     font: 1em sans-serif;
     visibility: hidden;
     width: 600px;
@@ -211,20 +206,19 @@ body {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: +30px;
     right: -665px;
-  }
-  
-  .tooltip:hover .tooltiptext-pearl-index {
+}
+
+.tooltip:hover .tooltip-text-pearl-index {
     visibility: visible;
-  }
+}
 
-
-  .tooltip .tooltiptext-STI {
+.tooltip .tooltip-text-STI {
     font: 1em sans-serif;
     visibility: hidden;
     width: 600px;
@@ -233,20 +227,19 @@ body {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: +30px;
     right: -665px;
-  }
-  
-  .tooltip:hover .tooltiptext-STI {
+}
+
+.tooltip:hover .tooltip-text-STI {
     visibility: visible;
-  }
+}
 
-
-  .tooltip .tooltiptext-cost {
+.tooltip .tooltip-text-cost {
     font: 1em sans-serif;
     visibility: hidden;
     width: 600px;
@@ -255,20 +248,19 @@ body {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: +30px;
     right: -665px;
-  }
-  
-  .tooltip:hover .tooltiptext-cost {
+}
+
+.tooltip:hover .tooltip-text-cost {
     visibility: visible;
-  }
+}
 
-
-  .tooltip .tooltiptext-accessibility {
+.tooltip .tooltip-text-accessibility {
     font: 1em sans-serif;
     visibility: hidden;
     width: 600px;
@@ -277,20 +269,20 @@ body {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: +30px;
     right: -665px;
-  }
-  
-  .tooltip:hover .tooltiptext-accessibility {
+}
+
+.tooltip:hover .tooltip-text-accessibility {
     visibility: visible;
-  }
+}
 
 
-  .tooltip .tooltiptext-side-effects {
+.tooltip .tooltip-text-side-effects {
     font: 1em sans-serif;
     visibility: hidden;
     width: 600px;
@@ -299,14 +291,14 @@ body {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: +30px;
     right: -665px;
-  }
-  
-  .tooltip:hover .tooltiptext-side-effects {
+}
+
+.tooltip:hover .tooltip-text-side-effects {
     visibility: visible;
-  }
+}
