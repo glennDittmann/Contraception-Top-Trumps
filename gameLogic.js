@@ -90,11 +90,8 @@ export default class GameLogic {
             console.log("HELLLO");
             this.gameState = GameState.ClassicShowingComparisonResult
             console.log(this.gameState);
-        } else if (this.gameState === GameState.ClassicShowingComparisonResult) {
-            this.playerDeck.cards.shift()
-            this.aiDeck.cards.shift()
         }
-
+        
         this.playerDeck.updateCardHolder('card-img-container1', this)
         this.aiDeck.updateCardHolder('card-img-container2', this)
     }
@@ -108,24 +105,29 @@ export default class GameLogic {
 
     addNextRoundButton(){
         this.button = document.getElementById("next-round-button");
-        
-        console.log(this.gameState);console.log(this.gameState);console.log(this.gameState);
-        
-        var gs = this.gameState;
+
+        const gameLogic = this;
         this.button.onclick = function () {
-            GameLogic.handleNextRoundClick(gs);
+            GameLogic.handleNextRoundClick(gameLogic);
         }
     }
 
 
-    static handleNextRoundClick(gameState){
-        //console.log(gameState);
-        if(gameState === GameState.ClassicShowingComparisonResult){
+    static handleNextRoundClick(gameLogic){
+        console.log(gameLogic.gameState);
+        if(gameLogic.gameState === GameState.ClassicShowingComparisonResult){
 
             // spawn new cards
-            console.log(gameState);
+            gameLogic.gameState = GameState.ClassicWaitingForAttribute
 
-            gameState = GameState.ClassicWaitingForAttribute
+            gameLogic.playerDeck.cards.shift()
+            gameLogic.revealed = false;
+            gameLogic.aiDeck.cards.shift()
+
+            gameLogic.playerDeck.updateCardHolder('card-img-container1', gameLogic)
+            gameLogic.aiDeck.updateCardHolder('card-img-container2', gameLogic)
+
+            console.log(gameLogic.gameState);
         }
     }
 
