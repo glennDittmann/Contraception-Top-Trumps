@@ -1,8 +1,5 @@
 "use strict"
 
-// TODO: add comparison for chosen category
-// TODO: reveal opponent card, when category was chosen
-
 export default class Deck {
     constructor(cards, gameLogic) {
         this.cards = cards
@@ -34,7 +31,7 @@ export default class Deck {
     updateCardHolder(id, gameLogic) {
         let currentCardData = this.cards[0];
 
-        let imageId = id + "card-image";
+        let imageId = id + "_card-image";
 
         let img = document.getElementById(imageId);
         if (img == null) {
@@ -42,6 +39,7 @@ export default class Deck {
         }
 
         img.src = currentCardData["path"]
+        
         if (id === 'card-img-container2' && !gameLogic.isRevealed()) {
             img.src = "assets/card-backside.png"
         } else if (this.cards[0].hasOwnProperty("path")) {
@@ -52,7 +50,7 @@ export default class Deck {
 
         if (gameLogic.selectedAttribute != "") {
             const cardHolder = document.getElementById(id);
-            const overlayImgId = this.GetOverlayImgId(cardHolder, gameLogic.selectedAttribute)
+            const overlayImgId = this.GetOverlayImgId(cardHolder, gameLogic.selectedAttribute);
             const overlayImg = document.getElementById(overlayImgId);
             Deck.setAttributeOverlaySelected(overlayImg, gameLogic.selectedAttribute)
         }
@@ -68,7 +66,7 @@ export default class Deck {
         cardHolder.appendChild(img)
 
         let children = cardHolder.children;
-        if (id === 'card-img-container1' || (id === 'card-img-container2' && gameLogic.isRevealed())) {
+        if (id === 'card-img-container1' || (id === 'card-img-container2' && gameLogic.isRevealed()) ) { 
             this.addOverlayImg(cardHolder, "effectiveness", gameLogic);
             this.addOverlayImg(cardHolder, "STI-protection", gameLogic);
             this.addOverlayImg(cardHolder, "cost", gameLogic);
@@ -115,22 +113,42 @@ export default class Deck {
         overlayImg.className = attributeName + "_hovered"
     }
 
-    addOverlayImg(cardHolder, attributeName, gameLogic) {
+    addOverlayImg(cardHolder, attributeName, gameLogic, clickable = true, hoverable = true) {
         const id = this.GetOverlayImgId(cardHolder, attributeName)
 
         const overlayImg = document.createElement('img')
         overlayImg.id = id
-        overlayImg.onclick = function () {
-            Deck.handleAttributeClick(overlayImg, attributeName, gameLogic)
+        
+        if(clickable) {
+            overlayImg.onclick = function () {
+                Deck.handleAttributeClick(overlayImg, attributeName, gameLogic)
+            }
         }
-        overlayImg.onmouseenter = function () {
-            Deck.handleAttributeHover(overlayImg, attributeName)
+        
+        if(hoverable){
+                overlayImg.onmouseenter = function () {
+                    Deck.handleAttributeHover(overlayImg, attributeName)
+                }
         }
+        
         cardHolder.appendChild(overlayImg)
         Deck.handleAttributeHover(overlayImg, attributeName)
     }
 
     GetOverlayImgId(cardHolder, attributeName) {
         return cardHolder.id + "_" + attributeName + "_overlay";
+    }
+
+    AddAICardSelected(gameLogic){
+        const cardHolder = document.getElementById('card-img-container2');
+
+        let children = cardHolder.children;
+        console.log(children[0]);
+        
+        this.addOverlayImg(cardHolder, "effectiveness", gameLogic, false, false);
+        this.addOverlayImg(cardHolder, "STI-protection", gameLogic, false, false);
+        this.addOverlayImg(cardHolder, "cost", gameLogic, false, false);
+        this.addOverlayImg(cardHolder, "accessibility", gameLogic, false, false);
+        this.addOverlayImg(cardHolder, "side-effects", gameLogic, false, false);
     }
 }

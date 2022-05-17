@@ -1,6 +1,7 @@
 "use strict"
 
 import Deck from './cardDeck.js'
+import { ATTRIBUTES, N_ATTRIBUTES } from './cardConstants.js'
 
 class GameState {
     static ClassicWaitingForAttribute = 1
@@ -15,6 +16,8 @@ export default class GameLogic {
         this.streakCount = 0;
         this.gameState = GameState.ClassicWaitingForAttribute;
         this.selectedAttribute = ""
+        this.selectedAttributeAI = "";
+        
 
         function resizeWindow() {
             const scaleWidth = window.innerWidth / 1920
@@ -57,10 +60,13 @@ export default class GameLogic {
         console.log(this.aiDeck.cards)
     }
 
+
     chooseAttribute(name) {
 
         if (this.gameState === GameState.ClassicWaitingForAttribute) {
-            this.revealed = true
+            this.revealed = true;
+
+            this.aiDeck.AddAICardSelected(this);
 
             let wonComparison = false
             if (name === "effectiveness") {
@@ -83,8 +89,8 @@ export default class GameLogic {
 
             this.gameState = GameState.ClassicShowingComparisonResult
         } else if (this.gameState === GameState.ClassicShowingComparisonResult) {
-            this.playerDeck.cards.shift()
-            this.aiDeck.cards.shift()
+            this.playerDeck.cards.shift()  // TODO: implement me
+            this.aiDeck.cards.shift()      // TODO: implement me
 
             this.gameState = GameState.ClassicWaitingForAttribute
         }
@@ -92,6 +98,13 @@ export default class GameLogic {
         this.playerDeck.updateCardHolder('card-img-container1', this)
         this.aiDeck.updateCardHolder('card-img-container2', this)
     }
+
+
+    selectedAttributeAI(){
+        var selectedAttrIdx = Math.floor(Math.random() * N_ATTRIBUTES);
+        this.selectedAttributeAI = ATTRIBUTES[selectedAttrIdx];
+    }
+
 
     isRevealed() {
         return this.revealed;
