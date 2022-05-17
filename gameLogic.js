@@ -92,10 +92,14 @@ export default class GameLogic {
             console.log(this.gameState);
         }
         
+        this.updateCardHolders()
+    }
+
+    updateCardHolders()
+    {
         this.playerDeck.updateCardHolder('card-img-container1', this)
         this.aiDeck.updateCardHolder('card-img-container2', this)
     }
-
 
     selectedAttributeAI(){
         var selectedAttrIdx = Math.floor(Math.random() * N_ATTRIBUTES);
@@ -106,6 +110,7 @@ export default class GameLogic {
     addNextRoundButton(){
         this.button = document.getElementById("next-round-button");
 
+        
         const gameLogic = this;
         this.button.onclick = function () {
             GameLogic.handleNextRoundClick(gameLogic);

@@ -48,7 +48,7 @@ export default class Deck {
             img.src = "assets/unknown.svg"
         }
 
-        if (gameLogic.selectedAttribute != "") {
+        if (gameLogic.selectedAttribute !== "") {
             const cardHolder = document.getElementById(id);
             const overlayImgId = this.GetOverlayImgId(cardHolder, gameLogic.selectedAttribute);
             const overlayImg = document.getElementById(overlayImgId);
@@ -84,7 +84,7 @@ export default class Deck {
     }
 
     static handleAttributeClick(overlayImg, attributeName, gameLogic) {
-        if (gameLogic.gameState == 1){
+        if (gameLogic.gameState === 1){
             Deck.setAttributeOverlaySelected(overlayImg, attributeName)
     
             const increment = 0.045;
@@ -110,7 +110,7 @@ export default class Deck {
         overlayImg.className = attributeName + "_selected"
     }
 
-    static handleAttributeHover(overlayImg, attributeName, gameLogic) {
+    static handleAttributeHover(overlayImg, attributeName) {
             overlayImg.src = "assets/attribute_hovered.svg"
             overlayImg.className = attributeName + "_hovered"
     }
@@ -129,12 +129,12 @@ export default class Deck {
         
         if(hoverable){
                 overlayImg.onmouseenter = function () {
-                    Deck.handleAttributeHover(overlayImg, attributeName, gameLogic)
+                    Deck.handleAttributeHover(overlayImg, attributeName)
                 }
         }
         
         cardHolder.appendChild(overlayImg)
-        Deck.handleAttributeHover(overlayImg, attributeName, gameLogic)
+        Deck.handleAttributeHover(overlayImg, attributeName)
     }
 
     GetOverlayImgId(cardHolder, attributeName) {
