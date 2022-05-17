@@ -66,7 +66,7 @@ export default class GameLogic {
         if (this.gameState === GameState.ClassicWaitingForAttribute) {
             this.revealed = true;
 
-            this.aiDeck.AddAICardSelected(this);
+            this.aiDeck.AddAICardSelectedOverlay(this);
 
             let wonComparison = false
             if (name === "effectiveness") {

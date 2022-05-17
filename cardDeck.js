@@ -139,11 +139,8 @@ export default class Deck {
         return cardHolder.id + "_" + attributeName + "_overlay";
     }
 
-    AddAICardSelected(gameLogic){
+    AddAICardSelectedOverlay(gameLogic){
         const cardHolder = document.getElementById('card-img-container2');
-
-        let children = cardHolder.children;
-        console.log(children[0]);
         
         this.addOverlayImg(cardHolder, "effectiveness", gameLogic, false, false);
         this.addOverlayImg(cardHolder, "STI-protection", gameLogic, false, false);
