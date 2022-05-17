@@ -51,8 +51,10 @@ export default class Deck {
         }
 
         if (gameLogic.selectedAttribute != "") {
-            //const cardHolder = document.getElementById(id);
-            //Deck.setAttributeOverlaySelected(cardHolder, gameLogic.selectedAttribute)
+            const cardHolder = document.getElementById(id);
+            const overlayImgId = this.GetOverlayImgId(cardHolder, gameLogic.selectedAttribute)
+            const overlayImg = document.getElementById(overlayImgId);
+            Deck.setAttributeOverlaySelected(overlayImg, gameLogic.selectedAttribute)
         }
     }
 
@@ -114,7 +116,7 @@ export default class Deck {
     }
 
     addOverlayImg(cardHolder, attributeName, gameLogic) {
-        const id = cardHolder.id + "_" + attributeName + "_overlay"
+        const id = this.GetOverlayImgId(cardHolder, attributeName)
 
         const overlayImg = document.createElement('img')
         overlayImg.id = id
@@ -126,5 +128,9 @@ export default class Deck {
         }
         cardHolder.appendChild(overlayImg)
         Deck.handleAttributeHover(overlayImg, attributeName)
+    }
+
+    GetOverlayImgId(cardHolder, attributeName) {
+        return cardHolder.id + "_" + attributeName + "_overlay";
     }
 }
