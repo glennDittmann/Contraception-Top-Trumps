@@ -14,36 +14,17 @@ export default class GameLogic {
     constructor() {
         this.revealed = false;
         this.streakCount = 0;
-        this.gameState = GameState.ClassicWaitingForAttribute;
+        this.gameState = 0;
         this.selectedAttribute = ""
         this.selectedAttributeAI = "";
         this.addNextRoundButton();
 
-        function resizeWindow() {
-            const scaleWidth = window.innerWidth / 1920
-            const scaleHeight = window.innerHeight / 1080;
-            const scale = Math.min(scaleHeight, scaleWidth)
+        window.onresize = GameLogic.resizeWindow
 
-            const gameCanvas = document.getElementById("game-canvas");
-            gameCanvas.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
-
-
-            const cardsArea = document.getElementById("cards-area");
-            let paddingLeft = 270 - 60 - 30; // minus the amount the player 1 has right padding so the cards padding border is in center
-            if (scaleWidth > scaleHeight) {
-                paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
-            }
-            cardsArea.style.paddingLeft = paddingLeft + 'px';
-        }
-
-        window.onresize = resizeWindow
-
-        resizeWindow()
-
+        GameLogic.resizeWindow()
     }
 
     init(deck) {
-
         deck.shuffle()
         const decks = deck.split();
         this.playerDeck = decks.deck1
@@ -52,51 +33,94 @@ export default class GameLogic {
         const discardDeck = new Deck({}, this);
         this.discardDeck = discardDeck
 
-
-        this.playerDeck.updateCardHolder('card-img-container1', this)
-        this.aiDeck.updateCardHolder('card-img-container2', this)
-
         console.log(this.playerDeck.cards)
         console.log(this.aiDeck.cards)
+
+        this.handleProceedToNextGameState()
     }
 
+    static resizeWindow() {
+        const scaleWidth = window.innerWidth / 1920
+        const scaleHeight = window.innerHeight / 1080;
+        const scale = Math.min(scaleHeight, scaleWidth)
 
-    chooseAttribute(name) {
-        if (this.gameState === GameState.ClassicWaitingForAttribute) {
-            this.revealed = true;
+        const gameCanvas = document.getElementById("game-canvas");
+        gameCanvas.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
 
-            this.aiDeck.AddAICardSelectedOverlay(this);
 
-            let wonComparison = false
-            if (name === "effectiveness") {
-                wonComparison = this.compEffectiveness()
-            } else if (name === "STI-protection") {
-                wonComparison = this.compStiProtection()
-            } else if (name === "cost") {
-                wonComparison = this.compCost()
-            } else if (name === "accessibility") {
-                wonComparison = this.compAccessibility()
-            } else if (name === "side-effects") {
-                wonComparison = this.compSideEffects()
-            }
+        const cardsArea = document.getElementById("cards-area");
+        let paddingLeft = 270 - 60 - 30; // minus the amount the player 1 has right padding so the cards padding border is in center
+        if (scaleWidth > scaleHeight) {
+            paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
+        }
+        cardsArea.style.paddingLeft = paddingLeft + 'px';
+    }
 
-            if (wonComparison) {
-                ++this.streakCount
-            } else {
-                this.streakCount = 0
-            }
-
-            console.log("HELLLO");
-            this.gameState = GameState.ClassicShowingComparisonResult
-            console.log(this.gameState);
+    handleProceedToNextGameState() {
+        if(this.gameState === 0) {
+            this.nextRoundButton.style.visibility = "hidden";
+            this.revealed = false;
+            this.gameState = GameState.ClassicWaitingForAttribute
+        }
+        else if(this.gameState === GameState.ClassicWaitingForAttribute) {
+            this.handleProceedFromWaitingForAttribute();
+        }
+        else if (this.gameState === GameState.ClassicShowingComparisonResult) {
+            this.handleEnterChooseLowerWaitingForAttribute();
         }
 
         this.updateCardHolders()
     }
 
+    handleEnterChooseLowerWaitingForAttribute() {
+        this.discardPlayedCards();
+
+        this.nextRoundButton.style.visibility = "hidden";
+
+        // spawn new cards
+        this.gameState = GameState.ClassicWaitingForAttribute
+    }
+
+    handleProceedFromWaitingForAttribute() {
+        this.revealed = true;
+        const selectedAttribute = this.selectedAttribute;
+
+        this.aiDeck.AddAICardSelectedOverlay(this);
+
+        let wonComparison = false
+        if (selectedAttribute === "effectiveness") {
+            wonComparison = this.compEffectiveness()
+        } else if (selectedAttribute === "STI-protection") {
+            wonComparison = this.compStiProtection()
+        } else if (selectedAttribute === "cost") {
+            wonComparison = this.compCost()
+        } else if (selectedAttribute === "accessibility") {
+            wonComparison = this.compAccessibility()
+        } else if (selectedAttribute === "side-effects") {
+            wonComparison = this.compSideEffects()
+        }
+
+        if (wonComparison) {
+            ++this.streakCount
+        } else {
+            this.streakCount = 0
+        }
+
+
+        this.nextRoundButton.style.visibility = "visible";
+        this.gameState = GameState.ClassicShowingComparisonResult
+        console.log(this.gameState);
+    }
+
     updateCardHolders() {
         this.playerDeck.updateCardHolder('card-img-container1', this)
         this.aiDeck.updateCardHolder('card-img-container2', this)
+    }
+
+    discardPlayedCards() {
+        this.revealed = false
+        this.playerDeck.cards.shift()
+        this.aiDeck.cards.shift()
     }
 
     selectedAttributeAI() {
@@ -105,32 +129,20 @@ export default class GameLogic {
     }
 
     addNextRoundButton() {
-        this.button = document.getElementById("next-round-button");
+        this.nextRoundButton = document.getElementById("next-round-button");
 
         const gameLogic = this;
-        this.button.onclick = function () {
+        this.nextRoundButton.onclick = function () {
             GameLogic.handleNextRoundClick(gameLogic);
         }
     }
 
     static handleNextRoundClick(gameLogic) {
         console.log(gameLogic.gameState)
-        if (gameLogic.gameState === GameState.ClassicShowingComparisonResult) {
 
-            // spawn new cards
-            gameLogic.gameState = GameState.ClassicWaitingForAttribute
+        gameLogic.handleProceedToNextGameState()
 
-            this.discardPlayedCards(gameLogic);
-            gameLogic.updateCardHolders();
-
-            console.log(gameLogic.gameState)
-        }
-    }
-
-    static discardPlayedCards(gameLogic) {
-        gameLogic.revealed = false
-        gameLogic.playerDeck.cards.shift()
-        gameLogic.aiDeck.cards.shift()
+        console.log(gameLogic.gameState)
     }
 
     isRevealed() {

@@ -162,6 +162,7 @@ body {
 
 .next-round-button {
     display: flex;
+    visibility: hidden;
     justify-content: center;
     width: 30px;
     height: 30px;

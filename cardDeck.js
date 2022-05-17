@@ -95,7 +95,8 @@ export default class Deck {
                     opacity = opacity + increment;
                     if (opacity > 1) {
                         window.clearInterval(instance);
-                        gameLogic.chooseAttribute(attributeName)
+                        gameLogic.selectedAttribute = attributeName;
+                        gameLogic.handleProceedToNextGameState()
                     }
                 },
                 10,
