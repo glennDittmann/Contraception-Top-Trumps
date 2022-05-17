@@ -3,7 +3,7 @@
 import Deck from './cardDeck.js'
 import { ATTRIBUTES, N_ATTRIBUTES } from './cardConstants.js'
 
-class GameState {
+export class GameState {
     static ClassicWaitingForAttribute = 1
     static ClassicShowingComparisonResult = 2
     static ChooseLowerWaitingForAttribute = 3

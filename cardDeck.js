@@ -84,23 +84,26 @@ export default class Deck {
     }
 
     static handleAttributeClick(overlayImg, attributeName, gameLogic) {
-        Deck.setAttributeOverlaySelected(overlayImg, attributeName)
-
-        const increment = 0.045;
-        let opacity = 0;
-        overlayImg.style.opacity = opacity
-        const instance = window.setInterval(function (overlayImg) {
-                overlayImg.style.opacity = opacity
-                opacity = opacity + increment;
-                if (opacity > 1) {
-                    window.clearInterval(instance);
-                    gameLogic.chooseAttribute(attributeName)
-                }
-            },
-            10,
-            overlayImg);
-
-        gameLogic.selectedAttribute = attributeName;
+        console.log(gameLogic.gameState);
+        if (gameLogic.gameState == 1){
+            Deck.setAttributeOverlaySelected(overlayImg, attributeName)
+    
+            const increment = 0.045;
+            let opacity = 0;
+            overlayImg.style.opacity = opacity
+            const instance = window.setInterval(function (overlayImg) {
+                    overlayImg.style.opacity = opacity
+                    opacity = opacity + increment;
+                    if (opacity > 1) {
+                        window.clearInterval(instance);
+                        gameLogic.chooseAttribute(attributeName)
+                    }
+                },
+                10,
+                overlayImg);
+    
+            gameLogic.selectedAttribute = attributeName;
+        }
     }
 
     static setAttributeOverlaySelected(overlayImg, attributeName) {
@@ -108,9 +111,9 @@ export default class Deck {
         overlayImg.className = attributeName + "_selected"
     }
 
-    static handleAttributeHover(overlayImg, attributeName) {
-        overlayImg.src = "assets/attribute_hovered.svg"
-        overlayImg.className = attributeName + "_hovered"
+    static handleAttributeHover(overlayImg, attributeName, gameLogic) {
+            overlayImg.src = "assets/attribute_hovered.svg"
+            overlayImg.className = attributeName + "_hovered"
     }
 
     addOverlayImg(cardHolder, attributeName, gameLogic, clickable = true, hoverable = true) {
@@ -127,12 +130,12 @@ export default class Deck {
         
         if(hoverable){
                 overlayImg.onmouseenter = function () {
-                    Deck.handleAttributeHover(overlayImg, attributeName)
+                    Deck.handleAttributeHover(overlayImg, attributeName, gameLogic)
                 }
         }
         
         cardHolder.appendChild(overlayImg)
-        Deck.handleAttributeHover(overlayImg, attributeName)
+        Deck.handleAttributeHover(overlayImg, attributeName, gameLogic)
     }
 
     GetOverlayImgId(cardHolder, attributeName) {
