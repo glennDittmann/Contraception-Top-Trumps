@@ -1,9 +1,5 @@
 "use strict"
 
-// TODO: selectedAttribute auch auf den die 2. Karte im updateCardHolder anwenden --> overlays hinzufügen
-// TODO: 2. Karte kein highlight wenn nicht revealed
-// TODO: selection / hover overlays mit js an-/abschalten anstelle von css
-
 import Deck from './cardDeck.js'
 import GameLogic from './gameLogic.js';
 import {ANTI_BABY_PILL, COITUS_INTERRUPTUS, CONDOM, COPPER_COIL, DIAPHRAGMA,

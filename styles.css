@@ -54,12 +54,12 @@ body {
 }
 
 .player1{
-    padding-right: 60px;
+    padding-right: 670px;
 }
 
 .player2 {
     float: right;
-    padding-left: 60px;
+    padding-left: 0px;
 }
 
 .card-container {
@@ -152,6 +152,36 @@ body {
 
 .side-effects {
     bottom: 8.1%;
+}
+
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font: 1em sans-serif;
+    font-size: 15px;
+    background-color: #cab8ff;
+    border: none;
+    color:#F4EFEF;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+
+.button:hover{
+    background-color: #e7e0fc;
+    color:#152740;
 }
 
 

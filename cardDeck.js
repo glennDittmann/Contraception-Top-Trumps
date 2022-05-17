@@ -84,7 +84,6 @@ export default class Deck {
     }
 
     static handleAttributeClick(overlayImg, attributeName, gameLogic) {
-        console.log(gameLogic.gameState);
         if (gameLogic.gameState == 1){
             Deck.setAttributeOverlaySelected(overlayImg, attributeName)
     

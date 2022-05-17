@@ -17,7 +17,7 @@ export default class GameLogic {
         this.gameState = GameState.ClassicWaitingForAttribute;
         this.selectedAttribute = ""
         this.selectedAttributeAI = "";
-        
+        this.addNextRoundButton();
 
         function resizeWindow() {
             const scaleWidth = window.innerWidth / 1920
@@ -29,7 +29,7 @@ export default class GameLogic {
 
 
             const cardsArea = document.getElementById("cards-area");
-            let paddingLeft = 270 - 60; // minus the amount the player 1 has right padding so the cards padding border is in center
+            let paddingLeft = 270 - 60 - 30; // minus the amount the player 1 has right padding so the cards padding border is in center
             if (scaleWidth > scaleHeight) {
                 paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
             }
@@ -87,12 +87,12 @@ export default class GameLogic {
                 this.streakCount = 0
             }
 
+            console.log("HELLLO");
             this.gameState = GameState.ClassicShowingComparisonResult
+            console.log(this.gameState);
         } else if (this.gameState === GameState.ClassicShowingComparisonResult) {
-            this.playerDeck.cards.shift()  // TODO: implement me
-            this.aiDeck.cards.shift()      // TODO: implement me
-
-            this.gameState = GameState.ClassicWaitingForAttribute
+            this.playerDeck.cards.shift()
+            this.aiDeck.cards.shift()
         }
 
         this.playerDeck.updateCardHolder('card-img-container1', this)
@@ -103,6 +103,30 @@ export default class GameLogic {
     selectedAttributeAI(){
         var selectedAttrIdx = Math.floor(Math.random() * N_ATTRIBUTES);
         this.selectedAttributeAI = ATTRIBUTES[selectedAttrIdx];
+    }
+
+
+    addNextRoundButton(){
+        this.button = document.getElementById("next-round-button");
+        
+        console.log(this.gameState);console.log(this.gameState);console.log(this.gameState);
+        
+        var gs = this.gameState;
+        this.button.onclick = function () {
+            GameLogic.handleNextRoundClick(gs);
+        }
+    }
+
+
+    static handleNextRoundClick(gameState){
+        //console.log(gameState);
+        if(gameState === GameState.ClassicShowingComparisonResult){
+
+            // spawn new cards
+            console.log(gameState);
+
+            gameState = GameState.ClassicWaitingForAttribute
+        }
     }
 
 
