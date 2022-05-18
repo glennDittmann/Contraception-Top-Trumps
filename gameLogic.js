@@ -85,8 +85,6 @@ export default class GameLogic {
         this.revealed = true;
         const selectedAttribute = this.selectedAttribute;
 
-        this.aiDeck.AddAICardSelectedOverlay(this);
-
         let wonComparison = false
         if (selectedAttribute === "effectiveness") {
             wonComparison = this.compEffectiveness()
@@ -106,15 +104,14 @@ export default class GameLogic {
             this.streakCount = 0
         }
 
-
         this.nextRoundButton.style.visibility = "visible";
         this.gameState = GameState.ClassicShowingComparisonResult
         console.log(this.gameState);
     }
 
     updateCardHolders() {
-        this.playerDeck.updateCardHolder('card-img-container1', this)
-        this.aiDeck.updateCardHolder('card-img-container2', this)
+        this.playerDeck.updateCardHolder(1, this)
+        this.aiDeck.updateCardHolder(2, this)
     }
 
     discardPlayedCards() {
@@ -154,7 +151,7 @@ export default class GameLogic {
     }
 
     compStiProtection() {
-        return this.playerDeck.cards[0]["STI-protection"] >= this.aiDeck.cards[0]["STI-protection"];
+        return this.playerDeck.cards[0]["sti-protection"] >= this.aiDeck.cards[0]["sti-protection"];
     }
 
     compCost() {

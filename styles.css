@@ -91,19 +91,19 @@ body {
 }
 
 
-.effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered,
-.effectiveness_selected, .STI-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected {
+.effectiveness_hovered, .sti-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered,
+.effectiveness_selected, .sti-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected {
     position: absolute;
     left: 0;
     right: 0;
     width: 100%;
 }
 
-.effectiveness_hovered, .STI-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered {
+.effectiveness_hovered, .sti-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered {
     opacity: 0.0;
 }
 
-.effectiveness_hovered:hover, .STI-protection_hovered:hover, .cost_hovered:hover, .accessibility_hovered:hover, .side-effects_hovered:hover {
+.effectiveness_hovered:hover, .sti-protection_hovered:hover, .cost_hovered:hover, .accessibility_hovered:hover, .side-effects_hovered:hover {
     opacity: 1.0;
 }
 
@@ -111,7 +111,7 @@ body {
     top: 55.1%;
 }
 
-.STI-protection_hovered, .STI-protection_selected {
+.sti-protection_hovered, .sti-protection_selected {
     top: 62.6%;
 }
 
