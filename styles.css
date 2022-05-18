@@ -1,6 +1,6 @@
 body {
     background-color: #152740;
-    font-family: 1em sans-serif, 'comic_panelsregular';
+    font-family: 'comic_panelsregular', sans-serif;
     font-size: 30px;
     line-height: 1.8em;
     margin: 0;
@@ -9,7 +9,7 @@ body {
 .point-display{
     font: 1em sans-serif;
     color: #FCFCFD;
-    font-size: 20px;
+    font-size: 50px;
 }
 
 .top-bar {
@@ -44,7 +44,6 @@ body {
     width: 50px;
     height: 200px;
 }
-
 
 .headline {
     margin: 10px 20px;
@@ -129,7 +128,7 @@ body {
     position: absolute;
     right: 14%;
     color: darkcyan;
-    font-size: 27px;
+    font-size: 32px;
 }
 
 .effectiveness {
