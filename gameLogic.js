@@ -129,6 +129,7 @@ export default class GameLogic {
         }
         else if( this.playerDeck.cards.length === 0 && this.aiDeck.cards.length === 0){  // both decks are empty, usually on check should be sufficient; just in case though
             this.dealNewCards();
+            document.getElementById("next-round-button").innerHTML = "Nächste Karte";
         }
     }
 
