@@ -108,9 +108,9 @@ export default class Deck {
         const overlayImage = document.getElementById(attributeOverlayId);
 
         if (isHidden) {
-            Deck.setAttributeOverlayRegular(overlayImage, attributeName)
+            Deck.setAttributeOverlayHidden(overlayImage, attributeName)
         } else {
-            Deck.setAttributeOverlayHovered(overlayImage, attributeName)
+            Deck.setAttributeOverlayRegular(overlayImage, attributeName)
         }
     }
 
@@ -144,7 +144,7 @@ export default class Deck {
         }
         else
         {
-            Deck.setAttributeOverlayHovered(overlayImg, attributeName)
+            Deck.setAttributeOverlayRegular(overlayImg, attributeName)
         }
     }
 
@@ -155,9 +155,22 @@ export default class Deck {
         }
         else
         {
-            Deck.setAttributeOverlayHovered(overlayImg, attributeName)
+            Deck.setAttributeOverlayRegular(overlayImg, attributeName)
         }
     }
+
+    static setAttributeOverlayRegular(overlayImg, attributeName) {
+        overlayImg.src = "assets/attribute_hovered.svg"
+        overlayImg.className = attributeName + "_hovered"
+        overlayImg.style.visibility = "visible"
+    }
+
+    static setAttributeOverlayHidden(overlayImg, attributeName) {
+        overlayImg.src = "assets/attribute_hovered.svg"
+        overlayImg.className = attributeName + "_hovered"
+        overlayImg.style.visibility = "hidden"
+    }
+
 
     static setAttributeOverlaySelected(overlayImg, attributeName) {
         overlayImg.src = "assets/attribute_selected.svg"
@@ -165,22 +178,10 @@ export default class Deck {
         overlayImg.style.visibility = "visible"
     }
 
-    static setAttributeOverlayHovered(overlayImg, attributeName) {
-        overlayImg.src = "assets/attribute_hovered.svg"
-        overlayImg.className = attributeName + "_hovered"
-        overlayImg.style.visibility = "visible"
-    }
-
     static setAttributeOverlaySelectedAndHovered(overlayImg, attributeName) {
         overlayImg.src = "assets/attribute_selected_and_hovered.svg"
         overlayImg.className = attributeName + "_hovered"
         overlayImg.style.visibility = "visible"
-    }
-
-    static setAttributeOverlayRegular(overlayImg, attributeName) {
-        overlayImg.src = "assets/attribute_hovered.svg"
-        overlayImg.className = attributeName + "_hovered"
-        overlayImg.style.visibility = "hidden"
     }
 
     addOverlayImg(cardHolder, attributeName, gameLogic, clickable = true, hoverable = true) {
@@ -206,7 +207,7 @@ export default class Deck {
         }
 
         cardHolder.appendChild(overlayImg)
-        Deck.setAttributeOverlayRegular(overlayImg, attributeName)
+        Deck.setAttributeOverlayHidden(overlayImg, attributeName)
     }
 
     static getOverlayImgId(cardHolder, attributeName) {

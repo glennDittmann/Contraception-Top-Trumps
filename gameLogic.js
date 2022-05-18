@@ -67,6 +67,7 @@ export default class GameLogic {
             this.handleProceedFromWaitingForAttribute();
         }
         else if (this.gameState === GameState.ClassicShowingComparisonResult) {
+            this.selectedAttribute = "";
             this.handleEnterChooseLowerWaitingForAttribute();
         }
 
