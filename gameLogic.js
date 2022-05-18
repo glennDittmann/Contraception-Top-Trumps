@@ -26,10 +26,8 @@ export default class GameLogic {
     }
 
     init(deck) {
-        deck.shuffle()
-        const decks = deck.split();
-        this.playerDeck = decks.deck1
-        this.aiDeck = decks.deck2
+        this.deck = deck;
+        this.dealNewCards();
 
         const discardDeck = new Deck({}, this);
         this.discardDeck = discardDeck
@@ -109,8 +107,7 @@ export default class GameLogic {
         this.updatePointDisplay();
 
         this.nextRoundButton.style.visibility = "visible";
-        this.gameState = GameState.ClassicShowingComparisonResult
-        console.log(this.gameState);
+        this.gameState = GameState.ClassicShowingComparisonResult;
     }
 
     updateCardHolders() {
@@ -122,6 +119,24 @@ export default class GameLogic {
         this.revealed = false
         this.playerDeck.cards.shift()
         this.aiDeck.cards.shift()
+        
+        console.log(this.playerDeck.cards.length);
+        console.log(this.aiDeck.cards.length);
+
+
+        if(this.playerDeck.cards.length === 1 && this.aiDeck.cards.length === 1){
+            document.getElementById("next-round-button").innerHTML = "Neu mischen";
+        }
+        else if( this.playerDeck.cards.length === 0 && this.aiDeck.cards.length === 0){  // both decks are empty, usually on check should be sufficient; just in case though
+            this.dealNewCards();
+        }
+    }
+
+    dealNewCards(){
+        this.deck.shuffle()
+        const decks = this.deck.split();
+        this.playerDeck = decks.deck1
+        this.aiDeck = decks.deck2
     }
 
     selectedAttributeAI() {
@@ -139,11 +154,7 @@ export default class GameLogic {
     }
 
     static handleNextRoundClick(gameLogic) {
-        console.log(gameLogic.gameState)
-
         gameLogic.handleProceedToNextGameState()
-
-        console.log(gameLogic.gameState)
     }
 
     updatePointDisplay(){
