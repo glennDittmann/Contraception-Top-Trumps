@@ -17,8 +17,8 @@ export default class GameLogic {
         this.gameState = 0;
         this.selectedAttribute = ""
         this.selectedAttributeAI = "";
-
         this.addNextRoundButton();
+        this.updatePointDisplay();
 
         window.onresize = GameLogic.resizeWindow
 
@@ -105,6 +105,8 @@ export default class GameLogic {
             this.streakCount = 0
         }
 
+        this.updatePointDisplay();
+
         this.nextRoundButton.style.visibility = "visible";
         this.gameState = GameState.ClassicShowingComparisonResult
         console.log(this.gameState);
@@ -141,6 +143,10 @@ export default class GameLogic {
         gameLogic.handleProceedToNextGameState()
 
         console.log(gameLogic.gameState)
+    }
+
+    updatePointDisplay(){
+        document.getElementById("point-display").innerHTML = "Deine Punkte: " + this.streakCount;
     }
 
     isRevealed() {

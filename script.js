@@ -1,5 +1,8 @@
 "use strict"
 
+// TODO: point counter
+// TODO: reset deck after game finished
+
 import Deck from './cardDeck.js'
 import GameLogic from './gameLogic.js';
 import {ANTI_BABY_PILL, COITUS_INTERRUPTUS, CONDOM, COPPER_COIL, DIAPHRAGMA,
@@ -12,5 +15,6 @@ const cards = [CONDOM, DIAPHRAGMA, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_CO
     FERTILITY_CYCLE, INJECTION];
 
 const deck = new Deck(cards, gameLogic);
+
 
 gameLogic.init(deck);
