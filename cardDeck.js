@@ -144,7 +144,7 @@ export default class Deck {
         }
         else
         {
-            Deck.setAttributeOverlayRegular(overlayImg, attributeName)
+            Deck.setAttributeOverlayHovered(overlayImg, attributeName)
         }
     }
 
@@ -159,29 +159,34 @@ export default class Deck {
         }
     }
 
-    static setAttributeOverlayRegular(overlayImg, attributeName) {
+    static setAttributeOverlayRegular(overlayImg) {
         overlayImg.src = "assets/attribute_hovered.svg"
-        overlayImg.className = attributeName + "_hovered"
         overlayImg.style.visibility = "visible"
+        overlayImg.style.opacity = "0"
     }
 
-    static setAttributeOverlayHidden(overlayImg, attributeName) {
+    static setAttributeOverlayHovered(overlayImg) {
         overlayImg.src = "assets/attribute_hovered.svg"
-        overlayImg.className = attributeName + "_hovered"
+        overlayImg.style.visibility = "visible"
+        overlayImg.style.opacity = "1"
+    }
+
+    static setAttributeOverlayHidden(overlayImg) {
+        overlayImg.src = "assets/attribute_hovered.svg"
         overlayImg.style.visibility = "hidden"
+        overlayImg.style.opacity = "0"
     }
 
-
-    static setAttributeOverlaySelected(overlayImg, attributeName) {
+    static setAttributeOverlaySelected(overlayImg) {
         overlayImg.src = "assets/attribute_selected.svg"
-        overlayImg.className = attributeName + "_selected"
         overlayImg.style.visibility = "visible"
+        overlayImg.style.opacity = "1"
     }
 
-    static setAttributeOverlaySelectedAndHovered(overlayImg, attributeName) {
+    static setAttributeOverlaySelectedAndHovered(overlayImg) {
         overlayImg.src = "assets/attribute_selected_and_hovered.svg"
-        overlayImg.className = attributeName + "_hovered"
         overlayImg.style.visibility = "visible"
+        overlayImg.style.opacity = "1"
     }
 
     addOverlayImg(cardHolder, attributeName, gameLogic, clickable = true, hoverable = true) {
@@ -189,6 +194,7 @@ export default class Deck {
 
         const overlayImg = document.createElement('img')
         overlayImg.id = id
+        overlayImg.className = attributeName + "_overlay"
 
         if (clickable) {
             overlayImg.onclick = function () {

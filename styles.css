@@ -13,8 +13,7 @@ body {
 }
 
 .top-bar {
-    padding: 0 0;
-    padding-top: 20px;
+    padding: 20px 0 0;
     display: flex;
     justify-content: center;
 }
@@ -99,40 +98,30 @@ body {
     border: 4px solid pink;
 }
 
-
-.effectiveness_hovered, .sti-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered,
-.effectiveness_selected, .sti-protection_selected, .cost_selected, .accessibility_selected, .side-effects_selected {
+.effectiveness_overlay, .sti-protection_overlay, .cost_overlay, .accessibility_overlay, .side-effects_overlay {
     position: absolute;
     left: 0;
     right: 0;
     width: 100%;
 }
 
-.effectiveness_hovered, .sti-protection_hovered, .cost_hovered, .accessibility_hovered, .side-effects_hovered {
-    opacity: 0.0;
-}
-
-.effectiveness_hovered:hover, .sti-protection_hovered:hover, .cost_hovered:hover, .accessibility_hovered:hover, .side-effects_hovered:hover {
-    opacity: 1.0;
-}
-
-.effectiveness_hovered, .effectiveness_selected {
+.effectiveness_overlay {
     top: 55.1%;
 }
 
-.sti-protection_hovered, .sti-protection_selected {
+.sti-protection_overlay {
     top: 62.6%;
 }
 
-.cost_hovered, .cost_selected {
+.cost_overlay {
     top: 70.2%;
 }
 
-.accessibility_hovered, .accessibility_selected {
+.accessibility_overlay {
     top: 78.1%;
 }
 
-.side-effects_hovered, .side-effects_selected {
+.side-effects_overlay {
     top: 85.8%;
 }
 
