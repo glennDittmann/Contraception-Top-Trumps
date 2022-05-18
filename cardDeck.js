@@ -1,6 +1,7 @@
 "use strict"
 
 import {GameState} from "./gameLogic.js";
+import {ATTRIBUTES} from "./cardConstants.js";
 
 export default class Deck {
     constructor(cards, gameLogic) {
@@ -39,11 +40,11 @@ export default class Deck {
 
         let img = document.getElementById(imageId);
         if (img == null) {
-            this.addAttributeStatsLabel(cardHolderId, "effectiveness");
-            this.addAttributeStatsLabel(cardHolderId, "sti-protection");
-            this.addAttributeStatsLabel(cardHolderId, "cost");
-            this.addAttributeStatsLabel(cardHolderId, "accessibility");
-            this.addAttributeStatsLabel(cardHolderId, "side-effects");
+            this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[0]);
+            this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[1]);
+            this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[2]);
+            this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[3]);
+            this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[4]);
 
             img = this.addCardImageImgElement(imageId, cardHolderId, gameLogic, currentCardData);
         }
@@ -77,11 +78,11 @@ export default class Deck {
         const cardHolder = document.getElementById(cardHolderId);
         cardHolder.appendChild(img)
 
-        this.addOverlayImg(cardHolder, "effectiveness", gameLogic);
-        this.addOverlayImg(cardHolder, "sti-protection", gameLogic);
-        this.addOverlayImg(cardHolder, "cost", gameLogic);
-        this.addOverlayImg(cardHolder, "accessibility", gameLogic);
-        this.addOverlayImg(cardHolder, "side-effects", gameLogic);
+        this.addOverlayImg(cardHolder, ATTRIBUTES[0], gameLogic);
+        this.addOverlayImg(cardHolder, ATTRIBUTES[1], gameLogic);
+        this.addOverlayImg(cardHolder, ATTRIBUTES[2], gameLogic);
+        this.addOverlayImg(cardHolder, ATTRIBUTES[3], gameLogic);
+        this.addOverlayImg(cardHolder, ATTRIBUTES[4], gameLogic);
 
         return img;
     }
@@ -89,11 +90,11 @@ export default class Deck {
     updateAllAttributeStatsAndVisuals(cardHolderId, currentCardData, playerNumber, gameLogic) {
         const cardHolder = document.getElementById(cardHolderId);
 
-        Deck.updateAttributeStatAndVisual(cardHolder, "effectiveness", currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, "sti-protection", currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, "cost", currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, "accessibility", currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, "side-effects", currentCardData, playerNumber, gameLogic)
+        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[0], currentCardData, playerNumber, gameLogic)
+        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[1], currentCardData, playerNumber, gameLogic)
+        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[2], currentCardData, playerNumber, gameLogic)
+        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[3], currentCardData, playerNumber, gameLogic)
+        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[4], currentCardData, playerNumber, gameLogic)
     }
 
     static updateAttributeStatAndVisual(cardHolder, attributeName, currentCardData, playerNumber, gameLogic) {

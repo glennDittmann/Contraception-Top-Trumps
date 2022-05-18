@@ -87,15 +87,15 @@ export default class GameLogic {
         const selectedAttribute = this.selectedAttribute;
 
         let wonComparison = false
-        if (selectedAttribute === "effectiveness") {
+        if (selectedAttribute === ATTRIBUTES[0]) {
             wonComparison = this.compEffectiveness()
-        } else if (selectedAttribute === "STI-protection") {
+        } else if (selectedAttribute === ATTRIBUTES[1]) {
             wonComparison = this.compStiProtection()
-        } else if (selectedAttribute === "cost") {
+        } else if (selectedAttribute === ATTRIBUTES[2]) {
             wonComparison = this.compCost()
-        } else if (selectedAttribute === "accessibility") {
+        } else if (selectedAttribute === ATTRIBUTES[3]) {
             wonComparison = this.compAccessibility()
-        } else if (selectedAttribute === "side-effects") {
+        } else if (selectedAttribute === ATTRIBUTES[4]) {
             wonComparison = this.compSideEffects()
         }
 
@@ -148,22 +148,27 @@ export default class GameLogic {
     }
 
     compEffectiveness() {
-        return this.playerDeck.cards[0]["effectiveness"] <= this.aiDeck.cards[0]["effectiveness"];  // a smaller pearl-index is better
+        const attributeName = ATTRIBUTES[0]
+        return this.playerDeck.cards[0][attributeName] <= this.aiDeck.cards[0][attributeName];  // a smaller pearl-index is better
     }
 
     compStiProtection() {
-        return this.playerDeck.cards[0]["sti-protection"] >= this.aiDeck.cards[0]["sti-protection"];
+        const attributeName = ATTRIBUTES[1]
+        return this.playerDeck.cards[0][attributeName] >= this.aiDeck.cards[0][attributeName];
     }
 
     compCost() {
-        return this.playerDeck.cards[0]["cost"] <= this.aiDeck.cards[0]["cost"];
+        const attributeName = ATTRIBUTES[2]
+        return this.playerDeck.cards[0][attributeName] <= this.aiDeck.cards[0][attributeName];
     }
 
     compAccessibility() {
-        return this.playerDeck.cards[0]["accessibility"] >= this.aiDeck.cards[0]["accessibility"];
+        const attributeName = ATTRIBUTES[3]
+        return this.playerDeck.cards[0][attributeName] >= this.aiDeck.cards[0][attributeName];
     }
 
     compSideEffects() {
-        return this.playerDeck.cards[0]["side-effects"] <= this.aiDeck.cards[0]["side-effects"];
+        const attributeName = ATTRIBUTES[4]
+        return this.playerDeck.cards[0][attributeName] <= this.aiDeck.cards[0][attributeName];
     }
 }

@@ -13,5 +13,4 @@ const cards = [CONDOM, DIAPHRAGMA, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_CO
 
 const deck = new Deck(cards, gameLogic);
 
-
 gameLogic.init(deck);
