@@ -136,6 +136,28 @@ export default class Deck {
         }
     }
 
+    static handleAttributeMouseEnter(overlayImg, attributeName, gameLogic) {
+        if (gameLogic.selectedAttribute === attributeName)
+        {
+            Deck.setAttributeOverlaySelectedAndHovered(overlayImg, attributeName)
+        }
+        else
+        {
+            Deck.setAttributeOverlayHovered(overlayImg, attributeName)
+        }
+    }
+
+    static handleAttributeMouseLeave(overlayImg, attributeName, gameLogic) {
+        if (gameLogic.selectedAttribute === attributeName)
+        {
+            Deck.setAttributeOverlaySelected(overlayImg, attributeName)
+        }
+        else
+        {
+            Deck.setAttributeOverlayHovered(overlayImg, attributeName)
+        }
+    }
+
     static setAttributeOverlaySelected(overlayImg, attributeName) {
         overlayImg.src = "assets/attribute_selected.svg"
         overlayImg.className = attributeName + "_selected"
@@ -144,6 +166,12 @@ export default class Deck {
 
     static setAttributeOverlayHovered(overlayImg, attributeName) {
         overlayImg.src = "assets/attribute_hovered.svg"
+        overlayImg.className = attributeName + "_hovered"
+        overlayImg.style.visibility = "visible"
+    }
+
+    static setAttributeOverlaySelectedAndHovered(overlayImg, attributeName) {
+        overlayImg.src = "assets/attribute_selected_and_hovered.svg"
         overlayImg.className = attributeName + "_hovered"
         overlayImg.style.visibility = "visible"
     }
@@ -168,7 +196,11 @@ export default class Deck {
 
         if (hoverable) {
             overlayImg.onmouseenter = function () {
-                Deck.setAttributeOverlayHovered(overlayImg, attributeName)
+                Deck.handleAttributeMouseEnter(overlayImg, attributeName, gameLogic)
+            }
+
+            overlayImg.onmouseleave = function () {
+                Deck.handleAttributeMouseLeave(overlayImg, attributeName, gameLogic)
             }
         }
 

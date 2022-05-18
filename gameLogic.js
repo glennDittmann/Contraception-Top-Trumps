@@ -17,6 +17,7 @@ export default class GameLogic {
         this.gameState = 0;
         this.selectedAttribute = ""
         this.selectedAttributeAI = "";
+
         this.addNextRoundButton();
 
         window.onresize = GameLogic.resizeWindow
