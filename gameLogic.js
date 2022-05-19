@@ -4,10 +4,10 @@ import Deck from './cardDeck.js'
 import {ATTRIBUTES, N_ATTRIBUTES} from './cardConstants.js'
 
 export class GameState {
-    static ClassicWaitingForAttribute = 1
-    static ClassicShowingComparisonResult = 2
+    static ClassicWaiting = 1
+    static ClassicShowResult = 2
     static ChooseLowerWaitingForAttribute = 3
-    static ChooseLowerComparisonResult = 4
+    static ChooseLowerShowResult = 4
 }
 
 export default class GameLogic {
@@ -16,7 +16,7 @@ export default class GameLogic {
         this.streakCount = 0;
         this.gameState = 0;
         this.selectedAttribute = ""
-        this.selectedAttributeAI = "";
+        this.selectedAttributeAi = "";
         this.addNextRoundButton();
         this.updatePointDisplay();
 
@@ -56,35 +56,77 @@ export default class GameLogic {
     }
 
     handleProceedToNextGameState() {
-        if(this.gameState === 0) {
-            this.nextRoundButton.style.visibility = "hidden";
-            this.revealed = false;
-            this.gameState = GameState.ClassicWaitingForAttribute
-        }
-        else if(this.gameState === GameState.ClassicWaitingForAttribute) {
-            this.handleProceedFromWaitingForAttribute();
-        }
-        else if (this.gameState === GameState.ClassicShowingComparisonResult) {
-            this.selectedAttribute = "";
-            this.handleEnterChooseLowerWaitingForAttribute();
-        }
+        this.handleLeaveCurrentGameState();
+        this.handleInitNewGameState();
 
         this.updateCardHolders()
     }
 
-    handleEnterChooseLowerWaitingForAttribute() {
-        this.discardPlayedCards();
-
-        this.nextRoundButton.style.visibility = "hidden";
-
-        // spawn new cards
-        this.gameState = GameState.ClassicWaitingForAttribute
+    handleLeaveCurrentGameState() {
+        if (this.gameState === 0) {
+            this.handleLeaveChooseLowerResult()
+        } else if (this.gameState === GameState.ClassicWaiting) {
+            this.handleLeaveClassicWaiting()
+        } else if (this.gameState === GameState.ClassicShowResult) {
+            this.handleLeaveShowClassicResults()
+        } else if (this.gameState === GameState.ChooseLowerWaitingForAttribute) {
+            this.handleLeaveChooseLowerWaiting()
+        } else if (this.gameState === GameState.ChooseLowerShowResult) {
+            this.handleLeaveChooseLowerResult()
+        }
     }
 
-    handleProceedFromWaitingForAttribute() {
-        this.revealed = true;
-        const selectedAttribute = this.selectedAttribute;
+    handleInitNewGameState() {
+        if (this.gameState === GameState.ClassicWaiting) {
+            this.handleEnterClassicShowResults();
+        } else if (this.gameState === GameState.ClassicShowResult) {
+            this.handleEnterChooseLowerWaitingForSelection();
+        } else if (this.gameState === GameState.ChooseLowerWaitingForAttribute) {
+            this.handleEnterChooseLowerShowResult();
+        } else if (this.gameState === GameState.ChooseLowerShowResult) {
+            this.handleEnterShowChooseLowerResults();
+        }
+    }
 
+    handleLeaveShowClassicResults() {
+        this.nextRoundButton.style.visibility = "hidden";
+        this.selectedAttribute = "";
+        this.revealed = false
+
+        this.gameState = GameState.ChooseLowerShowResult
+    }
+
+    handleLeaveChooseLowerResult() {
+        this.nextRoundButton.style.visibility = "hidden";
+        this.selectedAttributeAi = "";
+        this.revealed = false
+
+        this.gameState = GameState.ClassicWaiting
+    }
+
+    handleLeaveClassicWaiting() {
+        this.gameState = GameState.ClassicShowResult
+    }
+
+    handleLeaveChooseLowerWaiting() {
+        this.gameState = GameState.ChooseLowerShowResult
+    }
+
+    handleEnterChooseLowerShowResult() {
+        this.assignRandomAttributeAi()
+    }
+
+    handleEnterChooseLowerWaitingForSelection() {
+        this.discardPlayedCards();
+        this.revealed = true;
+    }
+
+    handleEnterShowChooseLowerResults() {
+
+    }
+
+    handleEnterClassicShowResults() {
+        const selectedAttribute = this.selectedAttribute;
         let wonComparison = false
         if (selectedAttribute === ATTRIBUTES[0]) {
             wonComparison = this.compEffectiveness()
@@ -106,8 +148,12 @@ export default class GameLogic {
 
         this.updatePointDisplay();
 
+        this.revealed = true;
         this.nextRoundButton.style.visibility = "visible";
-        this.gameState = GameState.ClassicShowingComparisonResult;
+    }
+
+    handleEnterClassicLowerWaitingForAttribute() {
+
     }
 
     updateCardHolders() {
@@ -116,7 +162,6 @@ export default class GameLogic {
     }
 
     discardPlayedCards() {
-        this.revealed = false
         this.playerDeck.cards.shift()
         this.aiDeck.cards.shift()
         
@@ -140,9 +185,9 @@ export default class GameLogic {
         this.aiDeck = decks.deck2
     }
 
-    selectedAttributeAI() {
+    assignRandomAttributeAi() {
         const selectedAttrIdx = Math.floor(Math.random() * N_ATTRIBUTES);
-        this.selectedAttributeAI = ATTRIBUTES[selectedAttrIdx];
+        this.selectedAttributeAi = ATTRIBUTES[selectedAttrIdx];
     }
 
     addNextRoundButton() {
@@ -155,7 +200,10 @@ export default class GameLogic {
     }
 
     static handleNextRoundClick(gameLogic) {
-        gameLogic.handleProceedToNextGameState()
+        if(gameLogic.selectedAttribute != "")
+        {
+            gameLogic.handleProceedToNextGameState()
+        }
     }
 
     updatePointDisplay(){
