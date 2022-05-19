@@ -67,7 +67,7 @@ export default class GameLogic {
         } else if (this.gameState === GameState.ClassicWaiting) {
             this.handleLeaveClassicWaiting()
         } else if (this.gameState === GameState.ClassicShowResult) {
-            this.handleLeaveShowClassicResults()
+            this.handleLeaveClassicShowResults()
         } else if (this.gameState === GameState.ChooseLowerWaitingForAttribute) {
             this.handleLeaveChooseLowerWaiting()
         } else if (this.gameState === GameState.ChooseLowerShowResult) {
@@ -77,9 +77,9 @@ export default class GameLogic {
 
     handleInitNewGameState() {
         if (this.gameState === GameState.ClassicWaiting) {
-            this.handleEnterClassicShowResults();
+            this.handleEnterChooseLowerWaitingForSelection()
         } else if (this.gameState === GameState.ClassicShowResult) {
-            this.handleEnterChooseLowerWaitingForSelection();
+            this.handleEnterClassicShowResults();;
         } else if (this.gameState === GameState.ChooseLowerWaitingForAttribute) {
             this.handleEnterChooseLowerShowResult();
         } else if (this.gameState === GameState.ChooseLowerShowResult) {
@@ -98,9 +98,10 @@ export default class GameLogic {
         this.gameState = GameState.ClassicShowResult
     }
 
-    handleLeaveShowClassicResults() {
+    handleLeaveClassicShowResults() {
         this.nextRoundButton.style.visibility = "hidden";
         this.selectedAttribute = "";
+        this.discardPlayedCards();
 
         this.gameState = GameState.ChooseLowerWaitingForAttribute
     }
@@ -114,7 +115,6 @@ export default class GameLogic {
     }
 
     handleEnterChooseLowerWaitingForSelection() {
-        this.discardPlayedCards();
     }
 
     handleEnterShowChooseLowerResults() {
