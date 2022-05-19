@@ -12,7 +12,6 @@ export class GameState {
 
 export default class GameLogic {
     constructor() {
-        this.revealed = false;
         this.streakCount = 0;
         this.gameState = 0;
         this.selectedAttribute = ""
@@ -88,24 +87,22 @@ export default class GameLogic {
         }
     }
 
-    handleLeaveShowClassicResults() {
-        this.nextRoundButton.style.visibility = "hidden";
-        this.selectedAttribute = "";
-        this.revealed = false
-
-        this.gameState = GameState.ChooseLowerShowResult
-    }
-
     handleLeaveChooseLowerResult() {
         this.nextRoundButton.style.visibility = "hidden";
         this.selectedAttributeAi = "";
-        this.revealed = false
 
         this.gameState = GameState.ClassicWaiting
     }
 
     handleLeaveClassicWaiting() {
         this.gameState = GameState.ClassicShowResult
+    }
+
+    handleLeaveShowClassicResults() {
+        this.nextRoundButton.style.visibility = "hidden";
+        this.selectedAttribute = "";
+
+        this.gameState = GameState.ChooseLowerWaitingForAttribute
     }
 
     handleLeaveChooseLowerWaiting() {
@@ -118,11 +115,9 @@ export default class GameLogic {
 
     handleEnterChooseLowerWaitingForSelection() {
         this.discardPlayedCards();
-        this.revealed = true;
     }
 
     handleEnterShowChooseLowerResults() {
-
     }
 
     handleEnterClassicShowResults() {
@@ -148,7 +143,6 @@ export default class GameLogic {
 
         this.updatePointDisplay();
 
-        this.revealed = true;
         this.nextRoundButton.style.visibility = "visible";
     }
 
@@ -200,7 +194,7 @@ export default class GameLogic {
     }
 
     static handleNextRoundClick(gameLogic) {
-        if(gameLogic.selectedAttribute != "")
+        if(gameLogic.selectedAttribute !== "")
         {
             gameLogic.handleProceedToNextGameState()
         }
@@ -208,10 +202,6 @@ export default class GameLogic {
 
     updatePointDisplay(){
         document.getElementById("point-display").innerHTML = "Deine Punkte: " + this.streakCount;
-    }
-
-    isRevealed() {
-        return this.revealed;
     }
 
     compEffectiveness() {

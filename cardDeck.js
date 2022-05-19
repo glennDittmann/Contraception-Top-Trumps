@@ -53,7 +53,7 @@ export default class Deck {
 
         img.src = currentCardData["path"]
 
-        if (cardHolderId === 'card-img-container2' && !gameLogic.isRevealed()) {
+        if ((cardHolderId === 'card-img-container2') && (gameLogic.gameState === GameState.ClassicWaiting)) {
             img.src = "assets/card-backside.png"
         } else if (this.cards[0].hasOwnProperty("path")) {
             img.src = currentCardData["path"]
