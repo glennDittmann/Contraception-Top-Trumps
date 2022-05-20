@@ -149,7 +149,7 @@ export default class Deck {
 
     static handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber) {
         if (gameLogic.selectedAttribute === attributeName) {
-            Deck.setAttributeOverlaySelectedAndHovered(overlayImg, attributeName)
+            Deck.setAttributeOverlaySelectedAndHovered(overlayImg, gameLogic, playerNumber)
         } else if (gameLogic.selectedAttributeAi === attributeName) {
             Deck.setAttributeOverlayChooseHigherHovered(overlayImg, attributeName)
         } else {
@@ -183,10 +183,6 @@ export default class Deck {
         //overlayImg.src = "assets/attribute_selected.svg"
         //overlayImg.style.visibility = "visible"
         //overlayImg.style.opacity = "1"
-        Deck.chooseCorrectOrWrongOverlay(overlayImg, gameLogic, playerNumber);
-    }
-
-    static chooseCorrectOrWrongOverlay(overlayImg, gameLogic, playerNumber){
         if(gameLogic.currentWinnerNumber === playerNumber) {
             Deck.setAttributeOverlayCorrect(overlayImg)
         }
@@ -219,8 +215,14 @@ export default class Deck {
         overlayImg.style.opacity = "1"
     }
 
-    static setAttributeOverlaySelectedAndHovered(overlayImg) {
-        overlayImg.src = "assets/attribute_selected_and_hovered.svg"
+    static setAttributeOverlaySelectedAndHovered(overlayImg, gameLogic, playerNumber) {
+        //overlayImg.src = "assets/attribute_selected_and_hovered.svg"
+        if(gameLogic.currentWinnerNumber === playerNumber) {
+            overlayImg.src = "assets/attribute_correct_hovered.svg"
+        }
+        else {
+            overlayImg.src = "assets/attribute_wrong_hovered.svg"
+        }
     }
 
     static setAttributeOverlayChooseHigherHovered(overlayImg) {
