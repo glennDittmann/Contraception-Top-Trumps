@@ -60,18 +60,6 @@ export default class Deck {
         } else {
             img.src = "assets/unknown.svg"
         }
-
-        if (gameLogic.selectedAttribute !== "") {
-            const cardHolder = document.getElementById(cardHolderId);
-            const overlayImgId = Deck.getOverlayImgId(cardHolder, gameLogic.selectedAttribute);
-            const overlayImg = document.getElementById(overlayImgId);
-            Deck.setAttributeOverlaySelected(overlayImg, gameLogic.selectedAttribute)
-        } else if (gameLogic.selectedAttributeAi !== "") {
-            const cardHolder = document.getElementById(cardHolderId);
-            const overlayImgId = Deck.getOverlayImgId(cardHolder, gameLogic.selectedAttributeAi);
-            const overlayImg = document.getElementById(overlayImgId);
-            Deck.setAttributeOverlayChooseHigher(overlayImg, gameLogic.selectedAttributeAi)
-        }
     }
 
     addCardImageImgElement(imageId, cardHolderId, gameLogic, playerNumber) {
@@ -112,10 +100,16 @@ export default class Deck {
         const attributeOverlayId = Deck.getOverlayImgId(cardHolder, attributeName);
         const overlayImage = document.getElementById(attributeOverlayId);
 
-        if (isHidden) {
-            Deck.setAttributeOverlayHidden(overlayImage, attributeName)
+
+        if (gameLogic.selectedAttribute === attributeName) {
+            Deck.setAttributeOverlaySelected(overlayImage)
+        } else if (gameLogic.selectedAttributeAi === attributeName) {
+            Deck.setAttributeOverlayChooseHigher(overlayImage)
+            attributeLabelDiv.innerHTML = "???"
+        } else if (isHidden) {
+            Deck.setAttributeOverlayHidden(overlayImage)
         } else {
-            Deck.setAttributeOverlayRegular(overlayImage, attributeName)
+            Deck.setAttributeOverlayRegular(overlayImage)
         }
     }
 

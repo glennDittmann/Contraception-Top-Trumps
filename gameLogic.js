@@ -78,11 +78,11 @@ export default class GameLogic {
 
     handleInitNewGameState() {
         if (this.gameState === GameState.ClassicWaiting) {
-            this.handleEnterChooseLowerWaitingForSelection()
+            this.handleEnterClassicWaitingForInput()
         } else if (this.gameState === GameState.ClassicShowResult) {
             this.handleEnterClassicShowResults()
         } else if (this.gameState === GameState.ChooseLowerWaiting) {
-            this.handleEnterChooseLowerShowResult();
+            this.handleEnterChooseLowerWaitingForInput();
         } else if (this.gameState === GameState.ChooseLowerShowResult) {
             this.handleEnterChooseLowerResults();
         }
@@ -115,11 +115,11 @@ export default class GameLogic {
         this.gameState = GameState.ChooseLowerShowResult
     }
 
-    handleEnterChooseLowerShowResult() {
+    handleEnterChooseLowerWaitingForInput() {
         this.assignRandomAttributeAi()
     }
 
-    handleEnterChooseLowerWaitingForSelection() {
+    handleEnterClassicWaitingForInput() {
     }
 
     handleEnterClassicShowResults() {
