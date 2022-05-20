@@ -74,6 +74,28 @@ const FERTILITY_CYCLE =
     path: "assets/kalender.svg"
 }
 
+const VASECTOMY = 
+{
+    "name": "Vasectomy",
+    "effectiveness": 0.1,
+    "sti-protection": 0.5,
+    "cost": 1,
+    "accessibility": 2.0,
+    "side-effects": 10.0,
+    path: "assets/vasektomie.svg"
+}
+
+const PATCH = 
+{
+    "name": "Patch",
+    "effectiveness": 6.9,
+    "sti-protection": 0.0,
+    "cost": 3.2,
+    "accessibility": 4.8,
+    "side-effects": 7.0,
+    path: "assets/pflaster.svg"
+}
+
 const COITUS_INTERRUPTUS = 
 {
     "name": "Coitus Interruptus",
@@ -101,4 +123,5 @@ const STERILIZATION =
 
 
 export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
-        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION, ATTRIBUTES, N_ATTRIBUTES}
+        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION, 
+        VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES}
