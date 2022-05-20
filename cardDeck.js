@@ -1,7 +1,7 @@
 "use strict"
 
 import {GameState} from "./gameLogic.js";
-import {ATTRIBUTES} from "./cardConstants.js";
+import {ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH} from "./cardConstants.js";
 
 export default class Deck {
     constructor(cards, gameLogic) {
@@ -54,11 +54,11 @@ export default class Deck {
         img.src = currentCardData["path"]
 
         if ((cardHolderId === 'card-img-container2') && (gameLogic.gameState === GameState.ClassicWaiting)) {
-            img.src = "assets/card-backside.png"
+            img.src = HIDDEN_CARD_PATH
         } else if (this.cards[0].hasOwnProperty("path")) {
             img.src = currentCardData["path"]
         } else {
-            img.src = "assets/unknown.svg"
+            img.src = MISSING_CARD_PATH
         }
     }
 

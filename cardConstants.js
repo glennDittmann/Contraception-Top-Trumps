@@ -4,10 +4,13 @@ const ATTRIBUTES = ["effectiveness", "sti-protection", "cost", "accessibility", 
 
 const N_ATTRIBUTES = 5;
 
+const MISSING_CARD_PATH = "assets/cards/unknown.svg"
+const HIDDEN_CARD_PATH = "assets/cards/card-backside.png"
+
 const CONDOM =
 {
     "name": "Condom",
-    "path": "assets/kondom.svg",
+    "path": "assets/cards/kondom.svg",
     "effectiveness": 13,  // measured with Pearl-Index; atm source is https://de.wikipedia.org/wiki/Empf%C3%A4ngnisverh%C3%BCtung, using the mean of (2,12) & (7,14)
     "sti-protection": 10.0,
     "cost": 1.0,
@@ -24,7 +27,7 @@ const INJECTION =
     "cost": 2,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    path: "assets/spritze.svg"
+    path: "assets/cards/spritze.svg"
 }
 
 
@@ -36,7 +39,7 @@ const ANTI_BABY_PILL =
     "cost": 2,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    path: "assets/pille.svg"
+    path: "assets/cards/pille.svg"
 }
 
 
@@ -48,7 +51,7 @@ const COPPER_COIL =
     "cost": 3,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    path: "assets/spirale.svg"
+    path: "assets/cards/spirale.svg"
 }
 
 const DIAPHRAGMA = 
@@ -59,7 +62,7 @@ const DIAPHRAGMA =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    path: "assets/vaginal-ring.svg"
+    path: "assets/cards/vaginal-ring.svg"
 }
 
 
@@ -71,7 +74,7 @@ const FERTILITY_CYCLE =
     "cost": 0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    path: "assets/kalender.svg"
+    path: "assets/cards/kalender.svg"
 }
 
 const VASECTOMY = 
@@ -82,7 +85,7 @@ const VASECTOMY =
     "cost": 1,
     "accessibility": 2.0,
     "side-effects": 10.0,
-    path: "assets/vasektomie.svg"
+    path: "assets/cards/vasektomie.svg"
 }
 
 const PATCH = 
@@ -93,7 +96,7 @@ const PATCH =
     "cost": 3.2,
     "accessibility": 4.8,
     "side-effects": 7.0,
-    path: "assets/pflaster.svg"
+    path: "assets/cards/pflaster.svg"
 }
 
 const COITUS_INTERRUPTUS = 
@@ -124,4 +127,4 @@ const STERILIZATION =
 
 export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
         DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION, 
-        VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES}
+        VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH}
