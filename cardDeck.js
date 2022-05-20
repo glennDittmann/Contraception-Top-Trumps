@@ -102,7 +102,7 @@ export default class Deck {
 
 
         if (gameLogic.selectedAttribute === attributeName) {
-            Deck.setAttributeOverlaySelected(overlayImage)
+            Deck.setAttributeOverlaySelected(overlayImage, gameLogic, playerNumber)
         } else if (gameLogic.selectedAttributeAi === attributeName) {
             Deck.setAttributeOverlayChooseHigher(overlayImage)
             attributeLabelDiv.innerHTML = "???"
@@ -123,7 +123,7 @@ export default class Deck {
                 }
                 Deck.setAttributeOverlayChooseHigher(overlayImg, attributeName)
             } else if (gameLogic.gameState === GameState.ClassicWaiting) {
-                Deck.setAttributeOverlaySelected(overlayImg, attributeName)
+                Deck.setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber)
             }
 
             const increment = 0.045;
@@ -157,9 +157,9 @@ export default class Deck {
         }
     }
 
-    static handleAttributeMouseLeave(overlayImg, attributeName, gameLogic) {
+    static handleAttributeMouseLeave(overlayImg, attributeName, gameLogic, playerNumber) {
         if (gameLogic.selectedAttribute === attributeName) {
-            Deck.setAttributeOverlaySelected(overlayImg, attributeName)
+            Deck.setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber)
         } else if (gameLogic.selectedAttributeAi === attributeName) {
             Deck.setAttributeOverlayChooseHigher(overlayImg, attributeName)
         } else {
@@ -179,8 +179,30 @@ export default class Deck {
         overlayImg.style.opacity = "0"
     }
 
-    static setAttributeOverlaySelected(overlayImg) {
-        overlayImg.src = "assets/attribute_selected.svg"
+    static setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber) {
+        //overlayImg.src = "assets/attribute_selected.svg"
+        //overlayImg.style.visibility = "visible"
+        //overlayImg.style.opacity = "1"
+        Deck.chooseCorrectOrWrongOverlay(overlayImg, gameLogic, playerNumber);
+    }
+
+    static chooseCorrectOrWrongOverlay(overlayImg, gameLogic, playerNumber){
+        if(gameLogic.currentWinnerNumber === playerNumber) {
+            Deck.setAttributeOverlayCorrect(overlayImg)
+        }
+        else {
+            Deck.setAttributeOverlayWrong(overlayImg)
+        }
+    }
+
+    static setAttributeOverlayCorrect(overlayImg) {
+        overlayImg.src = "assets/attribute_correct.svg"
+        overlayImg.style.visibility = "visible"
+        overlayImg.style.opacity = "1"
+    }
+
+    static setAttributeOverlayWrong(overlayImg) {
+        overlayImg.src = "assets/attribute_wrong.svg"
         overlayImg.style.visibility = "visible"
         overlayImg.style.opacity = "1"
     }
@@ -224,7 +246,7 @@ export default class Deck {
             }
 
             overlayImg.onmouseleave = function () {
-                Deck.handleAttributeMouseLeave(overlayImg, attributeName, gameLogic)
+                Deck.handleAttributeMouseLeave(overlayImg, attributeName, gameLogic, playerNumber)
             }
         }
 

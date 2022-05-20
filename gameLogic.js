@@ -14,6 +14,7 @@ export default class GameLogic {
     constructor() {
         this.streakCount = 0;
         this.gameState = 0;
+        this.currentWinnerNumber = 0;  // will be updated to 1 or 2, i.e. the respect player number
         this.selectedAttribute = ""
         this.selectedAttributeAi = "";
         this.selectedSide = 0
@@ -93,7 +94,6 @@ export default class GameLogic {
         }
     }
 
-
     handleLeaveClassicWaiting() {
         this.gameState = GameState.ClassicShowResult
     }
@@ -153,9 +153,11 @@ export default class GameLogic {
     handleComparisonResult(wonComparison) {
         if (wonComparison) {
             this.correctSound.play();
+            this.currentWinnerNumber = 1;
             ++this.streakCount;
         } else {
             this.wrongSound.play();
+            this.currentWinnerNumber = 2;
             this.streakCount = 0;
         }
     }
@@ -214,10 +216,6 @@ export default class GameLogic {
     discardPlayedCards() {
         this.playerDeck.cards.shift()
         this.aiDeck.cards.shift()
-        
-        console.log(this.playerDeck.cards.length);
-        console.log(this.aiDeck.cards.length);
-
 
         if(this.playerDeck.cards.length === 1 && this.aiDeck.cards.length === 1){
             document.getElementById("next-round-button").innerHTML = "Neu mischen";
