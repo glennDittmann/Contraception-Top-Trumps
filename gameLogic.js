@@ -19,6 +19,10 @@ export default class GameLogic {
         this.selectedSide = 0
         this.addNextRoundButton();
         this.updatePointDisplay();
+        this.correctSound = new Audio("assets/audio/correct_sound_effect.mp3");
+        this.wrongSound = new Audio("assets/audio/wrong_sound_effect.mp3");
+        this.correctSound.loop = false;
+        this.wrongSound.loop = false;
 
         window.onresize = GameLogic.resizeWindow
 
@@ -147,9 +151,11 @@ export default class GameLogic {
 
     handleComparisonResult(wonComparison) {
         if (wonComparison) {
-            ++this.streakCount
+            this.correctSound.play();
+            ++this.streakCount;
         } else {
-            this.streakCount = 0
+            this.wrongSound.play();
+            this.streakCount = 0;
         }
     }
 
