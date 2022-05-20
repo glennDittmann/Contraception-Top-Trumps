@@ -151,13 +151,14 @@ export default class GameLogic {
     }
 
     handleComparisonResult(wonComparison) {
+        const isComparisonBasedOnLeftCard = (this.selectedSide === 1)  // depending on which side a card was chosen the winner number is 1 OR 2
         if (wonComparison) {
             this.correctSound.play();
-            this.currentWinnerNumber = 1;
+            this.currentWinnerNumber = isComparisonBasedOnLeftCard ? 1 : 2;
             ++this.streakCount;
         } else {
             this.wrongSound.play();
-            this.currentWinnerNumber = 2;
+            this.currentWinnerNumber = isComparisonBasedOnLeftCard ? 2 : 1;
             this.streakCount = 0;
         }
     }
