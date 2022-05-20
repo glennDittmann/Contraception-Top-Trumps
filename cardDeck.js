@@ -46,7 +46,7 @@ export default class Deck {
             this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[3]);
             this.addAttributeStatsLabel(cardHolderId, ATTRIBUTES[4]);
 
-            img = this.addCardImageImgElement(imageId, cardHolderId, gameLogic, currentCardData);
+            img = this.addCardImageImgElement(imageId, cardHolderId, gameLogic, playerNumber);
         }
 
         this.updateAllAttributeStatsAndVisuals(cardHolderId, currentCardData, playerNumber, gameLogic)
@@ -66,9 +66,7 @@ export default class Deck {
             const overlayImgId = Deck.getOverlayImgId(cardHolder, gameLogic.selectedAttribute);
             const overlayImg = document.getElementById(overlayImgId);
             Deck.setAttributeOverlaySelected(overlayImg, gameLogic.selectedAttribute)
-        }
-        else if(gameLogic.selectedAttributeAi !== "")
-        {
+        } else if (gameLogic.selectedAttributeAi !== "") {
             const cardHolder = document.getElementById(cardHolderId);
             const overlayImgId = Deck.getOverlayImgId(cardHolder, gameLogic.selectedAttributeAi);
             const overlayImg = document.getElementById(overlayImgId);
@@ -76,7 +74,7 @@ export default class Deck {
         }
     }
 
-    addCardImageImgElement(imageId, cardHolderId, gameLogic) {
+    addCardImageImgElement(imageId, cardHolderId, gameLogic, playerNumber) {
         // displays the top card, here the first card in the array
         let img = document.createElement('img')
         img.className = "card-image"
@@ -85,11 +83,11 @@ export default class Deck {
         const cardHolder = document.getElementById(cardHolderId);
         cardHolder.appendChild(img)
 
-        this.addOverlayImg(cardHolder, ATTRIBUTES[0], gameLogic);
-        this.addOverlayImg(cardHolder, ATTRIBUTES[1], gameLogic);
-        this.addOverlayImg(cardHolder, ATTRIBUTES[2], gameLogic);
-        this.addOverlayImg(cardHolder, ATTRIBUTES[3], gameLogic);
-        this.addOverlayImg(cardHolder, ATTRIBUTES[4], gameLogic);
+        this.addOverlayImg(cardHolder, ATTRIBUTES[0], gameLogic, playerNumber)
+        this.addOverlayImg(cardHolder, ATTRIBUTES[1], gameLogic, playerNumber)
+        this.addOverlayImg(cardHolder, ATTRIBUTES[2], gameLogic, playerNumber)
+        this.addOverlayImg(cardHolder, ATTRIBUTES[3], gameLogic, playerNumber)
+        this.addOverlayImg(cardHolder, ATTRIBUTES[4], gameLogic, playerNumber)
 
         return img;
     }
@@ -121,9 +119,18 @@ export default class Deck {
         }
     }
 
-    static handleAttributeClick(overlayImg, attributeName, gameLogic) {
-        if (gameLogic.gameState === 1) {
-            Deck.setAttributeOverlaySelected(overlayImg, attributeName)
+    static handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber) {
+        if ((gameLogic.gameState === GameState.ClassicWaiting) ||
+            (gameLogic.gameState === GameState.ChooseLowerWaiting)) {
+
+            if (gameLogic.gameState === GameState.ChooseLowerWaiting) {
+                if (attributeName !== gameLogic.selectedAttributeAi) {
+                    return
+                }
+                Deck.setAttributeOverlayChooseHigher(overlayImg, attributeName)
+            } else if (gameLogic.gameState === GameState.ClassicWaiting) {
+                Deck.setAttributeOverlaySelected(overlayImg, attributeName)
+            }
 
             const increment = 0.045;
             let opacity = 0;
@@ -131,9 +138,11 @@ export default class Deck {
             const instance = window.setInterval(function (overlayImg) {
                     overlayImg.style.opacity = opacity
                     opacity = opacity + increment;
+
                     if (opacity > 1) {
                         window.clearInterval(instance);
                         gameLogic.selectedAttribute = attributeName;
+                        gameLogic.selectedSide = playerNumber;
                         gameLogic.handleProceedToNextGameState()
                     }
                 },
@@ -144,24 +153,22 @@ export default class Deck {
         }
     }
 
-    static handleAttributeMouseEnter(overlayImg, attributeName, gameLogic) {
-        if (gameLogic.selectedAttribute === attributeName)
-        {
+    static handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber) {
+        if (gameLogic.selectedAttribute === attributeName) {
             Deck.setAttributeOverlaySelectedAndHovered(overlayImg, attributeName)
-        }
-        else
-        {
+        } else if (gameLogic.selectedAttributeAi === attributeName) {
+            Deck.setAttributeOverlayChooseHigherHovered(overlayImg, attributeName)
+        } else {
             Deck.setAttributeOverlayHovered(overlayImg, attributeName)
         }
     }
 
     static handleAttributeMouseLeave(overlayImg, attributeName, gameLogic) {
-        if (gameLogic.selectedAttribute === attributeName)
-        {
+        if (gameLogic.selectedAttribute === attributeName) {
             Deck.setAttributeOverlaySelected(overlayImg, attributeName)
-        }
-        else
-        {
+        } else if (gameLogic.selectedAttributeAi === attributeName) {
+            Deck.setAttributeOverlayChooseHigher(overlayImg, attributeName)
+        } else {
             Deck.setAttributeOverlayRegular(overlayImg, attributeName)
         }
     }
@@ -170,12 +177,6 @@ export default class Deck {
         overlayImg.src = "assets/attribute_hovered.svg"
         overlayImg.style.visibility = "visible"
         overlayImg.style.opacity = "0"
-    }
-
-    static setAttributeOverlayHovered(overlayImg) {
-        overlayImg.src = "assets/attribute_hovered.svg"
-        overlayImg.style.visibility = "visible"
-        overlayImg.style.opacity = "1"
     }
 
     static setAttributeOverlayHidden(overlayImg) {
@@ -196,13 +197,21 @@ export default class Deck {
         overlayImg.style.opacity = "1"
     }
 
-    static setAttributeOverlaySelectedAndHovered(overlayImg) {
-        overlayImg.src = "assets/attribute_selected_and_hovered.svg"
+    static setAttributeOverlayHovered(overlayImg) {
+        overlayImg.src = "assets/attribute_hovered.svg"
         overlayImg.style.visibility = "visible"
         overlayImg.style.opacity = "1"
     }
 
-    addOverlayImg(cardHolder, attributeName, gameLogic, clickable = true, hoverable = true) {
+    static setAttributeOverlaySelectedAndHovered(overlayImg) {
+        overlayImg.src = "assets/attribute_selected_and_hovered.svg"
+    }
+
+    static setAttributeOverlayChooseHigherHovered(overlayImg) {
+        overlayImg.src = "assets/attribute_choose_higher_hovered.svg"
+    }
+
+    addOverlayImg(cardHolder, attributeName, gameLogic, playerNumber, clickable = true, hoverable = true) {
         const id = Deck.getOverlayImgId(cardHolder, attributeName)
 
         const overlayImg = document.createElement('img')
@@ -211,13 +220,13 @@ export default class Deck {
 
         if (clickable) {
             overlayImg.onclick = function () {
-                Deck.handleAttributeClick(overlayImg, attributeName, gameLogic)
+                Deck.handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber)
             }
         }
 
         if (hoverable) {
             overlayImg.onmouseenter = function () {
-                Deck.handleAttributeMouseEnter(overlayImg, attributeName, gameLogic)
+                Deck.handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber)
             }
 
             overlayImg.onmouseleave = function () {
