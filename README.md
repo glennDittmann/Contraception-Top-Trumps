@@ -8,5 +8,9 @@ You can directly try the game from its [github page](http://glenndittmann.github
 
 **Note**: still under development
 
+## 3rd party
+
+Win and loose sound are createy by KonitaTutorials and available on [OpenGameArt](https://opengameart.org/content/correct-and-wrong-sound-effect).
+
 ## Authors
 L. Meindl, C. Mang-Manger, S. R., A. Hio, G. Dittmann
