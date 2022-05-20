@@ -48,8 +48,9 @@ export default class GameLogic {
         const scale = Math.min(scaleHeight, scaleWidth)
 
         const gameCanvas = document.getElementById("game-canvas");
+        const topBar = document.getElementById("top-bar");
         gameCanvas.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
-
+        topBar.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
 
         const cardsArea = document.getElementById("cards-area");
         let paddingLeft = 270 - 60 - 30; // minus the amount the player 1 has right padding so the cards padding border is in center
