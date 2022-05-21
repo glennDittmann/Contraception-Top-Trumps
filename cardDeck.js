@@ -1,7 +1,7 @@
 "use strict"
 
 import {GameState} from "./gameLogic.js";
-import {ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH} from "./cardConstants.js";
+import {ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT} from "./cardConstants.js";
 
 export default class Deck {
     constructor(cards, gameLogic) {
@@ -98,18 +98,18 @@ export default class Deck {
         attributeLabelDiv.innerHTML = isHidden ? "" : currentCardData[attributeName]
 
         const attributeOverlayId = Deck.getOverlayImgId(cardHolder, attributeName);
-        const overlayImage = document.getElementById(attributeOverlayId);
-
+        const overlayImg = document.getElementById(attributeOverlayId);
+        overlayImg.title = Deck.getOverlayImageTitle(currentCardData, attributeName)
 
         if (gameLogic.selectedAttribute === attributeName) {
-            Deck.setAttributeOverlaySelected(overlayImage, gameLogic, playerNumber)
+            Deck.setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber)
         } else if (gameLogic.selectedAttributeAi === attributeName) {
-            Deck.setAttributeOverlayChooseHigher(overlayImage)
+            Deck.setAttributeOverlayChooseHigher(overlayImg)
             attributeLabelDiv.innerHTML = "???"
         } else if (isHidden) {
-            Deck.setAttributeOverlayHidden(overlayImage)
+            Deck.setAttributeOverlayHidden(overlayImg)
         } else {
-            Deck.setAttributeOverlayRegular(overlayImage)
+            Deck.setAttributeOverlayRegular(overlayImg)
         }
     }
 
@@ -180,9 +180,6 @@ export default class Deck {
     }
 
     static setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber) {
-        //overlayImg.src = "assets/attribute_selected.svg"
-        //overlayImg.style.visibility = "visible"
-        //overlayImg.style.opacity = "1"
         if(gameLogic.currentWinnerNumber === playerNumber) {
             Deck.setAttributeOverlayCorrect(overlayImg)
         }
@@ -229,30 +226,32 @@ export default class Deck {
         overlayImg.src = "assets/attribute_choose_higher_hovered.svg"
     }
 
-    addOverlayImg(cardHolder, attributeName, gameLogic, playerNumber, clickable = true, hoverable = true) {
+    addOverlayImg(cardHolder, attributeName, gameLogic, playerNumber) {
         const id = Deck.getOverlayImgId(cardHolder, attributeName)
 
         const overlayImg = document.createElement('img')
         overlayImg.id = id
         overlayImg.className = attributeName + "_overlay"
+        overlayImg.title = Deck.getOverlayImageTitle(this.cards[0], attributeName)
 
-        if (clickable) {
-            overlayImg.onclick = function () {
-                Deck.handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber)
-            }
+        
+        overlayImg.onclick = function () {
+            Deck.handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber)
+        }
+    
+
+    
+        overlayImg.onmouseenter = function () {
+            Deck.handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber)
         }
 
-        if (hoverable) {
-            overlayImg.onmouseenter = function () {
-                Deck.handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber)
-            }
-
-            overlayImg.onmouseleave = function () {
-                Deck.handleAttributeMouseLeave(overlayImg, attributeName, gameLogic, playerNumber)
-            }
+        overlayImg.onmouseleave = function () {
+            Deck.handleAttributeMouseLeave(overlayImg, attributeName, gameLogic, playerNumber)
         }
+        
 
         cardHolder.appendChild(overlayImg)
+
         Deck.setAttributeOverlayHidden(overlayImg, attributeName)
     }
 
@@ -272,5 +271,9 @@ export default class Deck {
 
     static getAttributeLabelId(cardHolderId, attributeName) {
         return cardHolderId + "_" + attributeName;
+    }
+
+    static getOverlayImageTitle(cardData, attributeName){
+        return cardData[attributeName + "-text"]  // this is the text display when hovering over an attribute
     }
 }

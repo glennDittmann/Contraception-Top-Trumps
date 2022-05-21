@@ -7,15 +7,25 @@ const N_ATTRIBUTES = 5;
 const MISSING_CARD_PATH = "assets/cards/unknown.svg"
 const HIDDEN_CARD_PATH = "assets/cards/card-backside.png"
 
+const ATTRIBUTE_DEFAULT_TEXT = "There will be information displayed here, "
+                             + "describing the attribute for the given contraceptive method. "
+                             + "For example describing, why the pearl index amounts to this number or " 
+                             + "which kind of side effects come with a given method."
+
 const CONDOM =
 {
     "name": "Condom",
     "path": "assets/cards/kondom.svg",
-    "effectiveness": 13,  // measured with Pearl-Index; atm source is https://de.wikipedia.org/wiki/Empf%C3%A4ngnisverh%C3%BCtung, using the mean of (2,12) & (7,14)
+    "effectiveness": 13,  
     "sti-protection": 10.0,
     "cost": 1.0,
     "accessibility": 3.0,
-    "side-effects": 0.0
+    "side-effects": 0.0,
+    "effectiveness-text": "Condom Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Condom STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Condom Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Condom Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Condom Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
 }
 
 
@@ -27,6 +37,11 @@ const INJECTION =
     "cost": 2,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Drei-Monats-Spritze Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Drei-Monats-Spritze STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Drei-Monats-Spritze Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Drei-Monats-Spritze Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Drei-Monats-Spritze Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/spritze.svg"
 }
 
@@ -39,6 +54,11 @@ const ANTI_BABY_PILL =
     "cost": 2,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Die Pille Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Die Pille STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Die Pille Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Die Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Die Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/pille.svg"
 }
 
@@ -51,6 +71,11 @@ const COPPER_COIL =
     "cost": 3,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Die Spirale Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Die Spirale STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Die Spirale Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Die Spirale Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Die Spirale Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/spirale.svg"
 }
 
@@ -62,6 +87,11 @@ const DIAPHRAGMA =
     "cost": 1.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Der Vaginalring Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Der Vaginalring STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Der Vaginalring Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Der Vaginalring Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Der Vaginalring Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/vaginal-ring.svg"
 }
 
@@ -74,6 +104,11 @@ const FERTILITY_CYCLE =
     "cost": 0,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Kalendermethode Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Kalendermethode STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Kalendermethode Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Kalendermethode Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Kalendermethode Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/kalender.svg"
 }
 
@@ -85,6 +120,11 @@ const VASECTOMY =
     "cost": 1,
     "accessibility": 2.0,
     "side-effects": 10.0,
+    "effectiveness-text": "Vasektomie Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Vasektomie STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Vasektomie Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Vasektomie Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Vasektomie Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/vasektomie.svg"
 }
 
@@ -96,6 +136,11 @@ const PATCH =
     "cost": 3.2,
     "accessibility": 4.8,
     "side-effects": 7.0,
+    "effectiveness-text": "Verhütungspflaster Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Verhütungspflaster STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Verhütungspflaster Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Verhütungspflaster Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Verhütungspflaster Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/pflaster.svg"
 }
 
@@ -107,6 +152,11 @@ const COITUS_INTERRUPTUS =
     "cost": 0,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Coitus Interruptus Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Coitus Interruptus STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Coitus Interruptus Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Coitus Interruptus Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Coitus Interruptus Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
 }
 
 
@@ -118,6 +168,11 @@ const STERILIZATION =
     "cost": 3.0,
     "accessibility": 1.0,
     "side-effects": 1.0,
+    "effectiveness-text": "Sterilisation Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Sterilisation STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Sterilisation Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Sterilisation Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Sterilisation Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
 }
 
 
@@ -127,4 +182,5 @@ const STERILIZATION =
 
 export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
         DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION, 
-        VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH}
+        VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES, MISSING_CARD_PATH, 
+        HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT}
