@@ -144,6 +144,22 @@ const PATCH =
     path: "assets/cards/pflaster.svg"
 }
 
+const PREP = 
+{
+    "name": "Prep",
+    "effectiveness": 0.15,
+    "sti-protection": 1.0,
+    "cost": 3.0,
+    "accessibility": 1.0,
+    "side-effects": 1.0,
+    "effectiveness-text": "Sterilisation Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Sterilisation STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Sterilisation Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Sterilisation Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Sterilisation Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
+    path: "assets/cards/prep.svg"
+}
+
 const COITUS_INTERRUPTUS = 
 {
     "name": "Coitus Interruptus",
@@ -160,27 +176,11 @@ const COITUS_INTERRUPTUS =
 }
 
 
-const STERILIZATION = 
-{
-    "name": "Sterilization",
-    "effectiveness": 0.15,
-    "sti-protection": 1.0,
-    "cost": 3.0,
-    "accessibility": 1.0,
-    "side-effects": 1.0,
-    "effectiveness-text": "Sterilisation Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-    "sti-protection-text": "Sterilisation STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-    "cost-text": "Sterilisation Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-    "accessibility-text": "Sterilisation Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-    "side-effects-text": "Sterilisation Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
-}
-
-
 // other methods: 
 // copper chain,
 
 
 export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
-        DIAPHRAGMA, STERILIZATION, FERTILITY_CYCLE, INJECTION, 
+        DIAPHRAGMA, PREP, FERTILITY_CYCLE, INJECTION, 
         VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES, MISSING_CARD_PATH, 
         HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT}
