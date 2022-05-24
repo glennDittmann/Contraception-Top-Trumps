@@ -160,19 +160,20 @@ const PREP =
     path: "assets/cards/prep.svg"
 }
 
-const COITUS_INTERRUPTUS = 
+const TUBENLIGATUR = 
 {
-    "name": "Coitus Interruptus",
+    "name": "Tubenligatur",
     "effectiveness": 20.0,
     "sti-protection": 1.0,
     "cost": 0,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "effectiveness-text": "Coitus Interruptus Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-    "sti-protection-text": "Coitus Interruptus STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-    "cost-text": "Coitus Interruptus Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-    "accessibility-text": "Coitus Interruptus Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-    "side-effects-text": "Coitus Interruptus Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
+    "effectiveness-text": "Tubenligatur Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Tubenligatur STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Tubenligatur Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Tubenligatur Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Tubenligatur Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
+    path: "assets/cards/tubenligatur.svg"
 }
 
 
@@ -180,7 +181,7 @@ const COITUS_INTERRUPTUS =
 // copper chain,
 
 
-export {CONDOM, MINI_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
+export {CONDOM, MINI_PILL, TUBENLIGATUR, COPPER_COIL,
         DIAPHRAGMA, PREP, FERTILITY_CYCLE, INJECTION, 
         VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES, MISSING_CARD_PATH, 
         HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT}
