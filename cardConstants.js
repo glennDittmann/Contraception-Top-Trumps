@@ -46,19 +46,19 @@ const INJECTION =
 }
 
 
-const ANTI_BABY_PILL = 
+const MINI_PILL = 
 {
-    "name": "Anti-Baby Pill",
+    "name": "Mini Pill",
     "effectiveness": 7,
     "sti-protection": 1.0,
     "cost": 2,
     "accessibility": 1.0,
     "side-effects": 1.0,
-    "effectiveness-text": "Die Pille Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-    "sti-protection-text": "Die Pille STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-    "cost-text": "Die Pille Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-    "accessibility-text": "Die Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-    "side-effects-text": "Die Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
+    "effectiveness-text": "Die Mini Pille Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+    "sti-protection-text": "Die Mini Pille STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+    "cost-text": "Die Mini Pille Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+    "accessibility-text": "Die Mini Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+    "side-effects-text": "Die Mini Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     path: "assets/cards/pille.svg"
 }
 
@@ -180,7 +180,7 @@ const COITUS_INTERRUPTUS =
 // copper chain,
 
 
-export {CONDOM, ANTI_BABY_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
+export {CONDOM, MINI_PILL, COITUS_INTERRUPTUS, COPPER_COIL,
         DIAPHRAGMA, PREP, FERTILITY_CYCLE, INJECTION, 
         VASECTOMY, PATCH, ATTRIBUTES, N_ATTRIBUTES, MISSING_CARD_PATH, 
         HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT}
