@@ -221,7 +221,7 @@ export default class GameLogic {
         document.getElementById("next-round-button").innerHTML = "Nächste Karte";
 
         if(this.playerDeck.cards.length === 1 || this.aiDeck.cards.length === 1){
-            document.getElementById("next-round-button").innerHTML = "Nächste Karte (mischen)";
+            document.getElementById("next-round-button").innerHTML = "Neu Mischen";
         }
 
         if( (this.playerDeck.cards.length === 0) || (this.aiDeck.cards.length === 0)){
