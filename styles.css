@@ -129,6 +129,7 @@ body {
     right: 14%;
     color: darkcyan;
     font-size: 32px;
+    text-shadow: -2px 0 4px black, 0 2px 4px black, 2px 0 4px black, 0 -2px 4px black;
 }
 
 .effectiveness {
