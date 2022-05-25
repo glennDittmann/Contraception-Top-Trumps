@@ -25,10 +25,14 @@ export const CONDOM =
             " schnell Pannen passieren können, die die Schutzfunktion zunichte machen. Wichtig bei der Verwendung von" +
             " Kondomen ist bspw., dass man nie 2 Kondome übereinander geben darf und fetthaltige Gleitmittel können das" +
             " Kondom schnell beschädigen.",
-        "sti-protection-text": "Condom STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Condom Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+        "sti-protection-text": "Bei stetigem und korrektem Gebrauch schützen Kondome bis zu 90% vor HIV schützen," +
+            " vor den restlichen STI’s nur bis zu 60%. Übertragungen müssen nicht nur auf analen/vaginalen" +
+            " Geschlechtsverkehr beschränkt sein, sondern können auch bei Hautverletzungen, Küssen oder oralem " +
+            "Geschlechtsverkehr übertragen werden.",
+        "cost-text": "Der durchschnittliche Preis in Österreich pro Kondom beträgt 73 Cent.",
         "accessibility-text": "Condom Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Condom Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "side-effects-text": "Ca. 2% der Bevölkerung hat eine Latexallergie, für die es spezielle Kondome zu kaufen" +
+            " gibt. Eventuell können bei manchen durch das beigefügte Gleitmittel Hautirritationen entstehen. "
     }
 
 export const FEMALE_CONDOM =
@@ -72,11 +76,15 @@ export const MINI_PILL =
         "cost": 22,
         "accessibility": 3.0,
         "side-effects": 5.0,
-        "effectiveness-text": "Die Mini Pille Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Die Mini Pille STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Die Mini Pille Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Die Mini Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Die Mini Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "It’s quite effective in preventing pregnancy if taken correctly.",
+        "sti-protection-text": "It gives zero protection against STIs. Always wear condoms.",
+        "cost-text": "84 cents per use",
+        "accessibility-text": "Six-month supply with a required prescription",
+        "side-effects-text": "nausea, fatigue, headaches, depression, lower sex drive, tender breasts, cysts on the " +
+            "ovaries, weight gain or loss, bleeding between periods, skipped periods, mood swings, dizziness, thinning " +
+            "hair. If you get pregnant while taking the minipill, it can cause problems. You’re more likely to have an " +
+            "ectopic pregnancy. This is when a fertilised egg implants outside of the uterus, such as in a fallopian " +
+            "tube. You won’t be able to continue with your pregnancy, and you may need surgery to remove the fetus."
     }
 
 export const COITUS_INTERRUPTUS =
@@ -105,11 +113,15 @@ export const PATCH =
         "cost": 3.0,
         "accessibility": 3.5,
         "side-effects": 4.0,
-        "effectiveness-text": "Verhütungspflaster Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Verhütungspflaster STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Verhütungspflaster Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Verhütungspflaster Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Verhütungspflaster Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "It’s quite effective in preventing pregnancy if taken correctly.",
+        "sti-protection-text": "It gives zero protection against STIs. Always wear condoms.",
+        "cost-text": "in packs of nine for about €43",
+        "accessibility-text": "When you first get the contraceptive patch you will be given a 3-month supply, to see" +
+            " how you get on with it. If there are no problems, you can be prescribed the patch for a year at a time." +
+            " It requires a prescription every three months.",
+        "side-effects-text": "skin irritation, itching and soreness; some women get mild temporary side effects when " +
+            "they first start using the patch, such as headaches, sickness (nausea), breast tenderness and mood " +
+            "changes – this usually settles down after a few months"
     }
 
 export const PREP =
@@ -137,11 +149,17 @@ export const COPPER_COIL =
         "cost": 1.6,
         "accessibility": 4.5,
         "side-effects": 3.0,
-        "effectiveness-text": "Die Spirale Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Die Spirale STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Die Spirale Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Die Spirale Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Die Spirale Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "Die Kupferspirale ist ein sehr sicheres Verhütungsmittel.",
+        "sti-protection-text": "Die Kupferspirale bietet keinen Schutz vor Krankheiten",
+        "cost-text": "In Österreich betragen die Kosten für die Kupferspirale in der Regel zwischen 360 - 500€ " +
+            "und halten bis zu 5 Jahre.",
+        "accessibility-text": "Die Kupferspirale wird durch Gynäkologen eingesetzt. Der Eingriff läuft in den letzten" +
+            " Tagen der Monatsblutung am besten ab. DIe Kupferspirale kann bei Frauen jedes Alters eingesetzt werden," +
+            " außer bei Frauen die sehr starke Monatsblutungen haben. ",
+        "side-effects-text": "In den ersten Monaten nach dem Eingriff kann es zu Zwischenblutungen kommen und das " +
+            "Infektionsrisiko der Gebärmutter und Eileiter ist leicht erhöht. Durch die Kupferspirale werden meistens " +
+            "die Monatsblutung stärker, manchmal werden auch Menstruationsschmerzen intensiver. Sehr selten wird beim " +
+            "Eingriff die Gebärmutterwand verletzt."
     }
 
 export const VASECTOMY =
@@ -219,9 +237,11 @@ export const DIAPHRAGMA =
     "cost": 60.0,
     "accessibility": 4.5,
     "side-effects": 0.1,
-    "effectiveness-text": "Der Vaginalring Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-    "sti-protection-text": "Der Vaginalring STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-    "cost-text": "Der Vaginalring Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-    "accessibility-text": "Der Vaginalring Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-    "side-effects-text": "Der Vaginalring Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+    "effectiveness-text": "Vaginal Ring is quite an effective contraceptive method.",
+    "sti-protection-text": "It does not protect you from STIs at all.",
+    "cost-text": "€19 per piece with a prescription per month = ~4,5 euros per use",
+    "accessibility-text": "To be replaced every month; requires prescription",
+    "side-effects-text": "Most common ones are headache, weight gain, nausea, breast tenderness, vaginal" +
+        " irritation, increased yeast infections, chest tensions, water retention, mood swings, decreased libido." +
+        " Might increase risks of blood clots, heart attack, stroke, toxic shock syndrome."
 }
