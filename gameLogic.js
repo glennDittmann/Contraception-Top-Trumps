@@ -218,12 +218,14 @@ export default class GameLogic {
         this.playerDeck.cards.shift()
         this.aiDeck.cards.shift()
 
-        if(this.playerDeck.cards.length === 1 && this.aiDeck.cards.length === 1){
-            document.getElementById("next-round-button").innerHTML = "Neu mischen";
+        document.getElementById("next-round-button").innerHTML = "Nächste Karte";
+
+        if(this.playerDeck.cards.length === 1 || this.aiDeck.cards.length === 1){
+            document.getElementById("next-round-button").innerHTML = "Nächste Karte (mischen)";
         }
-        else if( this.playerDeck.cards.length === 0 && this.aiDeck.cards.length === 0){  // both decks are empty, usually on check should be sufficient; just in case though
+
+        if( (this.playerDeck.cards.length === 0) || (this.aiDeck.cards.length === 0)){
             this.dealNewCards();
-            document.getElementById("next-round-button").innerHTML = "Nächste Karte";
         }
     }
 
