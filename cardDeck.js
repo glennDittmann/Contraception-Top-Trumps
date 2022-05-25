@@ -55,7 +55,7 @@ export default class Deck {
 
         if ((cardHolderId === 'card-img-container2') && (gameLogic.gameState === GameState.ClassicWaiting)) {
             img.src = HIDDEN_CARD_PATH
-        } else if (this.cards[0].hasOwnProperty("path")) {
+        } else if (currentCardData.hasOwnProperty("path") && (currentCardData["path"] != "")) {
             img.src = currentCardData["path"]
         } else {
             img.src = MISSING_CARD_PATH
