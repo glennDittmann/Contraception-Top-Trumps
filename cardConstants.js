@@ -14,12 +14,17 @@ export const ATTRIBUTE_DEFAULT_TEXT = "There will be information displayed here,
 export const CONDOM =
     {
         "name": "Condom",
+        "path": "assets/cards/kondom.svg",
         "effectiveness": 12,
         "sti-protection": 4.5,
         "cost": 0.73,
         "accessibility": 5.0,
         "side-effects": 1.0,
-        "effectiveness-text": "Condom Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+        "effectiveness-text": "Laut Pearl-Index werden von 100 Frauen die nur mit Kondom verhüten im Verlauf eines" +
+            " Jahres <b>mindestens</b> 2 schwanger. Der Pearl-Index ist vergleichsweise hoch, da bei der Benutzung des Kondom" +
+            " schnell Pannen passieren können, die die Schutzfunktion zunichte machen. Wichtig bei der Verwendung von" +
+            " Kondomen ist bspw., dass man nie 2 Kondome übereinander geben darf und fetthaltige Gleitmittel können das" +
+            " Kondom schnell beschädigen.",
         "sti-protection-text": "Condom STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
         "cost-text": "Condom Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
         "accessibility-text": "Condom Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
@@ -126,7 +131,7 @@ export const PREP =
 export const COPPER_COIL =
     {
         "name": "Copper Coil",
-        "path": "",
+        "path": "assets/cards/spirale.svg",
         "effectiveness": 0.8,
         "sti-protection": 0.0,
         "cost": 1.6,
