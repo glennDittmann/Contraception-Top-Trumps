@@ -23,6 +23,11 @@ body {
     height: 50px;
 }
 
+.bottom-bar {
+    display: flex;
+    justify-content: center;
+}
+
 .game-canvas {
     display: flex;
     transform-origin: left top;
@@ -31,6 +36,8 @@ body {
 
 .cards-area {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
     transform-origin: left top;
     width: 1620px;
 }
@@ -49,6 +56,10 @@ body {
     margin: 10px 20px;
     text-align: center;
     color: #FCFCFD;
+}
+
+.players {
+    display: flex;
 }
 
 .player1, .player2 {
@@ -155,8 +166,7 @@ body {
 .next-round-button-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    padding-left: 50px;
+    padding-top: 20px;
 }
 
 .next-round-button {

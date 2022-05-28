@@ -54,7 +54,7 @@ export default class GameLogic {
         topBar.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
 
         const cardsArea = document.getElementById("cards-area");
-        let paddingLeft = 250; 
+        let paddingLeft = 220; 
         if (scaleWidth > scaleHeight) {
             paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
         }
