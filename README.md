@@ -13,4 +13,4 @@ You can directly try the game from its [github page](http://glenndittmann.github
 Win and loose sound are createy by KonitaTutorials and available on [OpenGameArt](https://opengameart.org/content/correct-and-wrong-sound-effect).
 
 ## Authors
-L. Meindl, C. Mang-Manger, S. R., A. Hio, G. Dittmann
+S. R., A. Hio, C. Mang-Manger, L. Meindl, G. Dittmann
