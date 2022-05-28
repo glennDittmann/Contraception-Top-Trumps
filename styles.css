@@ -64,7 +64,7 @@ body {
 
 .player2 {
     float: right;
-    padding-left: 25px;
+    padding-right: 10px;
 }
 
 .card-container {
@@ -156,16 +156,17 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-left: 50px;
 }
 
 .next-round-button {
     display: flex;
     visibility: hidden;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 90px;
+    height: 60px;
     font: 1em sans-serif;
-    font-size: 15px;
+    font-size: 25px;
     background-color: #cab8ff;
     border: none;
     color:#F4EFEF;
@@ -174,6 +175,7 @@ body {
     text-decoration: none;
     border-radius: 8px;
     transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 #d1c2fd, 0 3px 10px 0 #d1c2fd;
 }
 
 .next-round-button:hover {
