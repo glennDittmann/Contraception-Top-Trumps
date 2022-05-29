@@ -78,6 +78,13 @@ body {
     padding-right: 10px;
 }
 
+.game-over {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 300px;
+}
+
 .card-container {
     min-width: 230px;
     width: 650px;

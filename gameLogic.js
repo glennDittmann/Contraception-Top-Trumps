@@ -18,7 +18,9 @@ export default class GameLogic {
         this.selectedAttribute = ""
         this.selectedAttributeAi = "";
         this.selectedSide = 0
+        this.addStartButton();
         this.addNextRoundButton();
+        this.addNewGameButton();
         this.updatePointDisplay();
         this.correctSound = new Audio("assets/audio/correct_sound_effect.mp3");
         this.wrongSound = new Audio("assets/audio/wrong_sound_effect.mp3");
@@ -221,11 +223,13 @@ export default class GameLogic {
         document.getElementById("next-round-button").innerHTML = "Nächste Karte";
 
         if(this.playerDeck.cards.length === 1 || this.aiDeck.cards.length === 1){
-            document.getElementById("next-round-button").innerHTML = "Neu Mischen";
+            document.getElementById("next-round-button").innerHTML = "Beenden";
         }
 
         if( (this.playerDeck.cards.length === 0) || (this.aiDeck.cards.length === 0)){
             this.dealNewCards();
+
+            this.gameOver();
         }
     }
 
@@ -241,6 +245,15 @@ export default class GameLogic {
         this.selectedAttributeAi = ATTRIBUTES[selectedAttrIdx];
     }
 
+    addStartButton() {
+        this.startButton = document.getElementById("start-button");
+
+        const gameLogic = this;
+        this.startButton.onclick = function () {
+            GameLogic.handleStartClick(gameLogic);
+        }
+    }
+
     addNextRoundButton() {
         this.nextRoundButton = document.getElementById("next-round-button");
 
@@ -250,6 +263,18 @@ export default class GameLogic {
         }
     }
 
+    addNewGameButton(){
+        this.newGameButton = document.getElementById("new-game-button");
+        const gameLogic = this;
+        this.newGameButton.onclick = function () {
+            GameLogic.handleNewGameClick(gameLogic);
+        }
+    }
+
+    static handleStartClick(gameLogic) {
+        gameLogic.startGame();
+    }
+
     static handleNextRoundClick(gameLogic) {
         if(gameLogic.selectedAttribute !== "")
         {
@@ -257,7 +282,33 @@ export default class GameLogic {
         }
     }
 
+    static handleNewGameClick(gameLogic) {
+            gameLogic.startGame();
+    }
+
     updatePointDisplay(){
         document.getElementById("point-display").innerHTML = "Deine Punkte: " + this.streakCount;
+    }
+
+    startGame() {
+        let preGame = document.getElementById("pre-game");
+        let inGame = document.getElementById("in-game");
+        let gameOver = document.getElementById("game-over");
+        document.getElementById("next-round-button").innerHTML = "Nächste Karte";
+        this.streakCount = 0;
+        this.updatePointDisplay();
+        preGame.style.display = "none";
+        inGame.style.display = "block";
+        gameOver.style.display = "none";
+        
+    }
+
+    gameOver() {
+        let preGame = document.getElementById("pre-game");
+        let inGame = document.getElementById("in-game");
+        let gameOver = document.getElementById("game-over");
+        preGame.style.display = "none";
+        inGame.style.display = "none";
+        gameOver.style.display = "block";
     }
 }
