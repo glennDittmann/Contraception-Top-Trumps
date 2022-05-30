@@ -333,21 +333,3 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
 }
-
-.card-grid-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .card-grid {
-    width: 1900px;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .card-grid-item {
-    border: 1px solid #fff;
-    height: 300px;
-    width: 200px;
-  }
