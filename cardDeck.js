@@ -5,8 +5,14 @@ import {ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT}
 
 export default class Deck {
     constructor(cards, gameLogic) {
-        this.cards = cards
-        this.gameLogic = gameLogic
+        if (gameLogic === undefined){  // simulate overriden constructer that just uses cards
+            this.cards = cards;
+            this.gameLogic = null;
+        }
+        else {
+            this.cards = cards;
+            this.gameLogic = gameLogic;
+        }
     }
 
     getNumCards() {
@@ -51,8 +57,6 @@ export default class Deck {
 
         this.updateAllAttributeStatsAndVisuals(cardHolderId, currentCardData, playerNumber, gameLogic)
 
-        img.src = currentCardData["path"]
-
         if ((cardHolderId === 'card-img-container2') && (gameLogic.gameState === GameState.ClassicWaiting)) {
             img.src = HIDDEN_CARD_PATH
         } else if (currentCardData.hasOwnProperty("path") && (currentCardData["path"] != "")) {
@@ -61,6 +65,7 @@ export default class Deck {
             img.src = MISSING_CARD_PATH
         }
     }
+    
 
     addCardImageImgElement(imageId, cardHolderId, gameLogic, playerNumber) {
         // displays the top card, here the first card in the array
