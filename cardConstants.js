@@ -13,7 +13,7 @@ export const ATTRIBUTE_DEFAULT_TEXT = "There will be information displayed here,
 
 export const CONDOM =
     {
-        "name": "Condom",
+        "name": "condom",
         "path": "assets/cards/kondom.svg",
         "effectiveness": 12,
         "sti-protection": 4.5,
@@ -37,7 +37,7 @@ export const CONDOM =
 
 export const FEMALE_CONDOM =
     {
-        "name": "Female Condom",
+        "name": "female-condom",
         "path": "",
         "effectiveness": 25,
         "sti-protection": 4.5,
@@ -53,7 +53,7 @@ export const FEMALE_CONDOM =
 
 export const COMBINED_PILL =
     {
-        "name": "Combined Pill",
+        "name": "combined-pill",
         "path": "",
         "effectiveness": 0.1,
         "sti-protection": 0.0,
@@ -69,7 +69,7 @@ export const COMBINED_PILL =
 
 export const MINI_PILL =
     {
-        "name": "Mini Pill",
+        "name": "mini-pill",
         "path": "assets/cards/pille.svg",
         "effectiveness": 0.5,
         "sti-protection": 0.0,
@@ -89,7 +89,7 @@ export const MINI_PILL =
 
 export const COITUS_INTERRUPTUS =
     {
-        "name": "Mini Pill",
+        "name": "coitus-interruptus",
         "path": "",
         "effectiveness": 25,
         "sti-protection": 0.0,
@@ -106,7 +106,7 @@ export const COITUS_INTERRUPTUS =
 
 export const PATCH =
     {
-        "name": "Patch",
+        "name": "patch",
         "path": "assets/cards/pflaster.svg",
         "effectiveness": 0.8,
         "sti-protection": 0.0,
@@ -126,7 +126,7 @@ export const PATCH =
 
 export const PREP =
     {
-        "name": "Prep",
+        "name": "prep",
         "path": "assets/cards/prep.svg",
         "effectiveness": 85,
         "sti-protection": 3.0,
@@ -142,7 +142,7 @@ export const PREP =
 
 export const COPPER_COIL =
     {
-        "name": "Copper Coil",
+        "name": "copper-coil",
         "path": "assets/cards/spirale.svg",
         "effectiveness": 0.8,
         "sti-protection": 0.0,
@@ -164,7 +164,7 @@ export const COPPER_COIL =
 
 export const VASECTOMY =
     {
-        "name": "Vasectomy",
+        "name": "vasectomy",
         "path": "assets/cards/vasektomie.svg",
         "effectiveness": 0.1,
         "sti-protection": 0,
@@ -180,7 +180,7 @@ export const VASECTOMY =
 
 export const TUBENLIGATUR =
     {
-        "name": "Tubenligatur",
+        "name": "tubenligatur",
         "path": "assets/cards/tubenligatur.svg",
         "effectiveness": 20.0,
         "sti-protection": 0.0,
@@ -196,7 +196,7 @@ export const TUBENLIGATUR =
 
 export const INJECTION =
 {
-    "name": "Injection",
+    "name": "injection",
     "path": "assets/cards/spritze.svg",
     "effectiveness": 0.3,
     "sti-protection": 0.0,
@@ -213,7 +213,7 @@ export const INJECTION =
 
 export const FERTILITY_CYCLE =
     {
-        "name": "Fertility Cycle",
+        "name": "calendar",
         "path": "assets/cards/kalender.svg",
         "effectiveness": 12,
         "sti-protection": 1.0,
@@ -230,7 +230,7 @@ export const FERTILITY_CYCLE =
 
 export const DIAPHRAGMA =
 {
-    "name": "Diaphragma",
+    "name": "diaphragma",
     "path": "assets/cards/vaginal-ring.svg",
     "effectiveness": 12,
     "sti-protection": 0.0,
