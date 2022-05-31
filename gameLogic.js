@@ -39,9 +39,6 @@ export default class GameLogic {
         const discardDeck = new Deck({}, this);
         this.discardDeck = discardDeck
 
-        console.log(this.playerDeck.cards)
-        console.log(this.aiDeck.cards)
-
         this.handleProceedToNextGameState()
     }
 
