@@ -195,6 +195,13 @@ body {
     box-shadow: 0 4px 8px 0 #d1c2fd, 0 3px 10px 0 #d1c2fd;
 }
 
+#back-to-game-button {
+    width: 10em;
+    height: 0.3em;
+    font-size: 0.6em;
+    padding: 1em 1em;
+}
+
 .next-round-button:hover {
     background-color: #e7e0fc;
     color:#152740;
