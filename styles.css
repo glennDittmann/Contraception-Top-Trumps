@@ -337,5 +337,6 @@ body {
 
 .card-lib-organizer {
     display: flex;
+    justify-content: center;
     padding-bottom: 1em;
 }
