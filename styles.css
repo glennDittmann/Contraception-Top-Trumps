@@ -1,6 +1,6 @@
 body {
     background-color: #152740;
-    font-family: 'comic_panelsregular', sans-serif;
+    font-family: 'BluenightRegular', sans-serif;
     font-size: 30px;
     line-height: 1.8em;
     margin: 0;
@@ -208,9 +208,8 @@ body {
 }
 
 @font-face {
-    font-family: 'comic_panelsregular';
-    src: url('fonts/comicpanels-byvg-webfont.woff2') format('woff2'),
-    url('fonts/comicpanels-byvg-webfont.woff') format('woff');
+    font-family: 'BluenightRegular';
+    src: url('fonts/BluenightRegular-x3n5K.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
