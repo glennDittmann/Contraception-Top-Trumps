@@ -121,11 +121,11 @@ export default class GameLogic {
 
     handleEnterChooseLowerWaitingForInput() {
         this.assignRandomAttributeAi()
-        this.gameHelperText.innerHTML = "Es ist eine Eigenschaft eingerahmt. Wähle die Verhütungsmethode, die dabei besser ist!"
+        this.gameHelperText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
     }
 
     handleEnterClassicWaitingForInput() {
-        this.gameHelperText.innerHTML = "Selektiere die Eigenschaft, die wahrscheinlich besser ist als jene der verdeckten Karte!"
+        this.gameHelperText.innerHTML = "Wähle: Stärkste Eigenschaft!"
     }
 
     handleEnterClassicShowResults() {
@@ -289,7 +289,13 @@ export default class GameLogic {
     }
 
     updatePointDisplay(){
-        document.getElementById("point-display").innerHTML = "DEINE PUNKTE: " + this.streakCount;
+        const pointDisplay = document.getElementById("point-display");
+        pointDisplay.innerHTML = "DEINE PUNKTE: " + this.streakCount;
+
+        pointDisplay.style.fontSize = "70px";
+        setTimeout(()=>{
+            pointDisplay.style.fontSize = "50px";
+        },400)
     }
 
     startGame() {
