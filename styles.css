@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'BluenightRegular';
+    src: url('fonts/BluenightRegular-x3n5K.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background-color: #152740;
     font-family: 'BluenightRegular', sans-serif;
@@ -13,9 +20,10 @@ body {
 }
 
 .top-bar {
-    display: flex;
+    display: none;
     justify-content: center;
     padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 .top-bar-img {
@@ -60,6 +68,7 @@ body {
 
 .players {
     display: flex;
+    justify-content: center;
 }
 
 .player1, .player2 {
@@ -147,7 +156,7 @@ body {
     right: 14%;
     color: darkcyan;
     font-size: 32px;
-    text-shadow: -2px 0 4px black, 0 2px 4px black, 2px 0 4px black, 0 -2px 4px black;
+    text-shadow: -5px 0 5px black, 0 5px 5px black, 5px 0 5px black, 0 -5px 5px black;
 }
 
 .effectiveness {
@@ -176,7 +185,7 @@ body {
     padding-top: 20px;
 }
 
-.next-round-button {
+.next-round-button, .start-screen-button {
     display: flex;
     visibility: hidden;
     justify-content: center;
@@ -191,8 +200,12 @@ body {
     text-align: center;
     text-decoration: none;
     border-radius: 8px;
-    transition-duration: 0.4s;
     box-shadow: 0 4px 8px 0 #d1c2fd, 0 3px 10px 0 #d1c2fd;
+}
+
+.start-screen-button {
+    width: 160px;
+    margin: 50px;
 }
 
 #back-to-game-button {
@@ -207,11 +220,8 @@ body {
     color:#152740;
 }
 
-@font-face {
-    font-family: 'BluenightRegular';
-    src: url('fonts/BluenightRegular-x3n5K.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+.game-helper-text {
+
 }
 
 .tooltip {

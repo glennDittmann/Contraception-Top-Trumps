@@ -48,9 +48,7 @@ export default class GameLogic {
         const scale = Math.min(scaleHeight, scaleWidth)
 
         const gameCanvas = document.getElementById("game-canvas");
-        const topBar = document.getElementById("top-bar");
         gameCanvas.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
-        topBar.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
 
         const cardsArea = document.getElementById("cards-area");
         let paddingLeft = 220; 
@@ -99,6 +97,7 @@ export default class GameLogic {
 
     handleLeaveClassicShowResults() {
         this.nextRoundButton.style.visibility = "hidden";
+        this.gameHelperText.style.display = "block"
         this.selectedAttribute = "";
         this.discardPlayedCards();
 
@@ -107,6 +106,7 @@ export default class GameLogic {
 
     handleLeaveChooseLowerResults() {
         this.nextRoundButton.style.visibility = "hidden";
+        this.gameHelperText.style.display = "block"
         this.selectedAttributeAi = "";
         this.selectedAttribute = "";
         this.selectedSide = -1;
@@ -121,9 +121,11 @@ export default class GameLogic {
 
     handleEnterChooseLowerWaitingForInput() {
         this.assignRandomAttributeAi()
+        this.gameHelperText.innerHTML = "Wähle die Methode, die bei dieser Eigenschaft besser ist!"
     }
 
     handleEnterClassicWaitingForInput() {
+        this.gameHelperText.innerHTML = "Wähle die stärkste Eigenschaft um gegen die verdeckte Karte zu gewinnen!"
     }
 
     handleEnterClassicShowResults() {
@@ -134,6 +136,7 @@ export default class GameLogic {
         this.updatePointDisplay();
 
         this.nextRoundButton.style.visibility = "visible";
+        this.gameHelperText.style.display = "none"
     }
 
     handleEnterChooseLowerResults() {
@@ -146,7 +149,8 @@ export default class GameLogic {
 
         this.updatePointDisplay();
 
-        this.nextRoundButton.style.visibility = "visible";
+        this.nextRoundButton.style.visibility = "visible"
+        this.gameHelperText.style.display = "none"
     }
 
     handleComparisonResult(wonComparison) {
@@ -253,6 +257,7 @@ export default class GameLogic {
 
     addNextRoundButton() {
         this.nextRoundButton = document.getElementById("next-round-button");
+        this.gameHelperText = document.getElementById("game-helper-text");
 
         const gameLogic = this;
         this.nextRoundButton.onclick = function () {
@@ -297,7 +302,9 @@ export default class GameLogic {
         preGame.style.display = "none";
         inGame.style.display = "block";
         gameOver.style.display = "none";
-        
+
+        const topBar = document.getElementById("top-bar");
+        topBar.style.display = "flex";
     }
 
     gameOver() {
@@ -307,5 +314,8 @@ export default class GameLogic {
         preGame.style.display = "none";
         inGame.style.display = "none";
         gameOver.style.display = "block";
+
+        const topBar = document.getElementById("top-bar");
+        topBar.style.display = "flex";
     }
 }

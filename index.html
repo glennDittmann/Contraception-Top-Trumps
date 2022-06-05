@@ -11,10 +11,6 @@
 </head>
 
 <body>
-<div class="top-bar" id="top-bar">
-    <div class="point-display" id="point-display">POINTS</div>
-   
-</div>
 <div class="game-canvas" id="game-canvas">
     <div class="explanation-bar">
         <div class="tooltip">
@@ -49,12 +45,15 @@
         </div>
     </div>
     <div class="cards-area" id="cards-area">
+        <div class="top-bar" id="top-bar">
+            <div class="point-display" id="point-display">POINTS</div>
+        </div>
         <div class="pre-game" id="pre-game" style="display: block;">
             <div class="next-round-button-container">
-                <div class="next-round-button" id="lib-button1" style="visibility:visible">
+                <div class="start-screen-button" id="lib-button1" style="visibility:visible">
                     <a href="card-lib.html" style="text-decoration: none; color: #FCFCFD;">Karten -bibliothek</a>
                 </div>
-                <div class="next-round-button" id="start-button" style="visibility:visible;">Start</div>
+                <div class="start-screen-button" id="start-button" style="visibility:visible;">Start</div>
             </div>
         </div>
         <div id="in-game" style="display:none">
@@ -74,14 +73,15 @@
             </div>
             <div class="next-round-button-container">
                 <div class="next-round-button" id="next-round-button">Nächste Karte</div>
+                <div class="game-helper-text" id="game-helper-text">Text</div>
             </div>
         </div>
         <div class="game-over" id="game-over" style="display:none">
             <div class="next-round-button-container">
-                <div class="next-round-button" id="lib-button2" style="visibility:visible">
+                <div class="start-screen-button" id="lib-button2" style="visibility:visible">
                     <a href="card-lib.html" style="text-decoration: none; color: #FCFCFD;">Karten -bibliothek</a>
                 </div>
-                <div class="next-round-button" id="new-game-button" style="visibility:visible;">Neue Runde</div>
+                <div class="start-screen-button" id="new-game-button" style="visibility:visible;">Neue Runde</div>
             </div>
         </div>
     </div>
