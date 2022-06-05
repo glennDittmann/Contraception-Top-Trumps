@@ -92,7 +92,6 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-left: 300px;
 }
 
 .card-container {
@@ -157,7 +156,9 @@ body {
     right: 14%;
     color: darkcyan;
     font-size: 32px;
-    text-shadow: -5px 0 5px black, 0 5px 5px black, 5px 0 5px black, 0 -5px 5px black;
+    text-shadow: -3px 0 2px black, 0 3px 2px black, 3px 0 2px black, 0 -3px 2px black,
+        -3px -3px 2px black, -3px 3px 2px black, 3px -3px 2px black, 3px 3px 2px black;
+
 }
 
 .effectiveness {
