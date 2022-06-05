@@ -96,7 +96,7 @@ export default class GameLogic {
     }
 
     handleLeaveClassicShowResults() {
-        this.nextRoundButton.style.visibility = "hidden";
+        this.nextRoundButton.style.display = "none";
         this.gameHelperText.style.display = "block"
         this.selectedAttribute = "";
         this.discardPlayedCards();
@@ -105,7 +105,7 @@ export default class GameLogic {
     }
 
     handleLeaveChooseLowerResults() {
-        this.nextRoundButton.style.visibility = "hidden";
+        this.nextRoundButton.style.display = "none";
         this.gameHelperText.style.display = "block"
         this.selectedAttributeAi = "";
         this.selectedAttribute = "";
@@ -121,11 +121,11 @@ export default class GameLogic {
 
     handleEnterChooseLowerWaitingForInput() {
         this.assignRandomAttributeAi()
-        this.gameHelperText.innerHTML = "Wähle die Methode, die bei dieser Eigenschaft besser ist!"
+        this.gameHelperText.innerHTML = "Es ist eine Eigenschaft eingerahmt. Wähle die Verhütungsmethode, die dabei besser ist!"
     }
 
     handleEnterClassicWaitingForInput() {
-        this.gameHelperText.innerHTML = "Wähle die stärkste Eigenschaft um gegen die verdeckte Karte zu gewinnen!"
+        this.gameHelperText.innerHTML = "Selektiere die Eigenschaft, die wahrscheinlich besser ist als jene der verdeckten Karte!"
     }
 
     handleEnterClassicShowResults() {
@@ -135,7 +135,7 @@ export default class GameLogic {
 
         this.updatePointDisplay();
 
-        this.nextRoundButton.style.visibility = "visible";
+        this.nextRoundButton.style.display = "flex";
         this.gameHelperText.style.display = "none"
     }
 
@@ -149,7 +149,7 @@ export default class GameLogic {
 
         this.updatePointDisplay();
 
-        this.nextRoundButton.style.visibility = "visible"
+        this.nextRoundButton.style.display = "flex"
         this.gameHelperText.style.display = "none"
     }
 
@@ -289,7 +289,7 @@ export default class GameLogic {
     }
 
     updatePointDisplay(){
-        document.getElementById("point-display").innerHTML = "Deine Punkte: " + this.streakCount;
+        document.getElementById("point-display").innerHTML = "DEINE PUNKTE: " + this.streakCount;
     }
 
     startGame() {
