@@ -141,29 +141,38 @@ export default class GameLogic {
         else if (this.gameState === GameState.ClassicWaiting) {
             chooseModalContentText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
         }
+
+        const chooseAttributeButton = document.getElementById('choose-attribute-button')
+        chooseAttributeButton.style.display = "none"
     }
 
     handleEnterClassicShowResults() {
         const selectedAttribute = this.selectedAttribute;
         let wonComparison = this.IsChosenAttributeBetter(selectedAttribute);
-        this.handleComparisonResult(wonComparison);
 
-        this.updatePointDisplay();
-
-        this.nextRoundButton.style.display = "flex";
+        this.handleTurnResult(wonComparison);
     }
 
     handleEnterChooseLowerResults() {
         const selectedAttribute = this.selectedAttributeAi;
-
         const isComparisonBasedOnLeftCard = (this.selectedSide === 1)
-        let wonComparison = this.IsChosenAttributeBetter(selectedAttribute, isComparisonBasedOnLeftCard);
 
+        let wonComparison = this.IsChosenAttributeBetter(selectedAttribute, isComparisonBasedOnLeftCard);
+        this.handleTurnResult(wonComparison);
+    }
+
+    handleTurnResult(wonComparison) {
         this.handleComparisonResult(wonComparison)
 
         this.updatePointDisplay();
 
         this.nextRoundButton.style.display = "flex"
+
+        const chooseAttributeButton = document.getElementById('choose-attribute-button')
+        chooseAttributeButton.style.display = "none"
+        
+        const chooseModalContentText = document.getElementById('attribute-modal-content-text')
+        chooseModalContentText.innerHTML = wonComparison ? "Richtig! Du hast einen Punkt gewonnen." : "Falsch. Du hast keinen Punkt bekommen."
     }
 
     handleComparisonResult(wonComparison) {

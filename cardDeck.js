@@ -144,12 +144,16 @@ export default class Deck {
 
         const chooseAttributeButton = document.getElementById('choose-attribute-button')
 
+
+        chooseAttributeButton.style.display = "block"
         chooseAttributeButton.onclick = function () {
             Deck.handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber)
         }
 
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
         chooseModalContentText.innerHTML = attributeText
+
+
     }
 
     static handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber) {
