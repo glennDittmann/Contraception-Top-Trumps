@@ -43,8 +43,12 @@ export default class GameLogic {
     }
 
     static resizeWindow() {
-        const scaleWidth = window.innerWidth / 1920
-        const scaleHeight = window.innerHeight / 1400;
+        const targetWidth = 1800
+        const targetHeight = 1400
+
+
+        const scaleWidth = window.innerWidth / targetWidth
+        const scaleHeight = window.innerHeight / targetHeight;
         const scale = Math.min(scaleHeight, scaleWidth)
 
         const gameCanvas = document.getElementById("game-canvas");
@@ -53,7 +57,7 @@ export default class GameLogic {
         const cardsArea = document.getElementById("cards-area");
         let paddingLeft = 120;
         if (scaleWidth > scaleHeight) {
-            paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
+            paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (targetWidth - paddingLeft * 2)) / scaleHeight;
         }
         cardsArea.style.paddingLeft = paddingLeft + 'px';
     }

@@ -11,6 +11,7 @@ body {
     font-size: 30px;
     line-height: 1.8em;
     margin: 0;
+    overflow: hidden;
 }
 
 .point-display{
@@ -19,6 +20,7 @@ body {
     font-size: 50px;
     margin-top: 20px;
     transition: cubic-bezier(1, 1.4, 0.93, 1) 0.3s;
+    text-shadow: -3px 0 2px black, 0 3px 2px black, 3px 0 2px black, 0 -3px 2px black, -3px -3px 2px black, -3px 3px 2px black, 3px -3px 2px black, 3px 3px 2px black;
 }
 
 .top-bar {
@@ -47,7 +49,6 @@ body {
 
 .cards-area {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     transform-origin: left top;
     width: 1620px;
@@ -194,7 +195,7 @@ body {
     justify-content: center;
     width: 90px;
     height: 60px;
-    font: 1em sans-serif;
+    font: 1em cursive;
     font-size: 25px;
     background-color: #cab8ff;
     border: none;
@@ -208,10 +209,11 @@ body {
 
 .choose-attribute-button {
     height: 26px;
+    width: 180px;
     background-color: #19263c;
     color: #F4EFEF;
     box-shadow: 0 4px 8px 0 #ffffffa8, 0 3px 10px 0 #dbdbdb;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .start-screen-button {
