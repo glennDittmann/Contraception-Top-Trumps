@@ -35,26 +35,26 @@ export const CONDOM =
             " gibt. Eventuell können bei manchen durch das beigefügte Gleitmittel Hautirritationen entstehen. "
     }
 
-export const FEMALE_CONDOM =
+export const MORNING_AFTER_PILL =
     {
-        "name": "female-condom",
-        "path": "",
+        "name": "morning-after-pill",
+        "path": "assets/cards/pille-danach.svg",
         "effectiveness": 25,
         "sti-protection": 4.5,
         "cost": 3.0,
         "accessibility": 2.0,
         "side-effects": 0.1,
-        "effectiveness-text": "Condom Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Condom STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Condom Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Condom Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Condom Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
+        "effectiveness-text": "Pille danach Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
+        "sti-protection-text": "Pille danach STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
+        "cost-text": "Pille danach Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
+        "accessibility-text": "Pille danach Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
+        "side-effects-text": "Pille danach Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT,
     }
 
 export const COMBINED_PILL =
     {
         "name": "combined-pill",
-        "path": "",
+        "path": "assets/cards/kombi-pille.svg",
         "effectiveness": 0.1,
         "sti-protection": 0.0,
         "cost": 2.19,
@@ -90,7 +90,7 @@ export const MINI_PILL =
 export const COITUS_INTERRUPTUS =
     {
         "name": "coitus-interruptus",
-        "path": "",
+        "path": "assets/cards/coitus-interruptus.svg",
         "effectiveness": 25,
         "sti-protection": 0.0,
         "cost": 0,
@@ -102,7 +102,6 @@ export const COITUS_INTERRUPTUS =
         "accessibility-text": "Die Mini Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
         "side-effects-text": "Die Mini Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
     }
-
 
 export const PATCH =
     {
@@ -210,7 +209,6 @@ export const INJECTION =
     "side-effects-text": "Drei-Monats-Spritze Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
 }
 
-
 export const FERTILITY_CYCLE =
     {
         "name": "calendar",
@@ -226,7 +224,6 @@ export const FERTILITY_CYCLE =
         "accessibility-text": "Kalendermethode Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
         "side-effects-text": "Kalendermethode Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
     }
-
 
 export const DIAPHRAGMA =
 {
