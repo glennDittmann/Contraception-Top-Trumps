@@ -51,7 +51,7 @@ export default class GameLogic {
         gameCanvas.style.transform = 'scale(' + scale.toString() + ', ' + scale.toString() + ')';
 
         const cardsArea = document.getElementById("cards-area");
-        let paddingLeft = 220; 
+        let paddingLeft = 120;
         if (scaleWidth > scaleHeight) {
             paddingLeft = 0.5 * (window.innerWidth - scaleHeight * (1920 - paddingLeft * 2)) / scaleHeight;
         }
@@ -125,7 +125,7 @@ export default class GameLogic {
     }
 
     handleEnterClassicWaitingForInput() {
-        this.gameHelperText.innerHTML = "Wähle: Stärkste Eigenschaft!"
+        this.gameHelperText.innerHTML = "Wähle: Stärkere Eigenschaft von der Karte (gegen Unbekannt)!"
     }
 
     handleEnterClassicShowResults() {

@@ -1,17 +1,31 @@
 "use strict"
 
 import {GameState} from "./gameLogic.js";
-import {ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH, ATTRIBUTE_DEFAULT_TEXT} from "./cardConstants.js";
+import {ATTRIBUTES, MISSING_CARD_PATH, HIDDEN_CARD_PATH} from "./cardConstants.js";
 
 export default class Deck {
     constructor(cards, gameLogic) {
-        if (gameLogic === undefined){  // simulate overriden constructer that just uses cards
+        if (gameLogic === undefined){  // simulate overridden constructor that just uses cards
             this.cards = cards;
             this.gameLogic = null;
         }
         else {
             this.cards = cards;
             this.gameLogic = gameLogic;
+        }
+
+        this.initAttributesModal();
+    }
+
+    initAttributesModal() {
+        this.attributesModal = document.getElementById("myAttributesModal");
+
+        const attributesModal = this.attributesModal;
+
+        window.onclick = function (event) {
+            if (event.target === attributesModal) {
+                attributesModal.style.display = "none";
+            }
         }
     }
 
@@ -59,7 +73,7 @@ export default class Deck {
 
         if ((cardHolderId === 'card-img-container2') && (gameLogic.gameState === GameState.ClassicWaiting)) {
             img.src = HIDDEN_CARD_PATH
-        } else if (currentCardData.hasOwnProperty("path") && (currentCardData["path"] != "")) {
+        } else if (currentCardData.hasOwnProperty("path") && (currentCardData["path"] !== "")) {
             img.src = currentCardData["path"]
         } else {
             img.src = MISSING_CARD_PATH
@@ -88,14 +102,14 @@ export default class Deck {
     updateAllAttributeStatsAndVisuals(cardHolderId, currentCardData, playerNumber, gameLogic) {
         const cardHolder = document.getElementById(cardHolderId);
 
-        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[0], currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[1], currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[2], currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[3], currentCardData, playerNumber, gameLogic)
-        Deck.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[4], currentCardData, playerNumber, gameLogic)
+        this.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[0], currentCardData, playerNumber, gameLogic)
+        this.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[1], currentCardData, playerNumber, gameLogic)
+        this.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[2], currentCardData, playerNumber, gameLogic)
+        this.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[3], currentCardData, playerNumber, gameLogic)
+        this.updateAttributeStatAndVisual(cardHolder, ATTRIBUTES[4], currentCardData, playerNumber, gameLogic)
     }
 
-    static updateAttributeStatAndVisual(cardHolder, attributeName, currentCardData, playerNumber, gameLogic) {
+    updateAttributeStatAndVisual(cardHolder, attributeName, currentCardData, playerNumber, gameLogic) {
         const isHidden = (playerNumber === 2) && (gameLogic.gameState === GameState.ClassicWaiting);
 
         const attributeLabelDivId = Deck.getAttributeLabelId(cardHolder.id, attributeName);
@@ -104,7 +118,13 @@ export default class Deck {
 
         const attributeOverlayId = Deck.getOverlayImgId(cardHolder, attributeName);
         const overlayImg = document.getElementById(attributeOverlayId);
-        overlayImg.title = Deck.getOverlayImageTitle(currentCardData, attributeName)
+        const cardAttributeDescription = Deck.getOverlayImageTitle(currentCardData, attributeName);
+
+        const attributesModal = this.attributesModal;
+        overlayImg.onclick = function () {
+            Deck.handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber, attributesModal,
+                cardAttributeDescription)
+        }
 
         if (gameLogic.selectedAttribute === attributeName) {
             Deck.setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber)
@@ -118,7 +138,21 @@ export default class Deck {
         }
     }
 
-    static handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber) {
+    static handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber, attributesModal,
+        attributeText) {
+        attributesModal.style.display = "block";
+
+        const chooseAttributeButton = document.getElementById('choose-attribute-button')
+
+        chooseAttributeButton.onclick = function () {
+            Deck.handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber, attributesModal)
+        }
+
+        const chooseModalContentText = document.getElementById('attribute-modal-content-text')
+        chooseModalContentText.innerHTML = attributeText
+    }
+
+    static handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber, attributesModal) {
         if ((gameLogic.gameState === GameState.ClassicWaiting) ||
             (gameLogic.gameState === GameState.ChooseLowerWaiting)) {
 
@@ -150,6 +184,8 @@ export default class Deck {
 
             gameLogic.selectedAttribute = attributeName;
         }
+
+        attributesModal.style.display = "none";
     }
 
     static handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber) {
@@ -237,15 +273,7 @@ export default class Deck {
         const overlayImg = document.createElement('img')
         overlayImg.id = id
         overlayImg.className = attributeName + "_overlay"
-        overlayImg.title = Deck.getOverlayImageTitle(this.cards[0], attributeName)
 
-        
-        overlayImg.onclick = function () {
-            Deck.handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber)
-        }
-    
-
-    
         overlayImg.onmouseenter = function () {
             Deck.handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber)
         }
