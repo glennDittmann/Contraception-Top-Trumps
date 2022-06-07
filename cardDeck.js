@@ -21,10 +21,11 @@ export default class Deck {
         this.attributesModal = document.getElementById("myAttributesModal");
 
         const attributesModal = this.attributesModal;
+        const gameLogic = this.gameLogic
 
         window.onclick = function (event) {
             if (event.target === attributesModal) {
-                attributesModal.style.display = "none";
+                gameLogic.updateGuideText()
             }
         }
     }
@@ -140,19 +141,18 @@ export default class Deck {
 
     static handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber, attributesModal,
         attributeText) {
-        attributesModal.style.display = "block";
 
         const chooseAttributeButton = document.getElementById('choose-attribute-button')
 
         chooseAttributeButton.onclick = function () {
-            Deck.handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber, attributesModal)
+            Deck.handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber)
         }
 
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
         chooseModalContentText.innerHTML = attributeText
     }
 
-    static handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber, attributesModal) {
+    static handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber) {
         if ((gameLogic.gameState === GameState.ClassicWaiting) ||
             (gameLogic.gameState === GameState.ChooseLowerWaiting)) {
 
@@ -184,8 +184,6 @@ export default class Deck {
 
             gameLogic.selectedAttribute = attributeName;
         }
-
-        attributesModal.style.display = "none";
     }
 
     static handleAttributeMouseEnter(overlayImg, attributeName, gameLogic, playerNumber) {

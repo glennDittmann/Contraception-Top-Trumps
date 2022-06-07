@@ -124,13 +124,23 @@ export default class GameLogic {
     handleEnterChooseLowerWaitingForInput() {
         this.assignRandomAttributeAi()
 
-        const chooseModalContentText = document.getElementById('attribute-modal-content-text')
-        chooseModalContentText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
+        this.updateGuideText()
     }
 
     handleEnterClassicWaitingForInput() {
+        this.updateGuideText()
+    }
+
+    updateGuideText()
+    {
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
-        chooseModalContentText.innerHTML = "Wähle: Stärkere Eigenschaft von der Karte (gegen Unbekannt)!"
+
+        if (this.gameState === GameState.ChooseLowerWaiting) {
+            chooseModalContentText.innerHTML = "Wähle: Stärkere Eigenschaft von der Karte (gegen Unbekannt)!"
+        }
+        else if (this.gameState === GameState.ClassicWaiting) {
+            chooseModalContentText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
+        }
     }
 
     handleEnterClassicShowResults() {
@@ -313,6 +323,9 @@ export default class GameLogic {
 
         const topBar = document.getElementById("top-bar");
         topBar.style.display = "flex";
+
+        const attributesModal = document.getElementById("myAttributesModal");
+        attributesModal.style.display = "block"
     }
 
     gameOver() {
@@ -325,5 +338,8 @@ export default class GameLogic {
 
         const topBar = document.getElementById("top-bar");
         topBar.style.display = "flex";
+
+        const attributesModal = document.getElementById("myAttributesModal");
+        attributesModal.style.display = "none"
     }
 }
