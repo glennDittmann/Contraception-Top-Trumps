@@ -44,7 +44,7 @@ export default class GameLogic {
 
     static resizeWindow() {
         const scaleWidth = window.innerWidth / 1920
-        const scaleHeight = window.innerHeight / 1080;
+        const scaleHeight = window.innerHeight / 1400;
         const scale = Math.min(scaleHeight, scaleWidth)
 
         const gameCanvas = document.getElementById("game-canvas");
@@ -97,7 +97,6 @@ export default class GameLogic {
 
     handleLeaveClassicShowResults() {
         this.nextRoundButton.style.display = "none";
-        this.gameHelperText.style.display = "block"
         this.selectedAttribute = "";
         this.discardPlayedCards();
 
@@ -106,7 +105,6 @@ export default class GameLogic {
 
     handleLeaveChooseLowerResults() {
         this.nextRoundButton.style.display = "none";
-        this.gameHelperText.style.display = "block"
         this.selectedAttributeAi = "";
         this.selectedAttribute = "";
         this.selectedSide = -1;
@@ -121,11 +119,14 @@ export default class GameLogic {
 
     handleEnterChooseLowerWaitingForInput() {
         this.assignRandomAttributeAi()
-        this.gameHelperText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
+
+        const chooseModalContentText = document.getElementById('attribute-modal-content-text')
+        chooseModalContentText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
     }
 
     handleEnterClassicWaitingForInput() {
-        this.gameHelperText.innerHTML = "Wähle: Stärkere Eigenschaft von der Karte (gegen Unbekannt)!"
+        const chooseModalContentText = document.getElementById('attribute-modal-content-text')
+        chooseModalContentText.innerHTML = "Wähle: Stärkere Eigenschaft von der Karte (gegen Unbekannt)!"
     }
 
     handleEnterClassicShowResults() {
@@ -136,7 +137,6 @@ export default class GameLogic {
         this.updatePointDisplay();
 
         this.nextRoundButton.style.display = "flex";
-        this.gameHelperText.style.display = "none"
     }
 
     handleEnterChooseLowerResults() {
@@ -150,7 +150,6 @@ export default class GameLogic {
         this.updatePointDisplay();
 
         this.nextRoundButton.style.display = "flex"
-        this.gameHelperText.style.display = "none"
     }
 
     handleComparisonResult(wonComparison) {
@@ -257,7 +256,6 @@ export default class GameLogic {
 
     addNextRoundButton() {
         this.nextRoundButton = document.getElementById("next-round-button");
-        this.gameHelperText = document.getElementById("game-helper-text");
 
         const gameLogic = this;
         this.nextRoundButton.onclick = function () {

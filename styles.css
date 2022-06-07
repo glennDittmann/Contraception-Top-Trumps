@@ -206,6 +206,13 @@ body {
     box-shadow: 0 4px 8px 0 #d1c2fd, 0 3px 10px 0 #d1c2fd;
 }
 
+.choose-attribute-button {
+    height: 26px;
+    background-color: #19263c;
+    color: #F4EFEF;
+    box-shadow: 0 4px 8px 0 #ffffffa8, 0 3px 10px 0 #dbdbdb;
+    margin-bottom: 10px;
+}
 
 .start-screen-button {
     width: 160px;
@@ -366,25 +373,21 @@ body {
 
 .attribute-modal {
     display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 970px;
-    left: 350px;
     width: 1235px;
     height: 100px;
-    background-color: rgba(0,0,0,0.2);
+    padding-top: 50px;
 }
 
-/* Modal Content */
 .attribute-modal-content {
-    background-color: #fefefe;
+    background-color: #304560;
     margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
+    padding: 6px;
+    border: 2px solid #598a99;
     width: 100%;
 }
 
 .attribute-modal-content-text {
-    font: 1em sans-serif;
+    font-family: cursive;
+    color: #bfdeed;
+    text-shadow: -3px 0 2px black, 0 3px 2px black, 3px 0 2px black, 0 -3px 2px black, -3px -3px 2px black, -3px 3px 2px black, 3px -3px 2px black, 3px 3px 2px black;
 }
