@@ -161,6 +161,20 @@ export default class Deck {
 
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
         chooseModalContentText.innerHTML = attributeText
+        gameLogic.deck.resetIndicator();
+
+        const cardHolderIdBase = "card-img-container";
+        const cardHolderId = cardHolderIdBase + playerNumber;
+        const cardHolder = document.getElementById(cardHolderId);
+        gameLogic.deck.currentIndicator = document.getElementById(Deck.getOverlayImgIndicatorId(cardHolder, attributeName));
+        gameLogic.deck.currentIndicator.style.display = "block"
+    }
+
+    resetIndicator() {
+        if (this.currentIndicator != null) {
+            this.currentIndicator.style.display = "none"
+            this.currentIndicator = null
+        }
     }
 
     static handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber) {
@@ -295,6 +309,22 @@ export default class Deck {
         cardHolder.appendChild(overlayImg)
 
         Deck.setAttributeOverlayHidden(overlayImg, attributeName)
+
+
+        let indicatorPositionWrapper = document.createElement('div')
+        indicatorPositionWrapper.className = attributeName + "_overlay"
+        indicatorPositionWrapper.id = Deck.getOverlayImgIndicatorId(cardHolder, attributeName)
+        indicatorPositionWrapper.style.display = "none"
+
+        let wrapper = document.createElement('div')
+        wrapper.id = "wrapper"
+
+        let pulsingHeart = document.createElement('div')
+        pulsingHeart.id = "pulsingHeart"
+
+        wrapper.appendChild(pulsingHeart)
+        indicatorPositionWrapper.appendChild(wrapper)
+        cardHolder.appendChild(indicatorPositionWrapper)
     }
 
     static getOverlayImgId(cardHolder, attributeName) {
@@ -317,5 +347,9 @@ export default class Deck {
 
     static getOverlayImageTitle(cardData, attributeName){
         return cardData[attributeName + "-text"]  // this is the text display when hovering over an attribute
+    }
+
+    static getOverlayImgIndicatorId(cardHolder, attributeName) {
+        return this.getOverlayImgId(cardHolder, attributeName) + "_indicator";
     }
 }

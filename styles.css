@@ -406,3 +406,47 @@ body {
     color: #bfdeed;
     text-shadow: -3px 0 2px black, 0 3px 2px black, 3px 0 2px black, 0 -3px 2px black, -3px -3px 2px black, -3px 3px 2px black, 3px -3px 2px black, 3px 3px 2px black;
 }
+
+#wrapper {
+    position: absolute;
+    margin-left: 381px;
+    margin-top: 3px;
+    animation: pulse 1s infinite;
+}
+
+
+#pulsingHeart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    transform: scale(0.5);
+}
+
+#pulsingHeart:before, #pulsingHeart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #aa0000;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    animation:pulsecolor 1s infinite;
+}
+
+#pulsingHeart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+    animation:pulsecolor 1s infinite;
+}
+
+@keyframes pulse {
+    10% {transform: scale(1.1)}
+}
+
+@keyframes pulsecolor {
+    10% {background: #dd0000}
+}

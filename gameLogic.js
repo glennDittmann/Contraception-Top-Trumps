@@ -67,6 +67,8 @@ export default class GameLogic {
         this.handleInitNewGameState();
 
         this.updateCardHolders()
+
+        this.deck.resetIndicator();
     }
 
     handleLeaveCurrentGameState() {
