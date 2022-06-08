@@ -170,7 +170,7 @@ export default class GameLogic {
 
         const chooseAttributeButton = document.getElementById('choose-attribute-button')
         chooseAttributeButton.style.display = "none"
-        
+
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
         chooseModalContentText.innerHTML = wonComparison ? "Richtig! Du hast einen Punkt gewonnen." : "Falsch. Du hast keinen Punkt bekommen."
     }

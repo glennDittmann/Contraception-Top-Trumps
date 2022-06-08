@@ -140,20 +140,27 @@ export default class Deck {
     }
 
     static handleAttributeClick(overlayImg, attributeName, gameLogic, playerNumber, attributesModal,
-        attributeText) {
+                                attributeText) {
 
         const chooseAttributeButton = document.getElementById('choose-attribute-button')
 
+        let showConfirmButton = true;
+        if (gameLogic.gameState === GameState.ChooseLowerWaiting) {
+            if (gameLogic.selectedAttributeAi !== attributeName) {
+                showConfirmButton = false;
+            }
+        } else if ((gameLogic.gameState === GameState.ChooseLowerShowResult) ||
+            (gameLogic.gameState === GameState.ClassicShowResult)) {
+            showConfirmButton = false;
+        }
 
-        chooseAttributeButton.style.display = "block"
+        chooseAttributeButton.style.display = showConfirmButton ? "block" : "none"
         chooseAttributeButton.onclick = function () {
             Deck.handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber)
         }
 
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
         chooseModalContentText.innerHTML = attributeText
-
-
     }
 
     static handleConfirmedAttributeSelection(overlayImg, attributeName, gameLogic, playerNumber) {
