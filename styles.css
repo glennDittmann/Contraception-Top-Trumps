@@ -257,12 +257,17 @@ body {
     display: inline-block;
 }
 
+.tooltip {
+    font-family: "Arial";
+    font-size: 32px;
+    line-height: 1.7;
+    color: black;
+}
 .tooltip .tooltip-text-pearl-index {
     font: 1em sans-serif;
     visibility: hidden;
     width: 600px;
     background-color: #cab8ff;
-    color: #152740;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -283,7 +288,6 @@ body {
     visibility: hidden;
     width: 600px;
     background-color: #FFD33B;
-    color: #152740;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -304,7 +308,6 @@ body {
     visibility: hidden;
     width: 600px;
     background-color: #FF66C4;
-    color: #152740;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -325,7 +328,6 @@ body {
     visibility: hidden;
     width: 600px;
     background-color: #F4EFEF;
-    color: #152740;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -347,7 +349,6 @@ body {
     visibility: hidden;
     width: 600px;
     background-color: #B4F1F4;
-    color: #152740;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -362,10 +363,6 @@ body {
 .tooltip:hover .tooltip-text-side-effects {
     visibility: visible;
 }
-
-
-
-
 
 .lib-top-bar {
     display: flex;
@@ -400,11 +397,11 @@ body {
 }
 
 .attribute-modal-content-text {
-    font-family: cursive;
-    font-size: 28px;
+    font-family: "Arial";
+    font-size: 32px;
     line-height: 1.7;
     color: #bfdeed;
-    text-shadow: -3px 0 2px black, 0 3px 2px black, 3px 0 2px black, 0 -3px 2px black, -3px -3px 2px black, -3px 3px 2px black, 3px -3px 2px black, 3px 3px 2px black;
+    text-shadow: -2px 0 2px black, 0 2px 2px black, 2px 0 2px black, 0 -2px 2px black, -2px -2px 2px black, -2px 2px 2px black, 2px -2px 2px black, 2px 2px 2px black;
 }
 
 #wrapper {
