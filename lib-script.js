@@ -34,4 +34,5 @@ const cards = [CONDOM, MINI_PILL, PATCH, PREP, COPPER_COIL,
 const deck = new Deck(cards);
 console.log(deck.cards);
 cards.forEach(fillCardValues);
+document.body.style.overflow = "scroll";
 //window.onresize = resizeLibWindow;
