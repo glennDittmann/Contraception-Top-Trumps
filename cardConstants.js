@@ -25,11 +25,11 @@ export const CONDOM =
             " schnell Pannen passieren können, die die Schutzfunktion zunichte machen. Wichtig bei der Verwendung von" +
             " Kondomen ist bspw., dass man nie 2 Kondome übereinander geben darf und fetthaltige Gleitmittel können das" +
             " Kondom schnell beschädigen.",
-        "sti-protection-text": "Bei stetigem und korrektem Gebrauch schützen Kondome bis zu 90% vor HIV schützen," +
-            " vor den restlichen STI’s nur bis zu 60%. Übertragungen müssen nicht nur auf analen/vaginalen" +
+        "sti-protection-text": "Bei stetigem und korrektem Gebrauch schützen Kondome bis zu 90% vor HIV," +
+            " vor den restlichen STI’s nur bis zu 60%. Übertragungen müssen nicht nur auf analen oder vaginalen" +
             " Geschlechtsverkehr beschränkt sein, sondern können auch bei Hautverletzungen, Küssen oder oralem " +
             "Geschlechtsverkehr übertragen werden.",
-        "cost-text": "Der durchschnittliche Preis in Österreich pro Kondom beträgt 73 Cent.",
+        "cost-text": "Der durchschnittliche Preis in Österreich pro Kondom beträgt 0.73€.",
         "accessibility-text": "Condom Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
         "side-effects-text": "Ca. 2% der Bevölkerung hat eine Latexallergie, für die es spezielle Kondome zu kaufen" +
             " gibt. Eventuell können bei manchen durch das beigefügte Gleitmittel Hautirritationen entstehen. "
@@ -78,7 +78,7 @@ export const MINI_PILL =
         "side-effects": 4.0,
         "effectiveness-text": "It’s quite effective in preventing pregnancy if taken correctly.",
         "sti-protection-text": "It gives zero protection against STIs. Always wear condoms.",
-        "cost-text": "84 cents per use",
+        "cost-text": "0.84€ per use",
         "accessibility-text": "Six-month supply with a required prescription",
         "side-effects-text": "nausea, fatigue, headaches, depression, lower sex drive, tender breasts, cysts on the " +
             "ovaries, weight gain or loss, bleeding between periods, skipped periods, mood swings, dizziness, thinning " +
@@ -114,7 +114,7 @@ export const PATCH =
         "side-effects": 4.0,
         "effectiveness-text": "It’s quite effective in preventing pregnancy if taken correctly.",
         "sti-protection-text": "It gives zero protection against STIs. Always wear condoms.",
-        "cost-text": "in packs of nine for about €43",
+        "cost-text": "in packs of nine for about 43€",
         "accessibility-text": "When you first get the contraceptive patch you will be given a 3-month supply, to see" +
             " how you get on with it. If there are no problems, you can be prescribed the patch for a year at a time." +
             " It requires a prescription every three months.",
@@ -153,10 +153,10 @@ export const COPPER_COIL =
         "cost-text": "In Österreich betragen die Kosten für die Kupferspirale in der Regel zwischen 360 - 500€ " +
             "und halten bis zu 5 Jahre.",
         "accessibility-text": "Die Kupferspirale wird durch Gynäkologen eingesetzt. Der Eingriff läuft in den letzten" +
-            " Tagen der Monatsblutung am besten ab. DIe Kupferspirale kann bei Frauen jedes Alters eingesetzt werden," +
-            " außer bei Frauen die sehr starke Monatsblutungen haben. ",
+            " Tagen der Monatsblutung am besten ab. Die Kupferspirale kann bei Frauen jeden Alters eingesetzt werden," +
+            " außer bei Frauen die sehr starke Monatsblutungen haben.",
         "side-effects-text": "In den ersten Monaten nach dem Eingriff kann es zu Zwischenblutungen kommen und das " +
-            "Infektionsrisiko der Gebärmutter und Eileiter ist leicht erhöht. Durch die Kupferspirale werden meistens " +
+            "Infektionsrisiko der Gebärmutter und Eileiter ist leicht erhöht. Durch die Kupferspirale wird meistens " +
             "die Monatsblutung stärker, manchmal werden auch Menstruationsschmerzen intensiver. Sehr selten wird beim " +
             "Eingriff die Gebärmutterwand verletzt."
     }
@@ -236,7 +236,7 @@ export const DIAPHRAGMA =
     "side-effects": 3.5,
     "effectiveness-text": "Vaginal Ring is quite an effective contraceptive method.",
     "sti-protection-text": "It does not protect you from STIs at all.",
-    "cost-text": "€19 per piece with a prescription per month = ~4,5 euros per use",
+    "cost-text": "19€ per piece with a prescription per month so about 4.50€ per use",
     "accessibility-text": "To be replaced every month; requires prescription",
     "side-effects-text": "Most common ones are headache, weight gain, nausea, breast tenderness, vaginal" +
         " irritation, increased yeast infections, chest tensions, water retention, mood swings, decreased libido." +
