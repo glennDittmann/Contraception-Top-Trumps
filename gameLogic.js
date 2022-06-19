@@ -188,7 +188,7 @@ export default class GameLogic {
         } else {
             this.wrongSound.play();
             this.currentWinnerNumber = isComparisonBasedOnLeftCard ? 2 : 1;
-            this.streakCount = 0;
+            this.streakCount += 0;
         }
     }
 
