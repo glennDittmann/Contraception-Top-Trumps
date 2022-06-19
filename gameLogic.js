@@ -23,7 +23,9 @@ export default class GameLogic {
         this.addNewGameButton();
         this.updatePointDisplay();
         this.correctSound = new Audio("assets/audio/correct_sound_effect.mp3");
+        this.correctSound.volume = 0.5;
         this.wrongSound = new Audio("assets/audio/wrong_sound_effect.mp3");
+        this.wrongSound.volume = 0.5;
         this.correctSound.loop = false;
         this.wrongSound.loop = false;
 
