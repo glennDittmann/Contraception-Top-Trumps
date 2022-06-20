@@ -310,7 +310,45 @@ export default class Deck {
 
         Deck.setAttributeOverlayHidden(overlayImg, attributeName)
 
+        this.addAttributeLabel(attributeName, cardHolder);
 
+        this.addAttributeSelectionIndicator(attributeName, cardHolder);
+    }
+
+    addAttributeLabel(attributeName, cardHolder) {
+        let labelElement = document.createElement('div')
+        labelElement.className = attributeName + "_label"
+
+        let labelElementImg = document.createElement('img')
+        labelElementImg.className = attributeName + "_label_img"
+
+        let imagePath = "";
+        switch (attributeName) {
+            case "effectiveness":
+                imagePath = "pearl-index.svg"
+                break;
+            case "sti-protection":
+                imagePath = "sti-protection.svg"
+                break;
+            case "cost":
+                imagePath = "costs.svg"
+                break;
+            case "accessibility":
+                imagePath = "accessibility.svg"
+                break;
+            case "side-effects":
+                imagePath = "side-effects.svg"
+                break;
+            default:
+                break;
+        }
+        labelElementImg.src = "assets/cards/card-labels/" + imagePath
+
+        labelElement.appendChild(labelElementImg)
+        cardHolder.appendChild(labelElement)
+    }
+
+    addAttributeSelectionIndicator(attributeName, cardHolder) {
         let indicatorPositionWrapper = document.createElement('div')
         indicatorPositionWrapper.className = attributeName + "_overlay"
         indicatorPositionWrapper.id = Deck.getOverlayImgIndicatorId(cardHolder, attributeName)

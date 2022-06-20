@@ -184,6 +184,33 @@ body {
     bottom: 8.1%;
 }
 
+.effectiveness_label_img, .sti-protection_label_img, .cost_label_img, .accessibility_label_img, .side-effects_label_img {
+    position: absolute;
+    left: 10%;
+    margin-top: 26px;
+}
+
+.effectiveness_label_img {
+    top: 55.1%;
+}
+
+.sti-protection_label_img {
+    top: 62.6%;
+}
+
+.cost_label_img {
+    top: 70.2%;
+}
+
+.accessibility_label_img {
+    top: 78.1%;
+}
+
+.side-effects_label_img {
+    top: 85.8%;
+}
+
+
 .next-round-button-container {
     display: flex;
     justify-content: center;
@@ -195,7 +222,7 @@ body {
     justify-content: center;
     width: 90px;
     height: 60px;
-    font: 1em cursive;
+    font: 1em "Arial";
     font-size: 25px;
     background-color: #cab8ff;
     border: none;
