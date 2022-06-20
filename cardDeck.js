@@ -113,9 +113,14 @@ export default class Deck {
     updateAttributeStatAndVisual(cardHolder, attributeName, currentCardData, playerNumber, gameLogic) {
         const isHidden = (playerNumber === 2) && (gameLogic.gameState === GameState.ClassicWaiting);
 
-        const attributeLabelDivId = Deck.getAttributeLabelId(cardHolder.id, attributeName);
-        const attributeLabelDiv = document.getElementById(attributeLabelDivId);
-        attributeLabelDiv.innerHTML = isHidden ? "" : currentCardData[attributeName]
+        const attributeValueDivId = Deck.getAttributeValueId(cardHolder.id, attributeName);
+        const attributeValueDiv = document.getElementById(attributeValueDivId);
+        attributeValueDiv.innerHTML = isHidden ? "" : currentCardData[attributeName]
+
+
+        const labelDivId = Deck.getAttributeLabelId(cardHolder.id, attributeName);
+        const labelDiv = document.getElementById(labelDivId);
+        labelDiv.style.display = isHidden ? "none" : "block"
 
         const attributeOverlayId = Deck.getOverlayImgId(cardHolder, attributeName);
         const overlayImg = document.getElementById(attributeOverlayId);
@@ -131,7 +136,7 @@ export default class Deck {
             Deck.setAttributeOverlaySelected(overlayImg, gameLogic, playerNumber)
         } else if (gameLogic.selectedAttributeAi === attributeName) {
             Deck.setAttributeOverlayChooseHigher(overlayImg)
-            attributeLabelDiv.innerHTML = "???"
+            attributeValueDiv.innerHTML = "???"
         } else if (isHidden) {
             Deck.setAttributeOverlayHidden(overlayImg)
         } else {
@@ -318,6 +323,7 @@ export default class Deck {
     addAttributeLabel(attributeName, cardHolder) {
         let labelElement = document.createElement('div')
         labelElement.className = attributeName + "_label"
+        labelElement.id = Deck.getAttributeLabelId(cardHolder.id, attributeName)
 
         let labelElementImg = document.createElement('img')
         labelElementImg.className = attributeName + "_label_img"
@@ -369,15 +375,19 @@ export default class Deck {
     addAttributeStatsLabel(cardHolderId, attributeName) {
         const attributeLabelDiv = document.createElement('div')
         attributeLabelDiv.className = attributeName;
-        attributeLabelDiv.id = Deck.getAttributeLabelId(cardHolderId, attributeName);
+        attributeLabelDiv.id = Deck.getAttributeValueId(cardHolderId, attributeName);
         attributeLabelDiv.innerHTML = attributeName;
 
         const cardHolder = document.getElementById(cardHolderId);
         cardHolder.appendChild(attributeLabelDiv)
     }
 
-    static getAttributeLabelId(cardHolderId, attributeName) {
+    static getAttributeValueId(cardHolderId, attributeName) {
         return cardHolderId + "_" + attributeName;
+    }
+
+    static getAttributeLabelId(cardHolderId, attributeName) {
+        return cardHolderId + "_" + attributeName + "_label";
     }
 
     static getOverlayImageTitle(cardData, attributeName){
