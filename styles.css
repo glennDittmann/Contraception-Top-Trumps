@@ -127,35 +127,44 @@ body {
     border: 4px solid pink;
 }
 
-.effectiveness_overlay, .sti-protection_overlay, .cost_overlay, .accessibility_overlay, .side-effects_overlay {
+.effectiveness_overlay, .sti-protection_overlay, .cost_overlay, .accessibility_overlay, .side-effects_overlay,
+    .effectiveness_overlay_indicator, .sti-protection_overlay_indicator, .cost_overlay_indicator,
+    .accessibility_overlay_indicator, .side-effects_overlay_indicator {
     position: absolute;
+    z-index: 999999;
     left: 0;
     right: 0;
     width: 100%;
 }
 
-.effectiveness_overlay {
+.effectiveness_overlay_indicator, .sti-protection_overlay_indicator, .cost_overlay_indicator,
+.accessibility_overlay_indicator, .side-effects_overlay_indicator {
+    z-index: 0;
+}
+
+.effectiveness_overlay, .effectiveness_overlay_indicator {
     top: 55.1%;
 }
 
-.sti-protection_overlay {
+.sti-protection_overlay, .sti-protection_overlay_indicator  {
     top: 62.6%;
 }
 
-.cost_overlay {
+.cost_overlay, .cost_overlay_indicator  {
     top: 70.2%;
 }
 
-.accessibility_overlay {
+.accessibility_overlay, .accessibility_overlay_indicator  {
     top: 78.1%;
 }
 
-.side-effects_overlay {
+.side-effects_overlay, .side-effects_overlay_indicator  {
     top: 85.8%;
 }
 
 .effectiveness, .sti-protection, .cost, .accessibility, .side-effects {
     position: absolute;
+    z-index: 2;
     right: 10%;
     color: darkcyan;
     font-size: 32px;
@@ -188,6 +197,7 @@ body {
     position: absolute;
     left: 10%;
     margin-top: 26px;
+    z-index: 1;
 }
 
 .effectiveness_label_img {
@@ -214,7 +224,7 @@ body {
 .next-round-button-container {
     display: flex;
     justify-content: center;
-    padding-top: 0px;
+    padding-top: 0;
 }
 
 .next-round-button, .start-screen-button, .choose-attribute-button {
@@ -285,7 +295,7 @@ body {
 }
 
 .tooltip {
-    font-family: "Arial";
+    font-family: "Arial", sans-serif;
     font-size: 32px;
     line-height: 1.7;
     color: black;
@@ -424,7 +434,7 @@ body {
 }
 
 .attribute-modal-content-text {
-    font-family: "Arial";
+    font-family: "Arial", sans-serif;
     font-size: 32px;
     line-height: 1.7;
     color: #bfdeed;
@@ -438,12 +448,11 @@ body {
     animation: pulse 1s infinite;
 }
 
-
-#pulsingHeart {
-    position: relative;
-    width: 100px;
-    height: 90px;
-    transform: scale(0.5);
+.selection_indicator {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 #pulsingHeart:before, #pulsingHeart:after {

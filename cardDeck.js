@@ -310,9 +310,9 @@ export default class Deck {
 
         Deck.setAttributeOverlayHidden(overlayImg, attributeName)
 
-        this.addAttributeLabel(attributeName, cardHolder);
-
         this.addAttributeSelectionIndicator(attributeName, cardHolder);
+
+        this.addAttributeLabel(attributeName, cardHolder);
     }
 
     addAttributeLabel(attributeName, cardHolder) {
@@ -350,18 +350,15 @@ export default class Deck {
 
     addAttributeSelectionIndicator(attributeName, cardHolder) {
         let indicatorPositionWrapper = document.createElement('div')
-        indicatorPositionWrapper.className = attributeName + "_overlay"
+        indicatorPositionWrapper.className = attributeName + "_overlay_indicator"
         indicatorPositionWrapper.id = Deck.getOverlayImgIndicatorId(cardHolder, attributeName)
         indicatorPositionWrapper.style.display = "none"
 
-        let wrapper = document.createElement('div')
-        wrapper.id = "wrapper"
+        let labelElementImg = document.createElement('img')
+        labelElementImg.className = "selection_indicator"
+        labelElementImg.src = "assets/attribute_selected_background.svg"
 
-        let pulsingHeart = document.createElement('div')
-        pulsingHeart.id = "pulsingHeart"
-
-        wrapper.appendChild(pulsingHeart)
-        indicatorPositionWrapper.appendChild(wrapper)
+        indicatorPositionWrapper.appendChild(labelElementImg)
         cardHolder.appendChild(indicatorPositionWrapper)
     }
 
