@@ -140,6 +140,18 @@ body {
 .effectiveness_overlay_indicator, .sti-protection_overlay_indicator, .cost_overlay_indicator,
 .accessibility_overlay_indicator, .side-effects_overlay_indicator {
     z-index: 0;
+    animation-name: indicator_pulse_opacity;
+    animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    animation-timing-function: steps(48, end);
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes indicator_pulse_opacity {
+    0% {opacity: 1.0}
+    50% {opacity: 0.43}
+    100% {opacity: 1.0}
 }
 
 .effectiveness_overlay, .effectiveness_overlay_indicator {
@@ -453,33 +465,4 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-}
-
-#pulsingHeart:before, #pulsingHeart:after {
-    position: absolute;
-    content: "";
-    left: 50px;
-    top: 0;
-    width: 50px;
-    height: 80px;
-    background: #aa0000;
-    border-radius: 50px 50px 0 0;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-    animation:pulsecolor 1s infinite;
-}
-
-#pulsingHeart:after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin :100% 100%;
-    animation:pulsecolor 1s infinite;
-}
-
-@keyframes pulse {
-    10% {transform: scale(1.1)}
-}
-
-@keyframes pulsecolor {
-    10% {background: #dd0000}
 }
