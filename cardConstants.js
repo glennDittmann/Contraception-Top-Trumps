@@ -60,11 +60,11 @@ export const COMBINED_PILL =
         "cost": 2.19,
         "accessibility": 3.0,
         "side-effects": 4.5,
-        "effectiveness-text": "Die Mini Pille Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Die Mini Pille STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Die Mini Pille Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Die Mini Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Die Mini Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "Die Pille ist eine sehr zuverlässige Verhütungsmethode, allerdings nur, wenn sie immer regelmäßig und nach Vorschrift eingenommen wird. Von 1000 Frauen, die ein Jahr lang die Pille ohne Fehler einnehmen, wird nur eine einzige Frau schwanger. Verschiedene Einnahmefehler, wie vergessene Pillen, Durchfall, Erbrechen oder Wechselwirkungen mit Medikamenten können die Pille weniger sicher machen. Die verschiedenen Kombinationspräparate unterscheiden sich nicht in ihrer Sicherheit, sie sind alle gleich zuverlässig.",
+        "sti-protection-text": "Die Pille bietet keinen Schutz.",
+        "cost-text": "Eine Dreimonatspackung kostet etwa zwischen 20 und 40 €, Sechsmonatspackungen sind in der Regel im Verhältnis günstiger.",
+        "accessibility-text": "Es kann sein, dass Sie mehrere Präparate ausprobieren müssen, bis Sie eines gefunden haben, das für Sie geeignet ist.",
+        "side-effects-text": "Die meisten Frauen vertragen niedrig dosierte Pillen ohne Probleme. Manchmal kann es aber, besonders in den ersten drei Monaten, zu Nebenwirkungen kommen, denn die Hormone greifen in den Zyklus der Frau ein. Sie können Zwischenblutungen haben oder die Blutung bleibt ganz aus. In der Regel wird die Blutung kürzer und deutlich schwächer. Manchmal können Übelkeit und Schwindel auftreten. Manche Frauen bekommen auch Brustspannen, Bauchschmerzen, Kopfschmerzen oder depressive Verstimmungen."
     }
 
 export const MINI_PILL =
@@ -76,15 +76,11 @@ export const MINI_PILL =
         "cost": 2.30,
         "accessibility": 3.0,
         "side-effects": 4.0,
-        "effectiveness-text": "It’s quite effective in preventing pregnancy if taken correctly.",
-        "sti-protection-text": "It gives zero protection against STIs. Always wear condoms.",
-        "cost-text": "0.84€ per use",
-        "accessibility-text": "Six-month supply with a required prescription",
-        "side-effects-text": "nausea, fatigue, headaches, depression, lower sex drive, tender breasts, cysts on the " +
-            "ovaries, weight gain or loss, bleeding between periods, skipped periods, mood swings, dizziness, thinning " +
-            "hair. If you get pregnant while taking the minipill, it can cause problems. You’re more likely to have an " +
-            "ectopic pregnancy. This is when a fertilised egg implants outside of the uterus, such as in a fallopian " +
-            "tube. You won’t be able to continue with your pregnancy, and you may need surgery to remove the fetus."
+        "effectiveness-text": "Die Mini-Pille gehört zu den relativ sicheren Verhütungsmethoden. Voraussetzung für die Zuverlässigkeit der Mini-Pille ist die absolut pünktliche Einnahme im 24-Stunden-Rhythmus. Niedrig dosierte Gestagen-Präparate sind deutlich weniger zuverlässig als die „Pille”. Hoch dosierte Gestagen-Präparate haben hingegen einen nur wenig niedrigeren Pearl-Index als die herkömmliche Pille",
+        "sti-protection-text": "Die Mini-Pille ist ein sehr sicheres Verhütungsmittel.",
+        "cost-text": "Die Mini-Pille kostet zwischen 6 und 17 € pro Monat, je nachdem welches Präparat und welche Packungsgröße verordnet wird. Dabei sind Pillen in der 6-Monatspackung deutlich günstiger.",
+        "accessibility-text": "Die Mini-Pille ist ein Medikament und muss nach gründlicher Untersuchung von einer Ärztin oder einem Arzt verschrieben werden. Gegen Rezept ist sie dann in allen Apotheken erhältlich.",
+        "side-effects-text": "Übelkeit, Müdigkeit, Kopfschmerzen, Depressionen, verminderter Sexualtrieb, empfindliche Brüste, Zysten an den Eierstöcken, Gewichtszunahme oder -abnahme, Blutungen zwischen den Perioden, ausbleibende Perioden, Stimmungsschwankungen, Schwindel, dünner werdendes Haar. Wenn Sie während der Einnahme der Minipille schwanger werden, kann dies zu einer Eileiterschwangerschaft führen."
     }
 
 export const COITUS_INTERRUPTUS =
@@ -96,11 +92,11 @@ export const COITUS_INTERRUPTUS =
         "cost": 0,
         "accessibility": 0.0,
         "side-effects": 0,
-        "effectiveness-text": "Die Mini Pille Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Die Mini Pille STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Die Mini Pille Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Die Mini Pille Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Die Mini Pille Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "Dies ist eine unsichere Verhütungsmethode. Für viele Paare ist gerade die früh- bzw. rechtzeitige Unterbrechung des Geschlechtsakts ein Problem, da (im Eifer des Gefechts) der richtige Zeitpunkt häufig verpasst wird. Zudem können Spermien beim Geschlechtsverkehr bereits vor dem Orgasmus bzw. Samenerguss durch die sogenannten Lusttropfen (Präejakulat) austreten. Wenn der Samenerguss außerhalb der Scheide erfolgt, besteht immer noch die Gefahr, dass Spermien durch die Hand oder beim Waschen am Bidet wieder in die Scheide gelangen.",
+        "sti-protection-text": "Die Methode des Coitus Interruptus bietet keinen Schutz.",
+        "cost-text": ATTRIBUTE_DEFAULT_TEXT,
+        "accessibility-text": ATTRIBUTE_DEFAULT_TEXT,
+        "side-effects-text": ATTRIBUTE_DEFAULT_TEXT
     }
 
 export const PATCH =
@@ -152,7 +148,7 @@ export const COPPER_COIL =
         "sti-protection-text": "Die Kupferspirale bietet keinen Schutz vor Krankheiten",
         "cost-text": "In Österreich betragen die Kosten für die Kupferspirale in der Regel zwischen 360 - 500€ " +
             "und halten bis zu 5 Jahre.",
-        "accessibility-text": "Die Kupferspirale wird durch Gynäkologen eingesetzt. Der Eingriff läuft in den letzten" +
+        "accessibility-text": "Die Kupferspirale wird durch Gynäkolog*innen eingesetzt. Der Eingriff läuft in den letzten" +
             " Tagen der Monatsblutung am besten ab. Die Kupferspirale kann bei Frauen jeden Alters eingesetzt werden," +
             " außer bei Frauen die sehr starke Monatsblutungen haben.",
         "side-effects-text": "In den ersten Monaten nach dem Eingriff kann es zu Zwischenblutungen kommen und das " +
@@ -170,11 +166,11 @@ export const VASECTOMY =
         "cost": 2.96,
         "accessibility": 4.5,
         "side-effects": 0.1,
-        "effectiveness-text": "Vasektomie Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Vasektomie STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Vasektomie Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Vasektomie Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Vasektomie Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "Die Vasektomie ist ein sehr sicheres Verhütungsmittel. Nach dem Eingriff können noch einige Zeit lang Samenzellen im Samenerguss sein. Erst wenn Ihnen der/die Ärzt*in nach mehrmaliger Untersuchung des Samenergusses mitgeteilt hat, dass keine Samenfäden mehr gefunden wurden, besteht sicherer Schutz vor (weiterer) Vaterschaft.",
+        "sti-protection-text": "Die Vasektomie bietet keinen Schutz.",
+        "cost-text": "Die Kosten belaufen sich auf ca. 300 bis 400 €.",
+        "accessibility-text": "Der Eingriff wird in Facharztpraxen (Urologie und Chirurgie) durchgeführt. Ein ausführliches Beratungsgespräch mit dem*r Ärzt*in sollte der Sterilisation vorausgehen.",
+        "side-effects-text": "Eine Vasektomie kann nicht einfach rückgängig gemacht werden. Zu den möglichen Komplikationen gehören eine Ansammlung von Blut im Hodensack (Hämatom), harte Klumpen, die als Spermiengranulome bezeichnet werden (verursacht durch aus den Eileitern austretendes Sperma), und Infektionen oder langfristige Hodenschmerzen (möglicherweise müssen weitere Operationen durchgeführt werden). Die Samenleiterwannen können sich wieder verbinden (selten). Die sexuelle Erlebnisfähigkeit, Erektion und Orgasmus mit Samenerguss sind weiterhin möglich."
     }
 
 export const TUBENLIGATUR =
@@ -186,11 +182,11 @@ export const TUBENLIGATUR =
         "cost": 6.50,
         "accessibility": 5.0,
         "side-effects": 2.0,
-        "effectiveness-text": "Tubenligatur Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Tubenligatur STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Tubenligatur Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Tubenligatur Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Tubenligatur Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "Die Tubenligatur ist ein sehr sicheres Verhütungsmittel.",
+        "sti-protection-text": "Die Tubenligatur bietet keinen Schutz.",
+        "cost-text": "Die Kosten für eine Sterilisation der Frau belaufen sich auf 500 bis 1.000 €.",
+        "accessibility-text": "Die Sterilisation der Frau wird in Praxen, OP-Zentren oder im Krankenhaus und fast immer unter Vollnarkose durchgeführt.",
+        "side-effects-text": "Die sexuelle Erlebnisfähigkeit verändert sich nicht. Im Verlauf der Operation können (selten) Komplikationen auftreten, wie Narkosezwischenfälle, innere Blutung, Verletzung des Darms u.a. Es gibt mittlerweile auch neuere Operationsmethoden, die auf den Schnitt mit einem Skalpell verzichten."
     }
 
 export const INJECTION =
@@ -202,11 +198,11 @@ export const INJECTION =
     "cost": 2.30,
     "accessibility": 4.25,
     "side-effects": 5.0,
-    "effectiveness-text": "Drei-Monats-Spritze Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-    "sti-protection-text": "Drei-Monats-Spritze STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-    "cost-text": "Drei-Monats-Spritze Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-    "accessibility-text": "Drei-Monats-Spritze Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-    "side-effects-text": "Drei-Monats-Spritze Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+    "effectiveness-text": "Da es keine Eingabefehler gibt, ist die Verhütungssicherheit der Depot-Spritze sehr hoch.",
+    "sti-protection-text": "Die Depot-Spritze bietet keinen Schutz.",
+    "cost-text": "Die Depot-Spritze kostet rund 31 bis 35,- € pro Spritze. Manche Ärzt*innen verlangen für die Verabreichung der Spritze zusätzliche Gebühren, bis zu 15 € pro Injektion.",
+    "accessibility-text": "Die Depot-Spritze darf nur von der Ärztin oder vom Arzt verabreicht werden.",
+    "side-effects-text": "Im Vergleich mit anderen rein gestagenhaltigen Methoden (Minipille) ist die Menge an Hormon bei der Spritze deutlich höher. Es kann zu Gewichtszunahme, Stimmungsveränderungen und Lustlosigkeit kommen. Meistens werden die Monatsblutungen unregelmäßig. Es können Schmierblutungen, selten auch starke Dauerblutungen auftreten, die eine Ausschabung nötig machen. Die Nebenwirkungen dauern so lange an wie die Wirkung der Spritze. Nach dem Absetzen des Mittels kann es Monate (bis Jahre) dauern, bis sich der Zyklus wieder einstellt."
 }
 
 export const FERTILITY_CYCLE =
@@ -218,11 +214,11 @@ export const FERTILITY_CYCLE =
         "cost": 0,
         "accessibility": 0,
         "side-effects": 0,
-        "effectiveness-text": "Kalendermethode Pearl Index: " + ATTRIBUTE_DEFAULT_TEXT,
-        "sti-protection-text": "Kalendermethode STI Schutz: " + ATTRIBUTE_DEFAULT_TEXT,
-        "cost-text": "Kalendermethode Kosten: " + ATTRIBUTE_DEFAULT_TEXT,
-        "accessibility-text": "Kalendermethode Zugänglichkeit: " + ATTRIBUTE_DEFAULT_TEXT,
-        "side-effects-text": "Kalendermethode Nebenwirkungen: " + ATTRIBUTE_DEFAULT_TEXT
+        "effectiveness-text": "Wenn die Anweisungen zur natürlichen Familienplanung sorgfältig befolgt werden, kann diese Methode bis zu 99 % effektiv sein. Das bedeutet, dass 1 bis 9 von 100 Frauen, die die natürliche Familienplanung richtig anwenden, schwanger werden.",
+        "sti-protection-text": "Die Kalendermethode bietet keinen Schutz.",
+        "cost-text": "Einmalig ca 40 € für Literatur, Thermometer 4 €, Digitalthermometer 8 bis 20 €, Beratungskosten regional unterschiedlich, Temperatur-und Hormoncomputer variieren je nach Modell erheblich.",
+        "accessibility-text": "Es kommen immer wieder Hilfsmittel für die Beobachtung und Auswertung auf den Markt.",
+        "side-effects-text": "Wer nicht schwanger werden will, darf in den fruchtbaren Tagen kein Vorejakulat und Samen in die Scheide bringen. Das sind bei 24 bis 32 Tage langen Zyklen meist 10 bis 18 Tage."
     }
 
 export const DIAPHRAGMA =

@@ -308,7 +308,7 @@ body {
 
 .tooltip {
     font-family: "Arial", sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1.7;
     color: black;
 }
@@ -447,7 +447,7 @@ body {
 
 .attribute-modal-content-text {
     font-family: "Arial", sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1.7;
     color: #bfdeed;
     text-shadow: -2px 0 2px black, 0 2px 2px black, 2px 0 2px black, 0 -2px 2px black, -2px -2px 2px black, -2px 2px 2px black, 2px -2px 2px black, 2px 2px 2px black;
