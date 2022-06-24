@@ -140,10 +140,10 @@ export default class GameLogic {
         const chooseModalContentText = document.getElementById('attribute-modal-content-text')
 
         if (this.gameState === GameState.ChooseLowerWaiting) {
-            chooseModalContentText.innerHTML = "Wähle: Stärkere Eigenschaft von der Karte (gegen Unbekannt)!"
+            chooseModalContentText.innerHTML = "Wähle für eingerahmete Eigenschaft die bessere Verhütungsmethode!"
         }
         else if (this.gameState === GameState.ClassicWaiting) {
-            chooseModalContentText.innerHTML = "Wähle: Stärkere Seite für die Eigenschaft!"
+            chooseModalContentText.innerHTML = "Wähle die beste Eigenschaft der Karte (gegen die zufällige Methode)!"
         }
 
         const chooseAttributeButton = document.getElementById('choose-attribute-button')
